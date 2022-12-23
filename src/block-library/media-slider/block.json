@@ -1,0 +1,56 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "wps/media-slider",
+	"title": "Media Slider",
+	"description": "Create a slider using media items.",
+	"category": "wps-blocks",
+	"icon": "cover-image",
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"align": ["full", "wide"]
+	},
+	"keywords": ["Slider", "Image"],
+	"attributes": {
+		"aspectRatio": {
+			"type": "string"
+		},
+		"align": {
+			"type": "string"
+		},
+		"speed": {
+			"type": "number",
+			"default": 500
+		},
+		"delay": {
+			"type": "number",
+			"default": 3000
+		},
+		"animationType": {
+			"type": "string"
+		},
+		"loopSlides": {
+			"type": "boolean"
+		},
+		"autoplay": {
+			"type": "boolean",
+			"default": true
+		},
+		"pagination": {
+			"type": "boolean"
+		},
+		"marginTop": {
+			"type": "string"
+		},
+		"marginBottom": {
+			"type": "string"
+		},
+		"imageSize": {
+			"type": "string"
+		}
+	},
+	"style": "file:../../../build/block-library/media-slider/style.css",
+	"editorStyle": "file:../../../build/block-library/media-slider/editor.css",
+	"editorScript": "file:../../../build/block-library/media-slider/index.js"
+}

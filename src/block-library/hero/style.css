@@ -1,0 +1,45 @@
+@import "components";
+@import "css-viewports";
+
+.wps-hero {
+	& .wps-hero__inner {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+
+		@media (--viewport-lap-and-up) {
+			flex-direction: row;
+		}
+	}
+
+	& .wps-hero__title {
+		font-size: var(--wp--preset--font-size--huge);
+		line-height: 1.2;
+	}
+
+	& .wps-hero__content {
+		flex: 1;
+		margin-bottom: var(--spacing-normal);
+	}
+
+	& .wps-hero__media {
+		flex: 1;
+		padding: var(--spacing-normal);
+
+		@media (--viewport-lap-and-up) {
+			padding: 0;
+			width: 50vw;
+		}
+
+		& img {
+			object-fit: cover;
+			width: 100%;
+		}
+	}
+
+	& .wps-hero__container {
+		margin-left: auto;
+		max-width: calc(var(--site-width) / 2);
+		padding: 0 var(--site-spacing);
+	}
+}

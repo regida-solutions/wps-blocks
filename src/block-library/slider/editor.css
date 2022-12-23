@@ -1,0 +1,17 @@
+.wps-slider {
+	padding: 10px;
+
+	& > .block-editor-inner-blocks > .block-editor-block-list__layout {
+		& > .wps-slider-slide {
+			max-width: none;
+
+			&:not(:last-child) {
+				margin-bottom: 10px;
+			}
+		}
+	}
+
+	& .is-selected {
+		border: 1px solid #f0f0f0;
+	}
+}

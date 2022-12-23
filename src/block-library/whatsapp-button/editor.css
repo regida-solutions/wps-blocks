@@ -1,0 +1,6 @@
+.wps-whatsapp {
+	& .wps-whatsapp__label {
+		margin: 0;
+		padding: 0;
+	}
+}

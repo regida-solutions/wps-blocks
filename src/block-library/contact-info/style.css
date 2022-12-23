@@ -1,0 +1,44 @@
+.wps-contact-info {
+	display: block;
+}
+
+.wps-contact-info__list,
+[data-type="wps/contact-info"] .wps-contact-info__list {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.has-icon .wps-contact-info__list {
+	& .wps-contact-info__list-item {
+		&::before {
+			color: currentColor;
+			display: inline-block;
+			height: 0.9em;
+			margin-right: 0.3em;
+			width: 0.9em;
+		}
+
+		&.number {
+			&::before {
+				content: url(./assets/phone.svg);
+			}
+		}
+
+		&.email {
+			&::before {
+				content: url(./assets/envelope.svg);
+			}
+		}
+
+		&.number.whatsapp {
+			&::before {
+				content: url(./assets/whatsapp.svg);
+			}
+		}
+	}
+}
+
+.site-footer .has-icon .wps-contact-info__list-item::before {
+	filter: invert(1);
+}

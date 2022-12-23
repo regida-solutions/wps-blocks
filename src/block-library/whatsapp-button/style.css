@@ -1,0 +1,49 @@
+@import "css-viewports";
+
+.wps-whatsapp {
+	--whatsapp-background-color: #3fbb4f;
+	--whatsapp-background-color-hover: #32953f;
+	--whatsapp-text-color: #fff;
+
+	&.is-aligned-center {
+		text-align: center;
+	}
+
+	&.is-aligned-right {
+		text-align: right;
+	}
+
+	&:not(.show-on-desktop):not([data-type="wps/whatsapp-button"]) {
+		@media (--viewport-desktop) {
+			display: none;
+		}
+	}
+}
+
+.wps-whatsapp__link {
+	background-color: var(--whatsapp-background-color);
+	border-radius: var(--button-radius);
+	color: var(--whatsapp-text-color);
+	cursor: pointer;
+	display: inline-block;
+	padding: var(--button-padding);
+	transition: all 150ms ease-in-out;
+
+	&:hover {
+		text-decoration: none;
+		--whatsapp-background-color: var(--whatsapp-background-color-hover);
+	}
+}
+
+.wps-whatsapp__inner {
+	align-items: center;
+	display: flex;
+
+	& > *:first-child {
+		margin-right: 12px;
+	}
+
+	& > *:last-child {
+		margin-right: 0;
+	}
+}

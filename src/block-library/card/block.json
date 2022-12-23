@@ -1,0 +1,55 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "wps/card",
+	"title": "Card",
+	"description": "A card block containing an image text and button",
+	"category": "wps-blocks",
+	"icon": "cover-image",
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"align": []
+	},
+	"keywords": ["card", "image", "text", "button"],
+	"attributes": {
+		"anchor": {
+			"type": "string"
+		},
+		"dimRatio": {
+			"type": "number",
+			"default": 100
+		},
+		"align": {
+			"type": "string",
+			"default": "full"
+		},
+		"spacingGeneral": {
+			"type": "string"
+		},
+		"backgroundColor": {
+			"type": "string"
+		},
+		"textColor": {
+			"type": "string"
+		},
+		"focalPoint": {
+			"type": "object"
+		},
+		"media": {
+			"type": "object"
+		},
+		"backgroundBehaviour": {
+			"type": "string"
+		},
+		"marginTop": {
+			"type": "string"
+		},
+		"marginBottom": {
+			"type": "string"
+		}
+	},
+	"style": "file:../../../build/block-library/card/style.css",
+	"editorStyle": "file:../../../build/block-library/card/editor.css",
+	"editorScript": "file:../../../build/block-library/card/index.js"
+}

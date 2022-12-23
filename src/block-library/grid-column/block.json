@@ -1,0 +1,50 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "wps/grid-column",
+	"title": "Grid column",
+	"description": "Create a grid column to hold elements",
+	"category": "wps-blocks",
+	"parent": [ "wps/grid" ],
+	"icon": "columns",
+	"supports": {
+		"anchor": true,
+		"html": false
+	},
+	"keywords": ["Column", "Columns", "Grid"],
+	"attributes": {
+		"align": {
+			"type": "string"
+		},
+		"anchor": {
+			"type": "string"
+		},
+		"width": {
+			"type": "number"
+		},
+		"verticalAlign": {
+			"type": "string"
+		},
+		"dimRatio": {
+			"type": "number"
+		},
+		"backgroundColor": {
+			"type": "string"
+		},
+		"textColor": {
+			"type": "string"
+		},
+		"focalPoint": {
+			"type": "object"
+		},
+		"media": {
+			"type": "object"
+		},
+		"backgroundBehaviour": {
+			"type": "string"
+		}
+	},
+	"style": "file:../../../build/block-library/grid-column/style.css",
+	"editorStyle": "file:../../../build/block-library/grid-column/editor.css",
+	"editorScript": "file:../../../build/block-library/grid-column/index.js"
+}

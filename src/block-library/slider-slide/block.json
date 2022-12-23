@@ -1,0 +1,22 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "wps/slider-slide",
+	"title": "Slider slide",
+	"description": "A slider slide to wrap content",
+	"category": "wps-blocks",
+	"icon": "align-center",
+	"supports": {
+		"html": false
+	},
+	"keywords": ["Slider", "Slide"],
+	"parent": ["wps/slider"],
+	"attributes": {
+		"align": {
+			"type": "string"
+		}
+	},
+	"style": "file:../../../build/block-library/slider-slide/style.css",
+	"editorStyle": "file:../../../build/block-library/slider-slide/editor.css",
+	"editorScript": "file:../../../build/block-library/slider-slide/index.js"
+}

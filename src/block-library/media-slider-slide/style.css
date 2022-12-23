@@ -1,0 +1,15 @@
+.wps-media-slider-slide__content {
+	max-width: none;
+	padding: 0 calc(var(--site-spacing) + 30px);
+}
+
+.wps-media-slider-slide__media {
+	height: 100%;
+}
+
+.wps-media-slider-slide__media .wps-blocks-media {
+	aspect-ratio: var(--aspect-ratio);
+	height: 100%;
+	object-fit: cover;
+	width: 100%;
+}

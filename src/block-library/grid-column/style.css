@@ -1,0 +1,44 @@
+.wps-grid-column {
+	/*overflow: hidden;*/
+	position: relative;
+
+	& .wps-grid-column__inner {
+		box-sizing: border-box;
+		position: relative;
+		z-index: 1;
+
+		& > *:first-child {
+			margin-top: 0;
+		}
+
+		& > *:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	& .wps-section__overlay {
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+
+	/* Alignnment */
+	&[class^="vertical-align"],
+	&[class*=" vertical-align"] {
+		display: flex;
+	}
+
+	&.vertical-align-top {
+		align-items: flex-start;
+	}
+
+	&.vertical-align-center {
+		align-items: center;
+	}
+
+	&.vertical-align-bottom {
+		align-items: flex-end;
+	}
+}

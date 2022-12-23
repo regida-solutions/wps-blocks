@@ -1,0 +1,43 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "wps/accordion",
+	"title": "Accordion",
+	"description": "List content in an accordion.",
+	"category": "wps-blocks",
+	"icon": "editor-aligncenter",
+	"textdomain": "wps-blocks",
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"align": ["full", "wide"]
+	},
+	"keywords": ["accordion", "list"],
+	"attributes": {
+		"anchor": {
+			"type": "string"
+		},
+		"align": {
+			"type": "string"
+		},
+		"showMultiple": {
+			"type": "boolean"
+		},
+		"openFirst": {
+			"type": "boolean"
+		},
+		"htmlTag": {
+			"type": "string"
+		},
+		"marginTop": {
+			"type": "string"
+		},
+		"marginBottom": {
+			"type": "string"
+		}
+	},
+	"style": "file:../../../build/block-library/accordion/style.css",
+	"editorStyle": "file:../../../build/block-library/accordion/editor.css",
+	"editorScript": "file:../../../build/block-library/accordion/index.js",
+	"viewScript": "file:../../../build/block-library/accordion/frontend.js"
+}

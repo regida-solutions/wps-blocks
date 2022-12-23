@@ -1,0 +1,35 @@
+.wps-blocks-image-slider {
+	background: repeating-linear-gradient(-55deg, #f9f9f9, #fff 10px, #f9f9f9 10px, #f9f9f9 20px);
+	border: 5px solid #f0f0f0;
+	padding: 10px;
+}
+
+.editor-post-wps-blocks-image-slider__container {
+	margin-bottom: 20px;
+}
+
+.wps-blocks-image-slider .wps-blocks-gallery {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	justify-content: center;
+	margin: 0 auto;
+	max-width: 850px;
+}
+
+.wps-blocks-gallery-item {
+	flex-basis: calc(20% - 10px);
+}
+
+.wps-blocks-gallery-item__image {
+	aspect-ratio: 4/3;
+	border: 1px solid #ccc;
+	object-fit: cover;
+	padding: 5px;
+}
+
+.wps-blocks-gallery-utility-wrapper .wps-blocks-gallery-utility__button {
+	display: block;
+	margin: 0 auto;
+}

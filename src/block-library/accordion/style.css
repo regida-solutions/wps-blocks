@@ -1,0 +1,52 @@
+.wps-accordion {
+	box-sizing: border-box;
+
+	&.js-enabled .wps-accordion-item-panel {
+		visibility: hidden;
+	}
+
+	& .ac-trigger {
+		background: transparent;
+		border: none;
+		cursor: pointer;
+		display: flex;
+		font-weight: 700;
+		line-height: inherit;
+		outline: none;
+		text-align: left;
+		text-transform: uppercase;
+		width: 100%;
+
+		&::after {
+			content: "+";
+			margin-left: auto;
+		}
+	}
+
+	& .wps-accordion-item.is-active > .wps-accordion-item-title .ac-trigger::after {
+		content: "–";
+	}
+
+	& .wps-accordion-item {
+		border: none;
+
+		& .wps-accordion-item-title {
+			margin: 0;
+			padding: 0;
+		}
+	}
+
+	& .wps-accordion-item .wps-accordion-item-panel {
+
+		overflow: hidden;
+		padding: 0 0.5rem;
+		transition-property: height, visibility;
+		transition-timing-function: ease;
+
+		& > *:last-child {
+			border-bottom: 1px solid #ccc;
+			padding-bottom: 1rem;
+		}
+	}
+
+}

@@ -1,0 +1,9 @@
+[
+	{ "name": "Default", "value": "" },
+	{ "name": "Reset", "value": "none" },
+	{ "name": "Tiny", "value": "tiny" },
+	{ "name": "Small", "value": "small" },
+	{ "name": "Normal", "value": "normal" },
+	{ "name": "Large", "value": "large" },
+	{ "name": "Huge", "value": "huge" }
+]

@@ -1,0 +1,50 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "wps/whatsapp-button",
+	"title": "Whatsapp Button",
+	"description": "A button used for easy get in touch via whatsapp",
+	"category": "wps-blocks",
+	"icon": "whatsapp",
+	"supports": {
+		"anchor": true,
+		"html": false
+	},
+	"keywords": ["Call to action", "Button", "Whatsapp"],
+	"attributes": {
+		"anchor": {
+			"type": "string"
+		},
+		"justification": {
+			"type": "string"
+		},
+		"label": {
+			"type": "string",
+			"default": "Get in touch"
+		},
+		"message": {
+			"type": "string",
+			"default": "Hello"
+		},
+		"iconClass": {
+			"type": "string",
+			"default": "whatsapp"
+		},
+		"customNumber": {
+			"type": "string",
+			"default": ""
+		},
+		"showOnLarge": {
+			"type": "boolean"
+		},
+		"marginTop": {
+			"type": "string"
+		},
+		"marginBottom": {
+			"type": "string"
+		}
+	},
+	"style": "file:../../../build/block-library/whatsapp-button/style.css",
+	"editorStyle": "file:../../../build/block-library/whatsapp-button/editor.css",
+	"editorScript": "file:../../../build/block-library/whatsapp-button/index.js"
+}

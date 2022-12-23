@@ -1,0 +1,38 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "wps/hero",
+	"title": "Hero block",
+	"description": "Display a text image hero block",
+	"category": "wps-blocks",
+	"icon": "cover-image",
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"align": ["full"]
+	},
+	"keywords": ["Hero", "Header", "Top"],
+	"attributes": {
+		"title": {
+			"type": "string"
+		},
+		"subTitle": {
+			"type": "string"
+		},
+		"focalPoint": {
+			"type": "object"
+		},
+		"media": {
+			"type": "object"
+		},
+		"caption": {
+			"type": "string"
+		},
+		"align": {
+			"type": "string",
+			"default": "full"
+		}
+	},
+	"style": "file:../../../build/block-library/hero/style.css",
+	"editorScript": "file:../../../build/block-library/hero/index.js"
+}

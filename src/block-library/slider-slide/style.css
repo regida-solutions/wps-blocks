@@ -1,0 +1,4 @@
+.wps-slider-slide__content {
+	max-width: none;
+	padding: 0 calc(var(--site-spacing) + 30px);
+}

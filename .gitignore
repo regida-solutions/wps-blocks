@@ -1,0 +1,22 @@
+# ignore everything in the root except the "wp-content" directory.
+.idea/
+
+# Javascript
+node_modules/
+dist
+build
+
+# Dotenv
+.env
+.env.*
+!.env.example
+
+# Local
+sql/
+
+# Composer
+vendor/
+
+# Other
+debug.log
+wp-debug.log

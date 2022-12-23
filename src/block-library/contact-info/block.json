@@ -1,0 +1,47 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "wps/contact-info",
+	"title": "Contact info",
+	"description": "Display phone and email",
+	"category": "wps-blocks",
+	"icon": "info-outline",
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"align": [
+			"full"
+		]
+	},
+	"keywords": ["Contact", "Info", "Phone", "Email"],
+	"attributes": {
+		"anchor": {
+			"type": "string"
+		},
+		"showPhoneOne": {
+			"type": "boolean",
+			"default": true
+		},
+		"showPhoneTwo": {
+			"type": "boolean"
+		},
+		"showPhonePlatform": {
+			"type": "boolean"
+		},
+		"showEmailOne": {
+			"type": "boolean",
+			"default": true
+		},
+		"showEmailTwo": {
+			"type": "boolean"
+		},
+		"enableUrl": {
+			"type": "boolean"
+		},
+		"enableIcon": {
+			"type": "boolean"
+		}
+	},
+	"style": "file:../../../build/block-library/contact-info/style.css",
+	"editorScript": "file:../../../build/block-library/contact-info/index.js"
+}

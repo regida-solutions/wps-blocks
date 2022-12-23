@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<ruleset>
+	<file>.</file>
+	<arg name="extensions" value="php" />
+	<config name="testVersion" value="7.4-" />
+
+	<exclude-pattern>build</exclude-pattern>
+
+	<rule ref="Dekode">
+		<exclude name="Generic.Arrays.DisallowShortArraySyntax" />
+		<exclude name="WordPress.PHP.DisallowShortTernary.Found" />
+	</rule>
+</ruleset>

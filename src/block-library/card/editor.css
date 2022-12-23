@@ -1,0 +1,33 @@
+/* Editor section */
+[data-type="wps/card"] {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+
+	& .wps-card__content,
+	& .wps-card__content > .block-editor-inner-blocks,
+	& .wps-card__content > .block-editor-inner-blocks > .block-editor-block-list__layout {
+		height: 100%;
+	}
+
+	& .wps-card__content > .block-editor-inner-blocks > .block-editor-block-list__layout {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+
+		/* Reset top margin because display flex stops margin collapse */
+		& > *:not(:first-child) {
+			margin-top: 0;
+		}
+
+		& .wp-block-button:last-child {
+			margin-top: auto;
+		}
+	}
+
+	& .wps-card__content.has-content-spacing > .block-editor-inner-blocks > .block-editor-block-list__layout {
+		& > *:first-child {
+			margin-top: 0;
+		}
+	}
+}

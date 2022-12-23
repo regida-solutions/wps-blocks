@@ -1,0 +1,27 @@
+/* Front end */
+.wps-card:not([data-type="wps/card"]) {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+
+	& .wps-card__content {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+
+		/* Reset top margin because display flex stops margin collapse */
+		& > *:not(:first-child) {
+			margin-top: 0;
+		}
+
+		&.has-content-spacing {
+			& > *:first-child {
+				margin-top: 0;
+			}
+		}
+
+		& .wp-block-button:last-child {
+			margin-top: auto;
+		}
+	}
+}

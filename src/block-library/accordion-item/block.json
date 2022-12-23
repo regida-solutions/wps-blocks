@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "wps/accordion-item",
+	"title": "Accordion Item",
+	"description": "Accordion item.",
+	"category": "wps-blocks",
+	"icon": "align-left",
+	"parent": [ "wps/accordion" ],
+	"textdomain": "wps-blocks",
+	"supports": {
+		"anchor": false,
+		"html": false,
+		"align": []
+	},
+	"keywords": ["accordion", "list"],
+	"attributes": {
+		"title": {
+			"type": "string"
+		}
+	},
+	"editorStyle": "file:../../../build/block-library/accordion-item/editor.css",
+	"editorScript": "file:../../../build/block-library/accordion-item/index.js"
+}

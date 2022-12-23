@@ -1,0 +1,60 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "wps/slider",
+	"title": "Slider block",
+	"description": "A versatile slider that can run any content built with inner blocks",
+	"category": "wps-blocks",
+	"icon": "slides",
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"align": ["full", "wide"]
+	},
+	"keywords": ["Slider", "Slides"],
+	"attributes": {
+		"anchor": {
+			"type": "string"
+		},
+		"align": {
+			"type": "string"
+		},
+		"textAlign": {
+			"type": "string"
+		},
+		"verticalAlign": {
+			"type": "string"
+		},
+		"speed": {
+			"type": "number",
+			"default": 500
+		},
+		"delay": {
+			"type": "number",
+			"default": 3000
+		},
+		"animationType": {
+			"type": "string"
+		},
+		"loopSlides": {
+			"type": "boolean"
+		},
+		"autoplay": {
+			"type": "boolean",
+			"default": true
+		},
+		"pagination": {
+			"type": "boolean"
+		},
+		"marginTop": {
+			"type": "string"
+		},
+		"marginBottom": {
+			"type": "string"
+		}
+	},
+	"style": "file:../../../build/block-library/slider/style.css",
+	"editorStyle": "file:../../../build/block-library/slider/editor.css",
+	"editorScript": "file:../../../build/block-library/slider/index.js",
+	"viewScript": "file:../../../build/block-library/slider/frontend.js"
+}

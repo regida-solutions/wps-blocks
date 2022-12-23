@@ -1,0 +1,22 @@
+.wp-block-wps-accordion.is-selected {
+	outline: 2px dashed #ccc;
+	padding: 10px;
+
+	& .wp-block-wps-accordion-item {
+		outline: 1px dashed #ccc;
+		padding: 10px;
+
+		&:not(:last-child) {
+			margin-bottom: 10px;
+		}
+	}
+}
+
+.wp-block-wps-accordion-item.is-selected {
+	outline: 1px dashed #ccc;
+	padding: 10px;
+
+	&:not(:last-child) {
+		margin-bottom: 10px;
+	}
+}

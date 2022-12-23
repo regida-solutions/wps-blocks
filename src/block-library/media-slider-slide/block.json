@@ -1,0 +1,32 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "wps/media-slider-slide",
+	"title": "Media Slider slide",
+	"description": "A slider slide to wrap content",
+	"category": "wps-blocks",
+	"icon": "align-center",
+	"supports": {
+		"align": [],
+		"html": false
+	},
+	"keywords": ["Slider", "Slide"],
+	"parent": ["wps/media-slider"],
+	"attributes": {
+		"media": {
+			"type": "object"
+		},
+		"caption": {
+			"type": "string"
+		},
+		"focalPoint": {
+			"type": "object"
+		},
+		"imageSize": {
+			"type": "string"
+		}
+	},
+	"style": "file:../../../build/block-library/media-slider-slide/style.css",
+	"editorStyle": "file:../../../build/block-library/media-slider-slide/editor.css",
+	"editorScript": "file:../../../build/block-library/media-slider-slide/index.js"
+}

@@ -1,0 +1,135 @@
+.wps-grid {
+	& > .block-editor-inner-blocks > .block-editor-block-list__layout {
+		display: flex;
+		flex-wrap: wrap;
+		margin: var(--site-block-spacing) auto;
+		max-width: var(--content-width);
+		--grid-column-gap: 0px;/* stylelint-disable-line length-zero-no-unit */
+
+		& > .wp-block {
+			flex: 1;
+		}
+
+		& > .block-list-appender {
+			flex-basis: 100%;
+		}
+	}
+
+	&[class^="column-gap"],
+	&[class*=" column-gap"] > .block-editor-inner-blocks > .block-editor-block-list__layout {
+		gap: var(--grid-column-gap);
+	}
+
+	/* Column Gap */
+	&.column-gap {
+		&-tiny > .block-editor-inner-blocks > .block-editor-block-list__layout {
+			--grid-column-gap: var(--spacing-tiny);
+		}
+
+		&-small > .block-editor-inner-blocks > .block-editor-block-list__layout {
+			--grid-column-gap: var(--spacing-small);
+		}
+
+		&-normal > .block-editor-inner-blocks > .block-editor-block-list__layout {
+			--grid-column-gap: var(--spacing-normal);
+		}
+
+		&-large > .block-editor-inner-blocks > .block-editor-block-list__layout {
+			--grid-column-gap: var(--spacing-large);
+		}
+
+		&-huge > .block-editor-inner-blocks > .block-editor-block-list__layout {
+			--grid-column-gap: var(--spacing-huge);
+		}
+	}
+
+	/* Column Alignment */
+	&.column-alignwide > .block-editor-inner-blocks > .block-editor-block-list__layout {
+		--site-width: var(--content-width-wide);
+		max-width: min(calc(100vw - var(--site-spacing) * 2), var(--site-width));
+	}
+
+	&.column-alignfull > .block-editor-inner-blocks > .block-editor-block-list__layout {
+		max-width: none;
+		width: 100%;
+	}
+
+	/* Horizontal alignment */
+	&.horizontal-align-left {
+		& > .block-editor-inner-blocks > .block-editor-block-list__layout {
+			justify-content: start;
+		}
+	}
+
+	&.horizontal-align-right {
+		& > .block-editor-inner-blocks > .block-editor-block-list__layout {
+			justify-content: end;
+		}
+	}
+
+	&.horizontal-align-center {
+		& > .block-editor-inner-blocks > .block-editor-block-list__layout {
+			justify-content: center;
+		}
+	}
+
+	/* Vertical alignment */
+	&.vertical-align-top {
+		& > .block-editor-inner-blocks > .block-editor-block-list__layout {
+			align-items: flex-start;
+		}
+	}
+
+	&.vertical-align-center {
+		& > .block-editor-inner-blocks > .block-editor-block-list__layout {
+			align-items: center;
+		}
+	}
+
+	&.vertical-align-bottom {
+		& > .block-editor-inner-blocks > .block-editor-block-list__layout {
+			align-items: flex-end;
+		}
+	}
+
+	&.column-equal-height [data-type="wps/grid-column"] > .wps-grid-column__inner,
+	&.column-equal-height [data-type="wps/grid-column"] > .wps-grid-column__inner > .block-editor-inner-blocks,
+	&.column-equal-height [data-type="wps/grid-column"] > .wps-grid-column__inner > .block-editor-inner-blocks > .block-editor-block-list__layout {
+		height: 100%;
+	}
+
+	&.is-selected {
+		outline: 2px dashed #ccc;
+
+		& .wps-grid-column > .wps-grid-column__inner > .block-editor-inner-blocks > .block-editor-block-list__layout:empty {
+			padding: 20px 10px;
+		}
+	}
+
+	/* Column Padding */
+	&.column-padding {
+		&-tiny > .block-editor-inner-blocks > .block-editor-block-list__layout > .wps-grid-column > .wps-grid-column__inner > .block-editor-inner-blocks > .block-editor-block-list__layout {
+			padding: var(--spacing-tiny) !important;
+		}
+
+		&-small > .block-editor-inner-blocks > .block-editor-block-list__layout > .wps-grid-column > .wps-grid-column__inner > .block-editor-inner-blocks > .block-editor-block-list__layout {
+			padding: var(--spacing-small) !important;
+		}
+
+		&-normal > .block-editor-inner-blocks > .block-editor-block-list__layout > .wps-grid-column > .wps-grid-column__inner > .block-editor-inner-blocks > .block-editor-block-list__layout {
+			padding: var(--spacing-normal) !important;
+		}
+
+		&-large > .block-editor-inner-blocks > .block-editor-block-list__layout > .wps-grid-column > .wps-grid-column__inner > .block-editor-inner-blocks > .block-editor-block-list__layout {
+			padding: var(--spacing-large) !important;
+		}
+
+		&-huge > .block-editor-inner-blocks > .block-editor-block-list__layout > .wps-grid-column > .wps-grid-column__inner > .block-editor-inner-blocks > .block-editor-block-list__layout {
+			padding: var(--spacing-huge) !important;
+		}
+	}
+
+	& .wps-card__content.has-content-spacing > .block-editor-inner-blocks > .block-editor-block-list__layout > *:first-child {
+		margin-top: 0;
+	}
+}

@@ -1,0 +1,81 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "wps/grid",
+	"title": "Grid block",
+	"description": "Create a grid to hold inner grid-column blocks",
+	"category": "wps-blocks",
+	"icon": "grid-view",
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"align": ["full","wide"]
+	},
+	"keywords": ["Grid" ,"Column", "Columns"],
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "wide"
+		},
+		"anchor": {
+			"type": "string"
+		},
+		"paddingVertical": {
+			"type": "string"
+		},
+		"paddingHorizontal": {
+			"type": "string"
+		},
+		"verticalAlign": {
+			"type": "string"
+		},
+		"columnPadding": {
+			"type": "string"
+		},
+		"columnGap": {
+			"type": "string"
+		},
+		"columnAlign": {
+			"type": "string"
+		},
+		"columnEqualHeight": {
+			"type": "boolean"
+		},
+		"horizontalAlign": {
+			"type": "string"
+		},
+		"equalHeight": {
+			"type": "string"
+		},
+		"fullHeight": {
+			"type": "boolean"
+		},
+		"contentCenter": {
+			"type": "boolean"
+		},
+		"dimRatio": {
+			"type": "number"
+		},
+		"backgroundColor": {
+			"type": "string"
+		},
+		"focalPoint": {
+			"type": "object"
+		},
+		"media": {
+			"type": "object"
+		},
+		"backgroundBehaviour": {
+			"type": "string"
+		},
+		"marginTop": {
+			"type": "string"
+		},
+		"marginBottom": {
+			"type": "string"
+		}
+	},
+	"style": "file:../../../build/block-library/grid/style.css",
+	"editorStyle": "file:../../../build/block-library/grid/editor.css",
+	"editorScript": "file:../../../build/block-library/grid/index.js"
+}
