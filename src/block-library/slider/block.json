@@ -55,6 +55,5 @@
 	},
 	"style": "file:../../../build/block-library/slider/style.css",
 	"editorStyle": "file:../../../build/block-library/slider/editor.css",
-	"editorScript": "file:../../../build/block-library/slider/index.js",
-	"viewScript": "file:../../../build/block-library/slider/frontend.js"
+	"editorScript": "file:../../../build/block-library/slider/index.js"
 }
