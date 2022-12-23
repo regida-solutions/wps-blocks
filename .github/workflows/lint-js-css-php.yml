@@ -1,0 +1,114 @@
+name: CI/CD
+
+on:
+    push:
+        branches: [ dev ]
+        paths:
+            - '**.css'
+            - '**.js'
+            - '**.php'
+            - 'composer.lock'
+            - '**.json'
+            - '**.yml'
+    pull_request:
+        branches: [ dev ]
+        paths:
+            - '**.css'
+            - '**.js'
+            - '**.php'
+            - 'composer.lock'
+            - '**.json'
+            - '**.yml'
+
+# Cancels all previous workflow runs for pull requests that have not completed.
+concurrency:
+    # The concurrency group contains the workflow name and the branch name for pull requests
+    # or the commit hash for any other events.
+    group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.head_ref || github.sha }}
+    cancel-in-progress: true
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        strategy:
+            matrix:
+                node: [ 18.x ]
+                php: [ 8.0 ]
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v3
+
+            - name: Cache node modules
+              uses: actions/cache@v3
+              with:
+                  path: |
+                      **/node_modules
+                  key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+
+            - name: Set up Node.js ${{ matrix.node }}
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ matrix.node }}
+
+            - name: Install dependencies Plugin
+              run: npm install
+
+            - name: Build Plugin
+              run: npm run build
+
+            - name: Set up Composer caching
+              uses: actions/cache@v3
+              env:
+                  cache-name: cache-composer-dependencies
+              with:
+                  path: /tmp/composer-cache
+                  key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+                  restore-keys: |
+                      ${{ runner.os }}-composer-
+
+            - name: Set up PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: ${{ matrix.php }}
+                  coverage: none
+                  tools: composer, cs2pr
+
+            - name: Log debug information
+              run: |
+                  php --version
+                  composer --version
+            - name: Install Composer dependencies
+              run: |
+                  composer install --prefer-dist --no-suggest --no-progress --no-ansi --no-interaction
+                  echo "vendor/bin" >> $GITHUB_PATH
+            - name: Log PHPCS debug information
+              run: vendor/bin/phpcs -i
+
+            - name: Run PHPCS on all files
+              run: vendor/bin/phpcs . -q -n --report=checkstyle | cs2pr
+
+            - name: Post to a Slack channel
+              id: slack
+              uses: slackapi/slack-github-action@v1.23.0
+              with:
+                  # Slack channel id, channel name, or user id to post message.
+                  # See also: https://api.slack.com/methods/chat.postMessage#channels
+                  # You can pass in multiple channels to post to by providing a comma-delimited list of channel IDs.
+                  channel-id: secrets.SLACK_CHANNEL_ID
+                  # For posting a simple plain text message
+                  payload: |
+                      {
+                        "blocks": [
+                          {
+                            "type": "section",
+                            "text": {
+                              "type": "mrkdwn",
+                              "text": "🚀\n Repo: ${{github.repository}} \n Branch: ${{github.ref_name}}\n Status: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }} "
+                            }
+                          }
+                        ]
+                      }
+              env:
+                  SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}

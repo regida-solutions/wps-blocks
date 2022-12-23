@@ -1,59 +1,72 @@
 {
-  "name": "wps-blocks",
-  "version": "1.0.0",
-  "description": "A collection of Gutenberg Blocks for websites build with WordPress",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/regida-solutions/tradies-blocks.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/https://github.com/regida-solutions/wps-blocks/issues"
-  },
-  "homepage": "https://github.com/https://github.com/regida-solutions/wps-blocks#readme",
-  "engines": {
-    "node": "18",
-    "npm": ">=8",
-    "yarn": "Please use npm"
-  },
-  "devDependencies": {
-    "@dekode/stylelint-config": "1.0.2",
-    "@wordpress/eslint-plugin": "13.0.0",
-    "@wordpress/scripts": "^23.1.0",
-    "browser-sync": "^2.27.10",
-    "browser-sync-webpack-plugin": "^2.3.0",
-    "classnames": "^2.3.1",
-    "components": "file:packages/components",
-    "css-viewports": "file:packages/components/css-viewports",
-    "cssnano": "5.1.8",
-    "dotenv": "16.0.1",
-    "eslint-plugin-prettier": "4.0.0",
-    "fast-glob": "3.2.11",
-    "postcss": "8.4.14",
-    "postcss-custom-media": "8.0.0",
-    "postcss-flexbugs-fixes": "5.0.2",
-    "postcss-import": "14.1.0",
-    "postcss-media-minmax": "5.0.0",
-    "postcss-mixins": "9.0.2",
-    "postcss-nested": "5.0.6",
-    "prettier": "2.6.2",
-    "resolve-url-loader": "5.0.0",
-    "webpack-remove-empty-scripts": "0.8.0"
-  },
-  "scripts": {
-    "build": "wp-scripts build",
-    "check-engines": "wp-scripts check-engines",
-    "check-licenses": "wp-scripts check-licenses",
-    "start": "wp-scripts start",
-    "format": "prettier --write .",
-    "lint": "npm run lint:js && npm run lint:css",
-    "lint:css": "wp-scripts lint-style",
-    "lint:js": "wp-scripts lint-js"
-  },
-  "dependencies": {
-    "@wordpress/icons": "^6.1.0",
-    "accordion-js": "^3.3.2",
-    "swiper": "^8.4.5"
-  }
+	"name": "wps-blocks",
+	"version": "1.0.0",
+	"description": "A collection of Gutenberg Blocks for websites build with WordPress",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/regida-solutions/tradies-blocks.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/https://github.com/regida-solutions/wps-blocks/issues"
+	},
+	"homepage": "https://github.com/https://github.com/regida-solutions/wps-blocks#readme",
+	"engines": {
+		"node": "18",
+		"npm": ">=8",
+		"yarn": "Please use npm"
+	},
+	"devDependencies": {
+		"@dekode/stylelint-config": "1.0.2",
+		"@wordpress/eslint-plugin": "13.0.0",
+		"@wordpress/scripts": "^23.1.0",
+		"browser-sync": "^2.27.10",
+		"browser-sync-webpack-plugin": "^2.3.0",
+		"classnames": "^2.3.1",
+		"components": "file:packages/components",
+		"css-viewports": "file:packages/components/css-viewports",
+		"cssnano": "5.1.8",
+		"dotenv": "16.0.1",
+		"eslint-plugin-prettier": "4.0.0",
+		"fast-glob": "3.2.11",
+		"lint-staged": "13.1.0",
+		"postcss": "8.4.14",
+		"postcss-custom-media": "8.0.0",
+		"postcss-flexbugs-fixes": "5.0.2",
+		"postcss-import": "14.1.0",
+		"postcss-media-minmax": "5.0.0",
+		"postcss-mixins": "9.0.2",
+		"postcss-nested": "5.0.6",
+		"prettier": "2.6.2",
+		"resolve-url-loader": "5.0.0",
+		"webpack-remove-empty-scripts": "0.8.0",
+		"husky": "^8.0.0"
+	},
+	"scripts": {
+		"build": "wp-scripts build",
+		"check-engines": "wp-scripts check-engines",
+		"check-licenses": "wp-scripts check-licenses",
+		"start": "wp-scripts start",
+		"format": "prettier --write .",
+		"lint": "npm run lint:js && npm run lint:css",
+		"lint:css": "wp-scripts lint-style",
+		"lint:js": "wp-scripts lint-js",
+		"prepare": "husky install",
+		"lint-staged": "lint-staged"
+	},
+	"lint-staged": {
+		"*.css": [
+			"wp-scripts lint-style"
+		],
+		"*.{js,ts,tsx}": [
+			"prettier --write",
+			"wp-scripts lint-js"
+		]
+	},
+	"dependencies": {
+		"@wordpress/icons": "^6.1.0",
+		"accordion-js": "^3.3.2",
+		"swiper": "^8.4.5"
+	}
 }
