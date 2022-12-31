@@ -49,7 +49,7 @@ define( 'WPS_BLOCKS_LIST', [
 	'image-slider',
 	'accordion',
 	'accordion-item',
-	'media-banner'
+	'media-banner',
 ]);
 
 /* Load helpers */
