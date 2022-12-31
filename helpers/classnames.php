@@ -2,7 +2,7 @@
 /**
  * Generate classnames
  *
- * @package WpsBlocks
+ * @package WPS_Blocks
  **/
 
 declare( strict_types=1 );

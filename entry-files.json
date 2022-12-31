@@ -42,5 +42,7 @@
 	"block-library/accordion/style.css",
 	"block-library/accordion/index.js",
 	"block-library/accordion/frontend.js",
-	"block-library/accordion-item/index.js"
+	"block-library/accordion-item/index.js",
+	"block-library/media-banner/index.js",
+	"block-library/media-banner/style.css"
 ]

@@ -39,6 +39,7 @@ body {
 	}
 }
 
+.has-padding-vertical,
 .u-padding-vertical {
 	&-tiny {
 		padding-bottom: var(--wp--preset--spacing--tiny, 6px);
@@ -66,6 +67,7 @@ body {
 	}
 }
 
+.has-padding-horizontal,
 .u-padding-horizontal {
 	&-tiny {
 		padding-left: var(--wp--preset--spacing--tiny, 6px);

@@ -1,0 +1,60 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "wps/media-banner",
+	"title": "Media Banner",
+	"description": "A block with full width background image and half content with faded background color",
+	"category": "wps-blocks",
+	"icon": "cover-image",
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"align": ["full", "wide"]
+	},
+	"keywords": ["media" ,"banner", "image"],
+	"attributes": {
+		"align": {
+			"type": "string"
+		},
+		"anchor": {
+			"type": "string"
+		},
+		"media": {
+			"type": "object"
+		},
+		"focalPoint": {
+			"type": "object"
+		},
+		"dimRatio": {
+			"type": "number"
+		},
+		"backgroundBehaviour": {
+			"type": "string"
+		},
+		"contentWidth": {
+			"type": "number",
+			"default": 50
+		},
+		"limitContentWidth": {
+			"type": "boolean"
+		},
+		"colorValue": {
+			"type": "string"
+		},
+		"gradientValue": {
+			"type": "string"
+		},
+		"swapLayout": {
+			"type": "boolean"
+		},
+		"paddingVertical": {
+			"type": "string"
+		},
+		"paddingHorizontal": {
+			"type": "string"
+		}
+	},
+	"style": "file:../../../build/block-library/media-banner/style.css",
+	"editorStyle": "file:../../../build/block-library/media-banner/editor.css",
+	"editorScript": "file:../../../build/block-library/media-banner/index.js"
+}

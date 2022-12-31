@@ -1,0 +1,81 @@
+@import "css-viewports";
+
+.media-banner {
+	--media-banner-content-width: 100%;
+
+	@media (--viewport-wide) {
+		--media-banner-content-width: 50%;
+	}
+	display: flex;
+	overflow: hidden;
+	position: relative;
+}
+
+.media-banner__background {
+	--banner-background-position: center;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+
+	& img {
+		height: 100%;
+		object-fit: cover;
+		object-position: var(--banner-background-position);
+		width: 100%;
+	}
+}
+
+.media-banner__overlay {
+	--banner-overlay-offset: 0;
+	--banner-overlay-offset-width: 100%;
+	height: 100%;
+	left: var(--banner-overlay-offset);
+	position: absolute;
+	top: 0;
+	width: var(--banner-overlay-offset-width);
+
+	@media (--viewport-wide) {
+		--banner-overlay-offset-width: var(--media-banner-content-width);
+		--banner-overlay-offset: calc(100% - var(--media-banner-content-width));
+	}
+}
+
+.media-banner__content {
+	--media-banner-content-max-width: 100%;
+	box-sizing: border-box;
+	max-width: var(--media-banner-content-max-width);
+	position: relative;
+	width: var(--media-banner-content-max-width);
+
+	@media (--viewport-wide) {
+		--media-banner-content-max-width: var(--media-banner-content-width);
+		margin-left: auto;
+	}
+}
+
+.media-banner--limit-width .media-banner__content {
+	@media (--viewport-wide) {
+		margin-left: 50%;
+		--media-banner-content-max-width: calc(var(--wp--style--global--wide-size, 1550px) / 2);
+	}
+}
+
+.media-banner--swap-layout {
+	& .media-banner__content {
+		margin-left: auto;
+	}
+
+	&.media-banner--limit-width .media-banner__content {
+		@media (--viewport-wide) {
+			margin-left: auto;
+			margin-right: 50%;
+		}
+	}
+
+	& .media-banner__overlay {
+		margin-left: auto;
+		right: var(--banner-overlay-offset);
+	}
+}

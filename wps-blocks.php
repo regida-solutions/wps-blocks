@@ -6,16 +6,16 @@
  * Author:          WPShapers
  * Author URI:      https://wpshapers.com
  * Text Domain:     wps-blocks
- * Version:         1.5.0
+ * Version:         1.6.1
  *
- * @package WpsBlocks
+ * @package WPS_Blocks
  */
 
 declare( strict_types=1 );
 
 namespace WPS\Blocks;
 
-define( 'WPS_BLOCKS_VERSION', '1.5.0' );
+define( 'WPS_BLOCKS_VERSION', '1.6.1' );
 define( 'WPS_BLOCKS_DIR_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WPS_BLOCKS_DIR_URL', esc_url( plugin_dir_url( __FILE__ ) ) );
 define( 'WPS_BLOCKS_UPDATE_URL', 'https://zsoltrevay.com/packages' );
@@ -49,16 +49,17 @@ define( 'WPS_BLOCKS_LIST', [
 	'image-slider',
 	'accordion',
 	'accordion-item',
+	'media-banner'
 ]);
-
-/* Load image shortcode */
-require_once WPS_BLOCKS_DIR_PATH . '/shortcodes/image.php';
 
 /* Load helpers */
 require_once WPS_BLOCKS_DIR_PATH . '/helpers/helpers.php';
 
 /* Load Patterns */
 require_once WPS_BLOCKS_DIR_PATH . '/patterns/patterns.php';
+
+/* Load image shortcode */
+require_once WPS_BLOCKS_DIR_PATH . '/shortcodes/image.php';
 
 /**
  * Load all templates
