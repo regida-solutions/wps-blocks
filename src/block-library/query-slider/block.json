@@ -1,0 +1,83 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "wps/query-slider",
+	"title": "Query Slider",
+	"description": "Create a slider using existing posts as slider items.",
+	"category": "wps-blocks",
+	"icon": "cover-image",
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"align": ["full", "wide"]
+	},
+	"keywords": ["Slider", "Image", "Posts", "Query"],
+	"attributes": {
+		"speed": {
+			"type": "number",
+			"default": 500
+		},
+		"queryId": {
+			"type": "number"
+		},
+		"query": {
+			"type": "object",
+			"default": {
+				"perPage": 6,
+				"pages": 0,
+				"offset": 0,
+				"postType": "post",
+				"order": "desc",
+				"orderBy": "date",
+				"author": "",
+				"search": "",
+				"exclude": [],
+				"sticky": "",
+				"inherit": true,
+				"taxQuery": null,
+				"parents": []
+			}
+		},
+		"delay": {
+			"type": "number",
+			"default": 3000
+		},
+		"animationType": {
+			"type": "string"
+		},
+		"loopSlides": {
+			"type": "boolean"
+		},
+		"autoplay": {
+			"type": "boolean",
+			"default": true
+		},
+		"pagination": {
+			"type": "boolean"
+		},
+		"marginTop": {
+			"type": "string"
+		},
+		"marginBottom": {
+			"type": "string"
+		},
+		"slidesPerView": {
+			"type": "number",
+			"default": 3
+		},
+		"hideNavigation": {
+			"type": "boolean"
+		},
+		"enableLink": {
+			"type": "boolean"
+		},
+		"providesContext": {
+			"queryId": "queryId",
+			"query": "query",
+			"displayLayout": "displayLayout"
+		}
+	},
+	"style": "file:../../../build/block-library/query-slider/style.css",
+	"editorStyle": "file:../../../build/block-library/query-slider/editor.css",
+	"editorScript": "file:../../../build/block-library/query-slider/index.js"
+}

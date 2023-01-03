@@ -22,8 +22,8 @@ function template( array $attributes, string $blocks ): string {
 
 	$classes = get_names( [
 		'media-banner',
-		isset( $attributes['limitContentWidth'] ) ? 'media-banner--limit-width' : '',
-		isset( $attributes['swapLayout'] ) && ! empty( $attributes['swapLayout'] ) ? 'media-banner--swap-layout' : '',
+		! empty( $attributes['limitContentWidth'] ) ? 'media-banner--limit-width' : '',
+		! empty( $attributes['swapLayout'] ) ? 'media-banner--swap-layout' : '',
 	] );
 
 	$content_class = get_names( [
@@ -46,7 +46,6 @@ function template( array $attributes, string $blocks ): string {
 	}
 
 	$wrapper_attributes = get_block_wrapper_attributes( $wrapper_attrs );
-	get_block_wrapper_attributes( $wrapper_attrs );
 
 	/* Background image */
 	$background_image = '';

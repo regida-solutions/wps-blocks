@@ -64,14 +64,8 @@
 
 .media-banner--swap-layout {
 	& .media-banner__content {
-		margin-left: auto;
-	}
-
-	&.media-banner--limit-width .media-banner__content {
-		@media (--viewport-wide) {
-			margin-left: auto;
-			margin-right: 50%;
-		}
+		margin-left: 0;
+		margin-right: auto;
 	}
 
 	& .media-banner__overlay {

@@ -50,6 +50,7 @@ define( 'WPS_BLOCKS_LIST', [
 	'accordion',
 	'accordion-item',
 	'media-banner',
+	'query-slider',
 ]);
 
 /* Load helpers */
@@ -121,7 +122,7 @@ function front_end_assets() {
 		wp_enqueue_script( 'wps-blocks-frontend', WPS_BLOCKS_DIR_URL . 'build/frontend.js', [ 'wps-slider-core' ], WPS_BLOCKS_VERSION, true );
 	}
 
-	if ( has_block( 'wps/slider' ) || has_block( 'wps/media-slider' ) || has_block( 'wps/image-slider' ) ) {
+	if ( has_block( 'wps/slider' ) || has_block( 'wps/media-slider' ) || has_block( 'wps/image-slider' ) || has_block( 'wps/query-slider' ) ) {
 		wp_enqueue_style( 'wps-slider-core' );
 		wp_enqueue_script( 'wps-blocks-frontend' );
 	}

@@ -42,35 +42,52 @@ document.addEventListener('DOMContentLoaded', function () {
 		};
 	};
 	if (typeof Swiper !== 'undefined') {
-		const sliders = [
-			...document.getElementsByClassName('wps-slider'),
-			...document.getElementsByClassName('wps-image-slider'),
-			...document.getElementsByClassName('wps-media-slider'),
-		];
+		const sliders = [...document.getElementsByClassName('swiper')];
 		if (sliders.length > 0) {
 			sliders.forEach((slider) => {
 				const {
 					speed = '500',
 					delay = '3000',
 					loop = '',
-					autoplay = '1',
+					autoplay = '0',
 					animationType = '',
 					pagination = '',
+					slidesPerView = '1',
+					hideNavArrows = '0',
 				} = slider.dataset;
 
 				const autoPlaySettings =
-					autoplay === '1' ? { delay: parseInt(delay) } : false;
+					'1' === autoplay ? { delay: parseInt(delay) } : false;
+
+				const nav = {
+					nextEl: '.wps-slider-button-next',
+					prevEl: '.wps-slider-button-prev',
+				};
+
+				if ('1' === hideNavArrows) {
+					nav.enabled = false;
+				}
 
 				// Setup slide config
 				let sliderConfig = {
 					speed: parseInt(speed),
 					loop: loop === '1',
 					autoplay: autoPlaySettings,
-					navigation: {
-						nextEl: '.wps-slider-button-next',
-						prevEl: '.wps-slider-button-prev',
-					},
+					navigation: nav,
 				};
+
+				if (slidesPerView > 1) {
+					sliderConfig.slidesPerView = 1;
+					sliderConfig.spaceBetween = 24;
+					sliderConfig.breakpoints = {
+						560: {
+							slidesPerView: 2,
+						},
+						1024: {
+							slidesPerView: parseInt(slidesPerView),
+						},
+					};
+				}
 
 				// Add animation
 				const effectList = effects();

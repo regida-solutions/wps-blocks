@@ -12,7 +12,7 @@ namespace WPS\Blocks\Helpers\Image;
 use function WPS\Blocks\Helpers\ClassNames\get_names as get_names;
 
 /**
- * Shortcode for outputting SSR images using gutenberg blocks
+ * Image generation helper
  *
  * @param  array $attributes Image id, size, classes and style.
  * @return string the image element.
