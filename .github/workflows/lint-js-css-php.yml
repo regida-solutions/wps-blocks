@@ -115,8 +115,17 @@ jobs:
             - name: Zip deploy package
               run: zip -r wps-blocks.zip .
 
-            - name: Deploy
-              run: sshpass -p ${{ secrets.SSH_REMOTE_PASS }} rsync -av --delete ~/wps-blocks.zip ${{ secrets.SSH_REMOTE_USER }}@${{ secrets.SSH_REMOTE_ADDRESS }}:${{ secrets.SSH_REMOTE_PATH }}
+            - name: Deploy Build
+              uses: burnett01/rsync-deployments@5.2.1
+              with:
+                  switches: -av --delete
+                  path: wp-blocks/
+                  remote_path: ${{ secrets.SSH_REMOTE_PATH }}
+                  remote_host: ${{ secrets.SSH_REMOTE_ADDRESS }}
+                  remote_port: ${{ secrets.SSH_REMOTE_PORT }}
+                  remote_user: ${{ secrets.SSH_REMOTE_USER }}
+                  remote_key_pass: ${{ secrets.SSH_REMOTE_PASS }}
+                  remote_key: ${{ secrets.SSH_REMOTE_DEPLOY_KEY }}
 
             - name: Post to a Slack success
               if: ${{ success() }}
