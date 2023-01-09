@@ -79,15 +79,36 @@ jobs:
               run: |
                   php --version
                   composer --version
+
             - name: Install Composer dependencies
               run: |
                   composer install --prefer-dist --no-suggest --no-progress --no-ansi --no-interaction
                   echo "vendor/bin" >> $GITHUB_PATH
+
             - name: Log PHPCS debug information
               run: vendor/bin/phpcs -i
 
             - name: Run PHPCS on all files
               run: vendor/bin/phpcs . -q -n --report=checkstyle | cs2pr
+
+            - name: Cleanup package
+              run: |
+                  rm -rf node_modules && echo node_modules "deleted"
+                  rm -rf .editorconfig && echo .editorconfig "deleted"
+                  rm -rf .eslintignore && echo .eslintignore "deleted"
+                  rm -rf .eslintrc.js && echo .eslintrc.js "deleted"
+                  rm -rf .gitignore && echo .gitignore "deleted"
+                  rm -rf .prettierignore && echo .prettierignore "deleted"
+                  rm -rf .prettierrc.js && echo .prettierrc.js "deleted"
+                  rm -rf .stylelintignore && echo .stylelintignore "deleted"
+                  rm -rf .stylelintrc.js && echo .stylelintrc.js "deleted"
+                  rm -rf composer.lock && echo composer.lock "deleted"
+                  rm -rf phpcs.xml.dist && echo phpcs.xml.dist "deleted"
+                  rm -rf postcss.config.js && echo postcss.config.js "deleted"
+                  rm -rf webpack.config.js && echo webpack.config.js "deleted"
+                  rm -rf .git && echo .git "deleted"
+                  rm -rf .github && echo .github "deleted"
+                  rm -rf .husky && echo .husky "deleted"
 
             - name: Zip deploy package
               run: zip -r wps-blocks.zip .
@@ -96,7 +117,7 @@ jobs:
               uses: burnett01/rsync-deployments@5.2.1
               with:
                   switches: -av --delete
-                  path: wp-blocks.zip/
+                  path: wp-blocks/
                   remote_path: ${{ secrets.SSH_REMOTE_PATH }}
                   remote_host: ${{ secrets.SSH_REMOTE_ADDRESS }}
                   remote_port: ${{ secrets.SSH_REMOTE_PORT }}
