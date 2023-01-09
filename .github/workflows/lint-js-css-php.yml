@@ -94,6 +94,8 @@ jobs:
             - name: Cleanup package
               run: |
                   rm -rf node_modules && echo node_modules "deleted"
+                  rm -rf vendor && echo vendor "deleted"
+                  rm -rf packages && echo packages "deleted"
                   rm -rf .editorconfig && echo .editorconfig "deleted"
                   rm -rf .eslintignore && echo .eslintignore "deleted"
                   rm -rf .eslintrc.js && echo .eslintrc.js "deleted"
