@@ -89,14 +89,54 @@ jobs:
             - name: Run PHPCS on all files
               run: vendor/bin/phpcs . -q -n --report=checkstyle | cs2pr
 
-            - name: Post to a Slack channel
-              id: slack
+            - name: Zip deploy package
+              run: zip -r wps-blocks.zip .
+
+            - name: Deploy Build
+              uses: burnett01/rsync-deployments@5.2.1
+              with:
+                  switches: -av --delete
+                  path: wp-blocks.zip/
+                  remote_path: ${{ SSH_REMOTE_PATH }}
+                  remote_host: ${{ secrets.SSH_REMOTE_ADDRESS }}
+                  remote_port: ${{ secrets.SSH_REMOTE_PORT }}
+                  remote_user: ${{ secrets.SSH_REMOTE_USER }}
+                  remote_key_pass: ${{ secrets.SSH_REMOTE_PASS }}
+
+            - name: Post to a Slack success
+              if: ${{ success() }}
+              id: slack-success
+              uses: slackapi/slack-github-action@v1.23.0
+              with:
+                    # Slack channel id, channel name, or user id to post message.
+                    # See also: https://api.slack.com/methods/chat.postMessage#channels
+                    # You can pass in multiple channels to post to by providing a comma-delimited list of channel IDs.
+                    channel-id: 'C049K7R0C4F'
+                    # For posting a simple plain text message
+                    payload: |
+                        {
+                          "blocks": [
+                            {
+                              "type": "section",
+                              "text": {
+                                "type": "mrkdwn",
+                                "text": "🚀\n Repo: ${{github.repository}} \n Branch: ${{github.ref_name}}\n Status: ${{ job.status }} ✔️ \n${{ github.event.pull_request.html_url || github.event.head_commit.url }} "
+                              }
+                            }
+                          ]
+                        }
+              env:
+                 SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+
+            - name: Post to a Slack success
+              if: ${{ failure() }}
+              id: slack-failure
               uses: slackapi/slack-github-action@v1.23.0
               with:
                   # Slack channel id, channel name, or user id to post message.
                   # See also: https://api.slack.com/methods/chat.postMessage#channels
                   # You can pass in multiple channels to post to by providing a comma-delimited list of channel IDs.
-                  channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
+                  channel-id: 'C049K7R0C4F'
                   # For posting a simple plain text message
                   payload: |
                       {
@@ -105,7 +145,7 @@ jobs:
                             "type": "section",
                             "text": {
                               "type": "mrkdwn",
-                              "text": "🚀\n Repo: ${{github.repository}} \n Branch: ${{github.ref_name}}\n Status: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }} "
+                              "text": "❗\n Repo: ${{github.repository}} \n Branch: ${{github.ref_name}}\n Status: ${{ job.status }} 🙈 \n${{ github.event.pull_request.html_url || github.event.head_commit.url }} "
                             }
                           }
                         ]

@@ -82,7 +82,7 @@ function template( array $attributes ): string {
 
 	$wrapper_attrs['class'] = get_names( $classes );
 	$slider_query           = generate_query( $attributes );
-	$slides                 = apply_filters( 'query_slider_template', '', $slider_query, $attributes );
+	$slides                 = apply_filters( 'query_slider_template', $slider_query, $attributes, '' );
 
 	return sprintf(
 		'<div %s>' .

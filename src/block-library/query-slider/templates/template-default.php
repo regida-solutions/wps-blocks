@@ -14,11 +14,11 @@ use function WPS\Blocks\Helpers\Image\render_image as render_image;
 /**
  * Item template
  *
- * @param string    $content Block content.
  * @param \WP_QUERY $slider_query Current Query.
  * @param array     $attributes Block attributes.
+ * @param string    $content Block content.
  */
-function item_template( string $content = '', \WP_QUERY $slider_query, array $attributes = [] ): string {
+function item_template( \WP_QUERY $slider_query, array $attributes = [], string $content = '' ): string {
 
 	// Create a WordPress loop using $slider query.
 	while ( $slider_query->have_posts() ) {
