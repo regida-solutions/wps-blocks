@@ -116,7 +116,7 @@ jobs:
               run: zip -r wps-blocks.zip .
 
             - name: Deploy
-              run: sshpass -p ${{ secrets.SSH_REMOTE_PASS }} rsync -av --delete ~/wps-blocks.zip ${{ secrets.SSH_REMOTE_USER }}@${{ secrets.SSH_REMOTE_HOST }}:${{ secrets.SSH_REMOTE_PATH }}
+              run: sshpass -p ${{ secrets.SSH_REMOTE_PASS }} rsync -av --delete ~/wps-blocks.zip ${{ secrets.SSH_REMOTE_USER }}@${{ secrets.SSH_REMOTE_ADDRESS }}:${{ secrets.SSH_REMOTE_PATH }}
 
             - name: Post to a Slack success
               if: ${{ success() }}
