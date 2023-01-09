@@ -97,7 +97,7 @@ jobs:
               with:
                   switches: -av --delete
                   path: wp-blocks.zip/
-                  remote_path: ${{ SSH_REMOTE_PATH }}
+                  remote_path: ${{ secrets.SSH_REMOTE_PATH }}
                   remote_host: ${{ secrets.SSH_REMOTE_ADDRESS }}
                   remote_port: ${{ secrets.SSH_REMOTE_PORT }}
                   remote_user: ${{ secrets.SSH_REMOTE_USER }}
