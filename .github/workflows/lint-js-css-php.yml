@@ -102,6 +102,7 @@ jobs:
                   remote_port: ${{ secrets.SSH_REMOTE_PORT }}
                   remote_user: ${{ secrets.SSH_REMOTE_USER }}
                   remote_key_pass: ${{ secrets.SSH_REMOTE_PASS }}
+                  remote_key: ${{ secrets.SSH_REMOTE_DEPLOY_KEY }}
 
             - name: Post to a Slack success
               if: ${{ success() }}
