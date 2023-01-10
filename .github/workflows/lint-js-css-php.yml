@@ -105,6 +105,7 @@ jobs:
                   rm -rf .stylelintignore && echo .stylelintignore "deleted"
                   rm -rf .stylelintrc.js && echo .stylelintrc.js "deleted"
                   rm -rf composer.lock && echo composer.lock "deleted"
+                  rm -rf packages-lock.json && echo packages-lock.json "deleted"
                   rm -rf phpcs.xml.dist && echo phpcs.xml.dist "deleted"
                   rm -rf postcss.config.js && echo postcss.config.js "deleted"
                   rm -rf webpack.config.js && echo webpack.config.js "deleted"
@@ -129,7 +130,7 @@ jobs:
                    echo "::endgroup::"
 
                   echo "::group::Rsync files"
-                  sshpass -p ${{ secrets.SSH_REMOTE_PASS }} rsync -av --delete "ssh -p ${{ secrets.SSH_REMOTE_PORT }}" wps-blocks.zip ${{ secrets.SSH_REMOTE_USER }}@${{ secrets.SSH_REMOTE_ADDRESS }}:${{ secrets.SSH_REMOTE_PATH }}
+                  sshpass -p ${{ secrets.SSH_REMOTE_PASS }} rsync -a --delete "ssh -p ${{ secrets.SSH_REMOTE_PORT }}" ./wps-blocks.zip ${{ secrets.SSH_REMOTE_USER }}@${{ secrets.SSH_REMOTE_ADDRESS }}:${{ secrets.SSH_REMOTE_PATH }}
                   echo "::endgroup::"
 
             #- name: Deploy Build
