@@ -113,8 +113,11 @@ jobs:
                   rm -rf .github && echo .github "deleted"
                   rm -rf .husky && echo .husky "deleted"
 
-            - name: Zip deploy package
-              run: zip -r wps-blocks.zip wps-blocks
+            - name: Prepare Package deploy package
+              run: |
+                    mkdir -p wps-blocks
+                    cp -r * wps-blocks
+                    zip -r wps-blocks.zip wps-blocks
 
             - name: Push to server
               working-directory: ./
