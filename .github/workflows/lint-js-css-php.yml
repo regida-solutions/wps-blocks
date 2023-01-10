@@ -115,7 +115,8 @@ jobs:
 
             - name: Prepare Package deploy package
               run: |
-                   cp -r * wps-blocks
+                   mkdir wps-blocks
+                   rsync -a --exclude 'wps-blocks' . wps-blocks/
                    zip -r wps-blocks.zip wps-blocks
 
             - name: Push to server
