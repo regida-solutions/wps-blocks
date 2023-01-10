@@ -166,7 +166,7 @@ jobs:
               env:
                  SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
 
-            - name: Post to a Slack success
+            - name: Post to a Slack failure
               if: ${{ failure() }}
               id: slack-failure
               uses: slackapi/slack-github-action@v1.23.0
