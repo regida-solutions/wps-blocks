@@ -105,7 +105,7 @@ jobs:
                   rm -rf .stylelintignore && echo .stylelintignore "deleted"
                   rm -rf .stylelintrc.js && echo .stylelintrc.js "deleted"
                   rm -rf composer.lock && echo composer.lock "deleted"
-                  rm -rf packages.json && echo packages.json "deleted"
+                  rm -rf package.json && echo package.json "deleted"
                   rm -rf package-lock.json && echo package-lock.json "deleted"
                   rm -rf phpcs.xml.dist && echo phpcs.xml.dist "deleted"
                   rm -rf postcss.config.js && echo postcss.config.js "deleted"
