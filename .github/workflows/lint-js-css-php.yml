@@ -133,6 +133,10 @@ jobs:
                   sshpass -p ${{ secrets.SSH_REMOTE_PASS }} rsync -avz --delete -e "ssh -p ${{ secrets.SSH_REMOTE_PORT }}" wps-blocks.zip ${{ secrets.SSH_REMOTE_USER }}@${{ secrets.SSH_REMOTE_ADDRESS }}:${{ secrets.SSH_REMOTE_PATH }}/
                   echo "::endgroup::"
 
+            - name: Generate meta file
+              #Initialize meta json write
+              curl -Is ${{ secrets.SSH_REMOTE_DOMAIN }}/packages/get-info.php?action=cron | head -1
+
             - name: Post to a Slack success
               if: ${{ success() }}
               id: slack-success
