@@ -115,17 +115,34 @@ jobs:
             - name: Zip deploy package
               run: zip -r wps-blocks.zip .
 
-            - name: Deploy Build
-              uses: burnett01/rsync-deployments@5.2.1
-              with:
-                  switches: -av --delete
-                  path: wp-blocks/
-                  remote_path: ${{ secrets.SSH_REMOTE_PATH }}
-                  remote_host: ${{ secrets.SSH_REMOTE_ADDRESS }}
-                  remote_port: ${{ secrets.SSH_REMOTE_PORT }}
-                  remote_user: ${{ secrets.SSH_REMOTE_USER }}
-                  remote_key_pass: ${{ secrets.SSH_REMOTE_PASS }}
-                  remote_key: ${{ secrets.SSH_REMOTE_DEPLOY_KEY }}
+            - name: Push to server
+              working-directory: ./
+              run: |
+                  echo "::group::Setup Auth Keys"
+                  mkdir ~/.ssh
+                  echo "${{ secrets.SSH_REMOTE_DEPLOY_KEY }}" >> ~/.ssh/id_rsa
+                  chmod 600 ~/.ssh/id_rsa
+                  echo "::endgroup::"
+
+                   echo "::group::Pre-approve rsync destination"
+                   ssh-keyscan -H ${{ secrets.SSH_REMOTE_ADDRESS }} > ~/.ssh/known_hosts
+                   echo "::endgroup::"
+
+                  echo "::group::Rsync files"
+                  rsync -avz --delete "ssh -p ${{ secrets.SSH_REMOTE_PORT }}" ./wps-blocks.zip ${{ secrets.DEPLOY_USERNAME }}@${{ secrets.DEPLOY_HOSTNAME }}:${{ secrets.SSH_REMOTE_PATH }}/wp-blocks/
+                  echo "::endgroup::"
+
+            #- name: Deploy Build
+            #  uses: burnett01/rsync-deployments@5.2.1
+            #  with:
+            #      switches: -av --delete
+            #      path: wp-blocks/
+            #      remote_path: ${{ secrets.SSH_REMOTE_PATH }}
+            #      remote_host: ${{ secrets.SSH_REMOTE_ADDRESS }}
+            #      remote_port: ${{ secrets.SSH_REMOTE_PORT }}
+            #      remote_user: ${{ secrets.SSH_REMOTE_USER }}
+            #      remote_key_pass: ${{ secrets.SSH_REMOTE_PASS }}
+            #      remote_key: ${{ secrets.SSH_REMOTE_DEPLOY_KEY }}
 
             - name: Post to a Slack success
               if: ${{ success() }}
