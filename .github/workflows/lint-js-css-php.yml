@@ -114,7 +114,7 @@ jobs:
                   rm -rf .husky && echo .husky "deleted"
 
             - name: Prepare Package deploy package
-              run: zip -r wps-blocks.zip
+              run: zip -r wps-blocks.zip .
 
             - name: Push to server
               working-directory: ./
