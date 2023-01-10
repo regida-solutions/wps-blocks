@@ -134,7 +134,7 @@ jobs:
                   echo "::endgroup::"
 
             - name: Generate meta file
-                #Initialize meta json write
+              run: |
                 curl -Is ${{ secrets.SSH_REMOTE_DOMAIN }}/packages/get-info.php?action=cron | head -1
 
             - name: Post to a Slack success
