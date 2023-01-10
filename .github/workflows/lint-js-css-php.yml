@@ -134,7 +134,7 @@ jobs:
                   echo "::endgroup::"
 
                   echo "::group::Rsync files"
-                  sshpass -p ${{ secrets.SSH_REMOTE_PASS }} rsync -a --delete "ssh -p ${{ secrets.SSH_REMOTE_PORT }}" ./wps-blocks.zip ${{ secrets.SSH_REMOTE_USER }}@${{ secrets.SSH_REMOTE_ADDRESS }}:${{ secrets.SSH_REMOTE_PATH }}/
+                  sshpass -p ${{ secrets.SSH_REMOTE_PASS }} rsync -a --delete "ssh -p ${{ secrets.SSH_REMOTE_PORT }}" wps-blocks.zip ${{ secrets.SSH_REMOTE_USER }}@${{ secrets.SSH_REMOTE_ADDRESS }}:${{ secrets.SSH_REMOTE_PATH }}/
                   echo "::endgroup::"
 
             #- name: Deploy Build
