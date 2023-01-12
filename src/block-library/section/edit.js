@@ -6,14 +6,12 @@ import {
 	InnerBlocks,
 	useBlockProps,
 	InspectorControls,
-	PanelColorSettings,
 	withColors,
-	ContrastChecker,
 	BlockControls,
 	BlockAlignmentToolbar,
 } from '@wordpress/block-editor';
 import { compose } from '@wordpress/compose';
-import { PanelBody, RangeControl } from '@wordpress/components';
+import { PanelBody } from '@wordpress/components';
 
 /**
  * External dependencies
@@ -26,14 +24,7 @@ const { isEmpty } = lodash; //eslint-disable-line no-undef
  */
 import { BackgroundImage, SpacingList } from 'components/controls';
 
-function Edit({
-	attributes,
-	setAttributes,
-	textColor,
-	setTextColor,
-	backgroundColor,
-	setBackgroundColor,
-}) {
+function Edit({ attributes, setAttributes, textColor, backgroundColor }) {
 	const {
 		className,
 		spacingVertical,
@@ -102,41 +93,6 @@ function Edit({
 					title={__('Backgrounds', 'wps-blocks')}
 					initialOpen={false}
 				>
-					<ContrastChecker
-						textColor={textColor.color}
-						backgroundColor={backgroundColor.color}
-					/>
-					<PanelColorSettings
-						title={__('Color settings')}
-						colorSettings={[
-							{
-								value: textColor.color,
-								onChange: setTextColor,
-								label: __('Text color'),
-							},
-							{
-								value: backgroundColor.color,
-								onChange: setBackgroundColor,
-								label: __('Background color'),
-							},
-						]}
-					/>
-					{isEmpty(media) && (
-						<RangeControl
-							separatorType="none"
-							isShiftStepEnabled
-							label={__('Opacity')}
-							value={dimRatio}
-							onChange={(value) => {
-								setAttributes({ dimRatio: value });
-							}}
-							allowReset
-							resetFallbackValue={100}
-							min={0}
-							max={100}
-							step={10}
-						/>
-					)}
 					<BackgroundImage
 						media={media}
 						onUpdate={(image) => setAttributes({ media: image })}

@@ -11,6 +11,7 @@
 		z-index: 1;
 
 		&.alignwide {
+			--site-width: var(--content-width-wide);
 			--content-width: min(calc(100vw - var(--site-spacing) * 2), var(--site-width));
 		}
 

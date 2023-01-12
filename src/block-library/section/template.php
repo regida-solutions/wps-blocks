@@ -18,6 +18,7 @@ use function WPS\Blocks\Helpers\ClassNames\get_names as get_names;
  * @param string $blocks inner blocks.
  */
 function template( array $attributes, string $blocks ): string {
+
 	$classes = get_names( [
 		'wps-section',
 		! empty( $attributes['className'] ) ? $attributes['className'] : '',
@@ -30,8 +31,6 @@ function template( array $attributes, string $blocks ): string {
 		! empty( $attributes['media']['url'] ) ? 'has-background' : '',
 		! empty( $attributes['backgroundColor'] ) && ! empty( $attributes['media']['url'] ) ? 'has-' . esc_attr( $attributes['backgroundColor'] ) . '-background-color' : '',
 	] );
-
-	$anchor = isset( $attributes['anchor'] ) ? ' id="' . $attributes['anchor'] . '"' : '';
 
 	$overlay_classes     = get_names( [
 		'wps-section__overlay',
@@ -57,9 +56,19 @@ function template( array $attributes, string $blocks ): string {
 		$style_inner_class .= ' align' . $attributes['innerContentWidth'];
 	}
 
+	$wrapper_attrs = [
+		'class' => $classes,
+	];
+
+	if ( isset( $attributes['anchor'] ) && ! empty( $attributes['anchor'] ) ) {
+		$wrapper_attrs['id'] = esc_attr( $attributes['anchor'] );
+	}
+
+	$wrapper_attributes = get_block_wrapper_attributes( $wrapper_attrs );
+
 	ob_start();
 	?>
-	<div<?php echo $anchor; //phpcs:ignore ?> class="<?php echo esc_attr( $classes ); ?>">
+	<div <?php echo $wrapper_attributes; //phpcs:ignore ?>>
 		<?php if ( '' !== $style_overlay_items ) : ?>
 		<div class="<?php echo esc_attr( $overlay_classes ); ?>" style="<?php echo esc_attr( $style_overlay_items ); ?>"></div>
 		<?php endif; ?>
