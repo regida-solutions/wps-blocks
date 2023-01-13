@@ -4,6 +4,9 @@
 	"type": "wordpress-plugin",
 	"license": "GPL-3.0-or-later",
 	"homepage": "https://wpshapers.com",
+	"require": {
+		"php": ">=8.1"
+	},
 	"config": {
 		"sort-packages": true,
 		"allow-plugins": {
@@ -12,11 +15,9 @@
 		}
 	},
 	"require-dev": {
-		"dekode/coding-standards": "4.0.0",
-		"dealerdirect/phpcodesniffer-composer-installer": "^0.7.2",
-		"phpcompatibility/php-compatibility": "^9.3",
-		"squizlabs/php_codesniffer": "^3.6",
-		"wp-coding-standards/wpcs": "^2.3"
+		"squizlabs/php_codesniffer": "3.*",
+		"wp-coding-standards/wpcs": "dev-develop",
+		"dekode/coding-standards": "5.0.0"
 	},
 	"scripts": {
 		"lint": "phpcs",

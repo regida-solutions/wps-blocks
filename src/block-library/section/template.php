@@ -24,12 +24,10 @@ function template( array $attributes, string $blocks ): string {
 		! empty( $attributes['className'] ) ? $attributes['className'] : '',
 		! empty( $attributes['align'] ) ? 'align' . $attributes['align'] : '',
 		! empty( $attributes['spacingVertical'] ) ? 'u-padding-vertical-' . $attributes['spacingVertical'] : '',
-		! empty( $attributes['textColor'] ) ? 'has-' . esc_attr( $attributes['textColor'] ) . '-color' : '',
 		! empty( $attributes['spacingVertical'] ) ? 'has-vertical-spacing' : '',
 		! empty( $attributes['marginTop'] ) ? 'has-margin-top-' . esc_attr( $attributes['marginTop'] ) : '',
 		! empty( $attributes['marginBottom'] ) ? 'has-margin-bottom-' . esc_attr( $attributes['marginBottom'] ) : '',
-		! empty( $attributes['media']['url'] ) ? 'has-background' : '',
-		! empty( $attributes['backgroundColor'] ) && ! empty( $attributes['media']['url'] ) ? 'has-' . esc_attr( $attributes['backgroundColor'] ) . '-background-color' : '',
+		! empty( $attributes['media']['url'] ) ? 'has-background' : ''
 	] );
 
 	$overlay_classes     = get_names( [
