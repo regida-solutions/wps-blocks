@@ -17,7 +17,7 @@ use function WPS\Blocks\Helpers\Image\render_image as render_image;
  * @param  array $attributes Image id, size, classes and style.
  * @return string the image element.
  */
-function ssr_image( array $attributes = [] ) : string {
+function ssr_image( array $attributes = [] ): string {
 	return render_image( $attributes );
 }
 

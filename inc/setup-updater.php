@@ -79,7 +79,6 @@ function plugin_info( $res, string $action, object $args ) { //phpcs:ignore
 	}
 
 	return false;
-
 }
 
 /**
@@ -141,7 +140,7 @@ function plugin_push_update( $transient ) { //phpcs:ignore
  * @param \WP_Upgrader $upgrader_object  WP_Upgrader instance.
  * @param array        $options Array of bulk item update data.
  */
-function plugin_after_update( \WP_Upgrader $upgrader_object, array $options ):void {
+function plugin_after_update( \WP_Upgrader $upgrader_object, array $options ): void {
 	if ( 'update' === $options['action'] && 'plugin' === $options['type'] ) {
 		// just clean the cache when new plugin version is installed.
 		delete_transient( 'wps_blocks_upgrade_' . WPS_BLOCKS_PLUGIN_SLUG );

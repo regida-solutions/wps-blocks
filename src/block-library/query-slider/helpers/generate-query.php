@@ -14,7 +14,7 @@ namespace WPS\QuerySlider\Helper\GenerateQuery;
  *
  * @param array $attributes Block attributes.
  */
-function generate_query( array $attributes ):\WP_Query {
+function generate_query( array $attributes ): \WP_Query {
 
 	$query_args = [
 		'post_status'    => 'publish',

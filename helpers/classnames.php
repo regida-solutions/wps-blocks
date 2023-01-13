@@ -17,7 +17,7 @@ namespace WPS\Blocks\Helpers\ClassNames;
  *
  * @return string
  */
-function get_names( array $list, bool $start_space = false ):string {
+function get_names( array $list, bool $start_space = false ): string {
 
 	// Remove empty strings.
 	$classes = array_filter( $list, fn( $value) => ! is_null( $value ) && '' !== $value );
@@ -32,5 +32,5 @@ function get_names( array $list, bool $start_space = false ):string {
 
 	$classes = implode( ' ', $classes );
 	return $start . $classes;
-};
+}
 

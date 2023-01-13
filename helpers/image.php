@@ -17,7 +17,7 @@ use function WPS\Blocks\Helpers\ClassNames\get_names as get_names;
  * @param  array $attributes Image id, size, classes and style.
  * @return string the image element.
  */
-function render_image( array $attributes = [] ) : string {
+function render_image( array $attributes = [] ): string {
 
 	$type = isset( $attributes['id'] ) ? wp_check_filetype( get_attached_file( $attributes['id'] ) )['type'] : '';
 
