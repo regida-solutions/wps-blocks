@@ -9,7 +9,12 @@
 	"icon": "columns",
 	"supports": {
 		"anchor": true,
-		"html": false
+		"html": false,
+		"color": {
+			"background": true,
+			"text": true,
+			"gradients": true
+		}
 	},
 	"keywords": ["Column", "Columns", "Grid"],
 	"attributes": {

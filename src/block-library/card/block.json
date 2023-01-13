@@ -9,7 +9,12 @@
 	"supports": {
 		"anchor": true,
 		"html": false,
-		"align": []
+		"align": [],
+		"color": {
+			"background": true,
+			"text": true,
+			"gradients": true
+		}
 	},
 	"keywords": ["card", "image", "text", "button"],
 	"attributes": {

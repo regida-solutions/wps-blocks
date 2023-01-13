@@ -8,9 +8,7 @@ import {
 	JustifyContentControl,
 	BlockControls,
 	InspectorControls,
-	PanelColorSettings,
 	withColors,
-	ContrastChecker,
 	BlockAlignmentToolbar,
 } from '@wordpress/block-editor';
 
@@ -24,14 +22,7 @@ import { SpacingList, BackgroundImage } from 'components/controls';
 import classnames from 'classnames';
 import { compose } from '@wordpress/compose';
 
-function Edit({
-	attributes,
-	setAttributes,
-	textColor,
-	setTextColor,
-	backgroundColor,
-	setBackgroundColor,
-}) {
+function Edit({ attributes, setAttributes, textColor, backgroundColor }) {
 	const INNER_BLOCKS_ALLOWED_BLOCKS = ['wps/grid-column'];
 	const INNER_BLOCKS_TEMPLATE = [['wps/grid-column', {}]];
 	const {
@@ -186,28 +177,9 @@ function Edit({
 					/>
 				</PanelBody>
 				<PanelBody
-					title={__('Backgrounds', 'wps-blocks')}
+					title={__('Background Image', 'wps-blocks')}
 					initialOpen={false}
 				>
-					<ContrastChecker
-						textColor={textColor.color}
-						backgroundColor={backgroundColor.color}
-					/>
-					<PanelColorSettings
-						title={__('Color settings')}
-						colorSettings={[
-							{
-								value: textColor.color,
-								onChange: setTextColor,
-								label: __('Text color'),
-							},
-							{
-								value: backgroundColor.color,
-								onChange: setBackgroundColor,
-								label: __('Background color'),
-							},
-						]}
-					/>
 					<BackgroundImage
 						media={media}
 						onUpdate={(image) => setAttributes({ media: image })}

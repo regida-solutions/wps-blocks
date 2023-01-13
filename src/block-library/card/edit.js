@@ -5,9 +5,7 @@ import { __ } from '@wordpress/i18n';
 import {
 	useBlockProps,
 	InspectorControls,
-	PanelColorSettings,
 	withColors,
-	ContrastChecker,
 	InnerBlocks,
 } from '@wordpress/block-editor';
 import { compose } from '@wordpress/compose';
@@ -38,9 +36,7 @@ function Edit({
 	attributes,
 	setAttributes,
 	textColor,
-	setTextColor,
 	backgroundColor,
-	setBackgroundColor,
 	isSelected,
 }) {
 	const { className, spacingGeneral } = attributes;
@@ -62,30 +58,6 @@ function Edit({
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody
-					title={__('Colors', 'wps-blocks')}
-					initialOpen={false}
-				>
-					<ContrastChecker
-						textColor={textColor.color}
-						backgroundColor={backgroundColor.color}
-					/>
-					<PanelColorSettings
-						title={__('Color settings')}
-						colorSettings={[
-							{
-								value: textColor.color,
-								onChange: setTextColor,
-								label: __('Text color'),
-							},
-							{
-								value: backgroundColor.color,
-								onChange: setBackgroundColor,
-								label: __('Background color'),
-							},
-						]}
-					/>
-				</PanelBody>
 				<PanelBody
 					title={__('Spacing', 'wps-blocks')}
 					initialOpen={false}

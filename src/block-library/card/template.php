@@ -22,8 +22,6 @@ function template( array $attributes, string $blocks ): string {
 	$classes = get_names( [
 		'wps-card',
 		! empty( $attributes['className'] ) ? $attributes['className'] : '',
-		! empty( $attributes['backgroundColor'] ) ? 'has-' . esc_attr( $attributes['backgroundColor'] ) . '-background-color' : '',
-		! empty( $attributes['textColor'] ) ? 'has-' . esc_attr( $attributes['textColor'] ) . '-color' : '',
 		! empty( $attributes['marginTop'] ) ? 'has-margin-top-' . esc_attr( $attributes['marginTop'] ) : '',
 		! empty( $attributes['marginBottom'] ) ? 'has-margin-bottom-' . esc_attr( $attributes['marginBottom'] ) : '',
 	] );
@@ -32,8 +30,6 @@ function template( array $attributes, string $blocks ): string {
 		'wps-card__content',
 		! empty( $attributes['spacingGeneral'] ) ? 'has-content-spacing has-padding-general-' . $attributes['spacingGeneral'] : '',
 	] );
-
-	$anchor = isset( $attributes['anchor'] ) ? ' id="' . $attributes['anchor'] . '"' : '';
 
 	$shortcode = '';
 
@@ -59,9 +55,20 @@ function template( array $attributes, string $blocks ): string {
 
 		$shortcode .= ']';
 	}
+
+	$wrapper_attrs = [
+		'class' => $classes,
+	];
+
+	if ( isset( $attributes['anchor'] ) && ! empty( $attributes['anchor'] ) ) {
+		$wrapper_attrs['id'] = esc_attr( $attributes['anchor'] );
+	}
+
+	$wrapper_attributes = get_block_wrapper_attributes( $wrapper_attrs );
+
 	ob_start();
 	?>
-	<div<?php echo $anchor; //phpcs:ignore ?> class="<?php echo esc_attr( $classes ); ?>">
+	<div <?php echo $wrapper_attributes; //phpcs:ignore ?>>
 		<?php if ( $shortcode ) : ?>
 		<div class="wps-card__media">
 			<?php echo do_shortcode( $shortcode ); ?>

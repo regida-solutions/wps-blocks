@@ -9,7 +9,12 @@
 	"supports": {
 		"anchor": true,
 		"html": false,
-		"align": ["full","wide"]
+		"align": ["full","wide"],
+		"color": {
+			"background": true,
+			"text": true,
+			"gradients": true
+		}
 	},
 	"keywords": ["Grid" ,"Column", "Columns"],
 	"attributes": {

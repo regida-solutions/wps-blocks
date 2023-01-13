@@ -30,8 +30,6 @@ function template( array $attributes, string $blocks ): string {
 		! empty( $attributes['paddingHorizontal'] ) ? 'u-padding-horizontal-' . $attributes['paddingHorizontal'] : '',
 		! empty( $attributes['fullHeight'] ) ? 'is-full-height' : '',
 		! empty( $attributes['contentCenter'] ) ? 'is-content-center' : '',
-		! empty( $attributes['backgroundColor'] ) ? 'has-' . esc_attr( $attributes['backgroundColor'] ) . '-background-color' : '',
-		! empty( $attributes['textColor'] ) ? 'has-' . esc_attr( $attributes['textColor'] ) . '-color' : '',
 		! empty( $attributes['media']['url'] ) ? 'has-background' : '',
 		! empty( $attributes['columnGap'] ) ? 'column-gap-' . $attributes['columnGap'] : '',
 		! empty( $attributes['columnPadding'] ) ? 'column-padding-' . $attributes['columnPadding'] : '',
@@ -41,13 +39,12 @@ function template( array $attributes, string $blocks ): string {
 		! empty( $attributes['marginBottom'] ) ? 'has-margin-bottom-' . esc_attr( $attributes['marginBottom'] ) : '',
 	]);
 
-	$anchor = isset( $attributes['anchor'] ) ? ' id="' . esc_attr( $attributes['anchor'] ) . '"' : '';
-
-	$overlay_classes     = get_names( [
+	$overlay_classes = get_names( [
 		'wps-grid__overlay',
 		! empty( $attributes['media']['url'] ) ? 'has-background' : '',
 		! empty( $attributes['backgroundBehaviour'] ) ? 'background-is-' . esc_attr( $attributes['backgroundBehaviour'] ) : '',
 	]);
+
 	$style_overlay_items = '';
 	if ( ! empty( $attributes['media']['url'] ) ) {
 		$style_overlay_items .= 'background-image:url(' . $attributes['media']['url'] . ');';
@@ -61,9 +58,19 @@ function template( array $attributes, string $blocks ): string {
 		$style_overlay_items .= 'opacity:' . $attributes['dimRatio'] . '%;';
 	}
 
+	$wrapper_attrs = [
+		'class' => $classes,
+	];
+
+	if ( isset( $attributes['anchor'] ) && ! empty( $attributes['anchor'] ) ) {
+		$wrapper_attrs['id'] = esc_attr( $attributes['anchor'] );
+	}
+
+	$wrapper_attributes = get_block_wrapper_attributes( $wrapper_attrs );
+
 	ob_start();
 	?>
-	<div<?php echo $anchor; //phpcs:ignore ?> class="<?php echo esc_attr( $classes ); ?>">
+	<div <?php echo $wrapper_attributes; //phpcs:ignore ?>>
 		<?php if ( '' !== $style_overlay_items ) : ?>
 			<div class="<?php echo esc_attr( $overlay_classes ); ?>" style="<?php echo esc_attr( $style_overlay_items ); ?>"></div>
 		<?php endif; ?>

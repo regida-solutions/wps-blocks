@@ -36,7 +36,9 @@ function template( array $attributes, string $blocks ): string {
 		! empty( $attributes['backgroundBehaviour'] ) ? 'background-is-' . esc_attr( $attributes['backgroundBehaviour'] ) : '',
 		! empty( $attributes['backgroundColor'] ) && empty( $attributes['media']['url'] ) ? 'has-' . esc_attr( $attributes['backgroundColor'] ) . '-background-color' : '',
 	]);
+
 	$style_overlay_items = '';
+
 	if ( ! empty( $attributes['media']['url'] ) ) {
 		$style_overlay_items .= 'background-image:url(' . $attributes['media']['url'] . ');';
 	}
