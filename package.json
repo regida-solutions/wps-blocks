@@ -14,7 +14,7 @@
 	"homepage": "https://github.com/https://github.com/regida-solutions/wps-blocks#readme",
 	"engines": {
 		"node": "18",
-		"npm": ">=8",
+		"npm": ">=8.1",
 		"yarn": "Please use npm"
 	},
 	"devDependencies": {
