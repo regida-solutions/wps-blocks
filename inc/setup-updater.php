@@ -116,9 +116,7 @@ function plugin_push_update( $transient ) { //phpcs:ignore
 
 	$remote = $remote ? json_decode( $remote['body'] ) : json_decode( '{{error: true}}' );
 
-	if ( $remote && ! isset( $remote->error ) ) {
-
-		$remote = json_decode( $remote['body'] );
+	if ( ! isset( $remote->error ) ) {
 
 		// your installed plugin version should be on the line below! You can obtain it dynamically of course.
 		if ( $remote && version_compare( WPS_BLOCKS_VERSION, $remote->version, '<' ) && version_compare( $remote->requires, get_bloginfo( 'version' ), '<' ) ) {
