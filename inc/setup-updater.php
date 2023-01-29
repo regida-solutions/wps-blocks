@@ -114,7 +114,9 @@ function plugin_push_update( $transient ) { //phpcs:ignore
 		}
 	}
 
-	if ( $remote ) {
+	$remote = $remote ? json_decode( $remote['body'] ) : json_decode( '{{error: true}}' );
+
+	if ( $remote && ! isset( $remote->error ) ) {
 
 		$remote = json_decode( $remote['body'] );
 
