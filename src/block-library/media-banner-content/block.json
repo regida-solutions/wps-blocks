@@ -1,0 +1,47 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "wps/media-banner-content",
+	"title": "Media Banner Content",
+	"description": "Inner block of the Media Banner block. It contains the content of the block.",
+	"category": "wps-blocks",
+	"icon": "cover-image",
+	"parent": ["wps/media-banner"],
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"color": {
+			"background": true,
+			"text": true,
+			"gradients": true
+		},
+		"align": []
+	},
+	"keywords": ["media" ,"banner", "image"],
+	"attributes": {
+		"backgroundColor": {
+			"type": "string"
+		},
+		"textColor": {
+			"type": "string"
+		},
+		"paddingVertical": {
+			"type": "string"
+		},
+		"paddingHorizontal": {
+			"type": "string"
+		},
+		"contentWidth": {
+			"type": "number",
+			"default": 50
+		},
+		"contentOffset": {
+			"type": "number",
+			"default": 0
+		},
+		"limitContentWidth": {
+			"type": "boolean"
+		}
+	},
+	"editorScript": "file:../../../build/block-library/media-banner-content/index.js"
+}

@@ -26,13 +26,6 @@ function template( array $attributes, string $blocks ): string {
 		! empty( $attributes['swapLayout'] ) ? 'media-banner--swap-layout' : '',
 	] );
 
-	$content_class = get_names( [
-		'media-banner__content',
-		isset( $attributes['paddingVertical'] ) || isset( $attributes['paddingHorizontal'] ) ? 'has-content-spacing' : '',
-		isset( $attributes['paddingVertical'] ) ? 'has-padding-vertical-' . esc_attr( $attributes['paddingVertical'] ) : '',
-		isset( $attributes['paddingHorizontal'] ) ? 'has-padding-horizontal-' . esc_attr( $attributes['paddingHorizontal'] ) : '',
-	] );
-
 	$wrapper_attrs = [
 		'class' => $classes,
 	];
@@ -42,7 +35,7 @@ function template( array $attributes, string $blocks ): string {
 	}
 
 	if ( isset( $attributes['contentWidth'] ) && ! empty( $attributes['contentWidth'] ) ) {
-		$wrapper_attrs['style'] = '--media-banner-content-width:' . esc_attr( $attributes['contentWidth'] ) . '%';
+		$wrapper_attrs['style'] = '--media-banner-content-width:' . esc_attr( $attributes['contentWidth'] ) . '%;';
 	}
 
 	$wrapper_attributes = get_block_wrapper_attributes( $wrapper_attrs );
@@ -86,11 +79,10 @@ function template( array $attributes, string $blocks ): string {
 	$content = $blocks;
 
 	return sprintf(
-		'<div %s>%s%s<div class="%s">%s</div></div>',
+		'<div %s>%s%s%s</div>',
 		$wrapper_attributes,
 		$background_image,
 		$background_overlay,
-		$content_class,
 		$content
 	);
 }

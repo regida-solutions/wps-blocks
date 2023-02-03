@@ -45,6 +45,7 @@
 	"block-library/accordion-item/index.js",
 	"block-library/media-banner/index.js",
 	"block-library/media-banner/style.css",
+	"block-library/media-banner-content/index.js",
 	"block-library/query-slider/index.js",
 	"block-library/query-slider/style.css",
 	"block-library/query-slider/editor.css"

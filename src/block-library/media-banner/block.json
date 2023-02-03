@@ -9,6 +9,11 @@
 	"supports": {
 		"anchor": true,
 		"html": false,
+		"color": {
+			"background": true,
+			"text": true,
+			"gradients": true
+		},
 		"align": ["full", "wide"]
 	},
 	"keywords": ["media" ,"banner", "image"],
@@ -51,6 +56,18 @@
 			"type": "string"
 		},
 		"paddingHorizontal": {
+			"type": "string"
+		},
+		"backgroundColor": {
+			"type": "string"
+		},
+		"textColor": {
+			"type": "string"
+		},
+		"mediaBackgroundColorValue": {
+			"type": "string"
+		},
+		"mediaBackgroundColor": {
 			"type": "string"
 		}
 	},

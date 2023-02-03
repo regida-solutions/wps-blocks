@@ -4,36 +4,25 @@
 import { __ } from '@wordpress/i18n';
 import {
 	InspectorControls,
-	InnerBlocks,
 	useBlockProps,
-	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
-	__experimentalColorGradientControl as ColorGradientControl,
+	useInnerBlocksProps,
+	withColors,
 } from '@wordpress/block-editor';
 
-import { PanelBody, ToggleControl, RangeControl } from '@wordpress/components';
+import { PanelBody, ToggleControl } from '@wordpress/components';
+import { compose } from '@wordpress/compose';
 
 /**
  * External dependencies
  */
-import { SpacingList, BackgroundImage } from 'components/controls';
+import { BackgroundImage } from 'components/controls';
 import classnames from 'classnames';
 
 function Edit({ attributes, setAttributes }) {
-	const INNER_BLOCKS_ALLOWED_BLOCKS = [
-		'core/spacer',
-		'core/group',
-		'core/separator',
-		'core/html',
-		'core/heading',
-		'core/paragraph',
-		'core/list',
-		'core/button',
-	];
-	const INNER_BLOCKS_TEMPLATE = [
-		['core/heading', { placeholder: 'Heading' }],
-		['core/paragraph', { placeholder: 'Paragraph' }],
-		['core/buttons', {}],
-	];
+	const INNER_BLOCKS_ALLOWED_BLOCKS = ['wps/media-banner-content'];
+
+	const INNER_BLOCKS_TEMPLATE = [['wps/media-banner-content', {}]];
+
 	const {
 		className = '',
 		media,
@@ -41,136 +30,37 @@ function Edit({ attributes, setAttributes }) {
 		backgroundBehaviour,
 		dimRatio,
 		swapLayout,
-		colorValue,
-		gradientValue,
-		paddingVertical,
-		paddingHorizontal,
-		contentWidth,
-		limitContentWidth,
 	} = attributes;
-
-	const style = {};
-	const overlayStyle = {};
 
 	const classes = classnames([
 		className,
 		'media-banner',
-		contentWidth ? `has-width-${contentWidth}` : '',
 		swapLayout ? 'media-banner--swap-layout' : '',
-		limitContentWidth ? 'media-banner--limit-width' : '',
-	]);
-	const contentClasses = classnames([
-		'media-banner__content',
-		paddingVertical || paddingHorizontal ? 'has-content-spacing' : '',
-		paddingVertical ? `has-padding-vertical-${paddingVertical}` : '',
-		paddingHorizontal ? `has-padding-horizontal-${paddingHorizontal}` : '',
 	]);
 
 	const classesBackground = classnames([
 		'media-banner__background',
-		media && media.hasOwnProperty('url') ? 'has-background' : '',
+		media && media.hasOwnProperty('url') ? 'has-media-background' : '',
 		backgroundBehaviour ? `background-is-${backgroundBehaviour}` : '',
 	]);
-
-	const classesOverlay = classnames(['media-banner__overlay']);
-
-	if (colorValue || gradientValue) {
-		overlayStyle.background = colorValue || gradientValue;
-	}
-
-	if (contentWidth) {
-		style['--media-banner-content-width'] = `${contentWidth}%`;
-	}
-
-	const marks = [
-		{ value: 10 },
-		{ value: 20 },
-		{ value: 30 },
-		{ value: 40 },
-		{ value: 50 },
-		{ value: 60 },
-		{ value: 70 },
-		{ value: 80 },
-		{ value: 90 },
-		{ value: 100 },
-	];
 
 	const mediaFocal =
 		focalPoint?.x && focalPoint?.y ? focalPoint : { x: 0.5, y: 0.5 };
 
+	const blocksProps = useBlockProps({ className: classes });
+	const innerBlocksProps = useInnerBlocksProps(
+		{},
+		{
+			templateLock: 'all',
+			lock: { move: true, remove: true },
+			template: INNER_BLOCKS_TEMPLATE,
+			allowedBlocks: INNER_BLOCKS_ALLOWED_BLOCKS,
+		},
+	);
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody
-					title={__('Layout settings', 'wps-blocks')}
-					initialOpen={true}
-				>
-					<ToggleControl
-						label="Swap layout"
-						checked={swapLayout}
-						onChange={() => {
-							setAttributes({
-								swapLayout: !swapLayout,
-							});
-						}}
-					/>
-					<ToggleControl
-						label="Limit content width"
-						checked={limitContentWidth}
-						onChange={() => {
-							setAttributes({
-								limitContentWidth: !limitContentWidth,
-							});
-						}}
-					/>
-					<RangeControl
-						separatorType="none"
-						isShiftStepEnabled
-						label="Column custom size"
-						marks={marks}
-						value={contentWidth}
-						onChange={(value) => {
-							setAttributes({ contentWidth: value });
-						}}
-						allowReset
-						resetFallbackValue={null}
-						min={50}
-						max={100}
-						step={1}
-					/>
-				</PanelBody>
-				<PanelBody
-					title={__('Overlay settings', 'wps-blocks')}
-					initialOpen={true}
-				>
-					<ColorGradientControl
-						colorValue={colorValue}
-						gradientValue={gradientValue}
-						onColorChange={(newValue) =>
-							setAttributes({ colorValue: newValue })
-						}
-						onGradientChange={(newValue) =>
-							setAttributes({ gradientValue: newValue })
-						}
-					/>
-				</PanelBody>
-				<PanelBody title={__('Spacing')} initialOpen={false}>
-					<SpacingList
-						label="Padding Vertical"
-						value={paddingVertical}
-						onChange={(value) =>
-							setAttributes({ paddingVertical: value })
-						}
-					/>
-					<SpacingList
-						label="Padding Horizontal"
-						value={paddingHorizontal}
-						onChange={(value) =>
-							setAttributes({ paddingHorizontal: value })
-						}
-					/>
-				</PanelBody>
-				<PanelBody title={__('Image')} initialOpen={false}>
+				<PanelBody title={__('Image')} initialOpen={true}>
 					<BackgroundImage
 						media={media}
 						onUpdate={(image) =>
@@ -200,9 +90,18 @@ function Edit({ attributes, setAttributes }) {
 							setAttributes({ dimRatio: newDimRation });
 						}}
 					/>
+					<ToggleControl
+						label="Swap layout"
+						checked={swapLayout}
+						onChange={() => {
+							setAttributes({
+								swapLayout: !swapLayout,
+							});
+						}}
+					/>
 				</PanelBody>
 			</InspectorControls>
-			<div {...useBlockProps({ className: classes, style })}>
+			<div {...blocksProps}>
 				{media ? (
 					<div className={classesBackground}>
 						<img
@@ -219,20 +118,14 @@ function Edit({ attributes, setAttributes }) {
 				) : (
 					''
 				)}
-				{colorValue || gradientValue ? (
-					<div className={classesOverlay} style={overlayStyle} />
-				) : (
-					''
-				)}
-				<div className={contentClasses}>
-					<InnerBlocks
-						template={INNER_BLOCKS_TEMPLATE}
-						templateLock={false}
-						allowedBlocks={INNER_BLOCKS_ALLOWED_BLOCKS}
-					/>
-				</div>
+				<div {...innerBlocksProps} />
 			</div>
 		</>
 	);
 }
-export default Edit;
+export default compose([
+	withColors({
+		textColor: 'color',
+		backgroundColor: 'background-color',
+	}),
+])(Edit);

@@ -6,7 +6,7 @@
  * Author:          WPShapers
  * Author URI:      https://wpshapers.com
  * Text Domain:     wps-blocks
- * Version:         1.7.4
+ * Version:         1.7.5
  *
  * @package WPS_Blocks
  */
@@ -15,7 +15,7 @@ declare( strict_types=1 );
 
 namespace WPS\Blocks;
 
-define( 'WPS_BLOCKS_VERSION', '1.7.4' );
+define( 'WPS_BLOCKS_VERSION', '1.7.5' );
 define( 'WPS_BLOCKS_DIR_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WPS_BLOCKS_DIR_URL', esc_url( plugin_dir_url( __FILE__ ) ) );
 define( 'WPS_BLOCKS_UPDATE_URL', 'https://zsoltrevay.com/packages' );
@@ -50,6 +50,7 @@ define( 'WPS_BLOCKS_LIST', [
 	'accordion',
 	'accordion-item',
 	'media-banner',
+	'media-banner-content',
 	'query-slider',
 ]);
 
