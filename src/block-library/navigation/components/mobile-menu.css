@@ -1,0 +1,205 @@
+.has-submenu-toggle-button {
+	position: relative;
+}
+
+.wps-navigation-menu-toggle {
+	background: transparent;
+	border: 0;
+	cursor: pointer;
+	margin-left: auto;
+	padding: 0.5rem;
+
+	@media (--viewport-desktop) {
+		display: none;
+	}
+
+	& .hamburger,
+	& .hamburger::before,
+	& .hamburger::after {
+		background: #ebebd3;
+		border-radius: 3px;
+		content: "";
+		display: block;
+		height: 3px;
+		transition: all ease-in-out 500ms;
+		width: 1.75em;
+	}
+
+	& .hamburger::before {
+		transform: translateY(-6px);
+	}
+
+	& .hamburger::after {
+		transform: translateY(3px);
+	}
+
+	&[aria-expanded="true"] .hamburger {
+		transform: rotate(45deg);
+	}
+
+	&[aria-expanded="true"] .hamburger::before {
+		opacity: 0;
+	}
+
+	&[aria-expanded="true"] .hamburger::after {
+		transform: translateY(-3px) rotate(-90deg);
+	}
+}
+
+.wps-navigation-is-open .wps-navigation-menu-toggle {
+	& .hamburger {
+		transform: rotate(45deg);
+	}
+
+	& .hamburger::before {
+		opacity: 0;
+	}
+
+	& .hamburger::after {
+		transform: translateY(-3px) rotate(-90deg);
+	}
+}
+
+.wps-navigation-mobile {
+	--menu-spacing: var(--wp--preset--spacing--normal, 1rem);
+	--menu-width: 350px;
+	--sub-menu-background-color: transparent;
+	--menu-background-color: var(--wp--preset--color--primary);
+	--menu-color: #fff;
+
+	background-color: var(--menu-background-color);
+	flex-direction: column;
+	height: 100%;
+	margin-block-start: 0 !important;
+	max-width: 100%;
+	overflow-y: auto;
+	position: fixed;
+	right: 0;
+	top: 0;
+	transform: translateX(100%);
+	transition: transform 0.3s;
+	width: var(--menu-width);
+	z-index: 999;
+
+	& .sub-menu a {
+		padding: 0.7rem;
+	}
+
+	& > ul > .menu-item {
+		&:not(:last-child) {
+			margin-bottom: var(--wp--preset--spacing--small);
+		}
+
+		& > a {
+			display: block;
+		}
+	}
+
+	& .menu-item:not(.call-to-action) a {
+		border-bottom: 1px solid transparent;
+		transition: border-bottom-color 0.3s;
+
+		&:hover {
+			border-color: currentColor;
+		}
+	}
+
+	& .sub-menu {
+		font-size: var(--wp--preset--font-size--small);
+		margin-left: 1rem;
+	}
+
+	& .wps-navigation-menu {
+		padding: 0.2rem var(--menu-spacing) 0.8rem;
+	}
+
+	& .wps-navigation-menu-toggle {
+		margin: var(--menu-spacing) var(--menu-spacing) var(--menu-spacing) auto;
+	}
+
+	& .has-submenu-toggle-button {
+		& > .sub-menu {
+			max-height: 0;
+			overflow: hidden;
+			transition: max-height 0.15s ease-out;
+		}
+
+		& .submenu-menu-toggle {
+
+			background: transparent;
+			border: 1px solid transparent;
+			border-radius: 3px;
+			line-height: 1;
+			padding: 0.7rem 0.6rem 0.7rem 0.7rem;
+			position: absolute;
+			right: 0;
+			top: 0.3rem;
+			transition: border-color 0.3s;
+
+			z-index: 1;
+
+			&:hover {
+				border-color: var(--menu-color);
+				cursor: pointer;
+			}
+
+			&::after {
+				background-image: url(./assets/chevron-left.svg);
+				background-position: center center;
+				background-size: cover;
+				content: "";
+				display: block;
+				filter: brightness(0) invert(1);
+				height: var(--size);
+				transition: transform 0.3s;
+				width: var(--size);
+				--size: 0.8rem;
+			}
+
+		}
+
+		&.submenu-open {
+			& > .sub-menu {
+				max-height: unset;
+			}
+
+			& .submenu-menu-toggle::after {
+				transform: rotate(-90deg);
+			}
+		}
+
+	}
+
+}
+
+.logged-in .wps-navigation-mobile {
+	top: 32px;
+}
+
+.wps-navigation-is-open .wp-site-blocks {
+	position: relative;
+
+	& .wps-navigation-mobile {
+		box-shadow: 0 8px 17px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+		transform: translateX(0);
+	}
+}
+
+.wps-navigation-overlay {
+	background: rgba(0, 0, 0, 0.7);
+	bottom: 0;
+	display: block;
+	height: 0;
+	left: 0;
+	margin-block-start: 0 !important;
+	position: absolute;
+	top: 0;
+	width: 0;
+	z-index: 0;
+}
+
+.wps-navigation-is-open .wps-navigation-overlay {
+	height: 100%;
+	width: 100%;
+	z-index: 99;
+}

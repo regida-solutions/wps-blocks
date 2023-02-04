@@ -1,0 +1,43 @@
+/* DESKTOP MENU */
+.wps-navigation {
+	--menu-color: currentColor;
+	--menu-background-color: transparent;
+	--sub-menu-background-color: #464655;
+	--sub-menu-width: 10rem;
+	--menu-color: #fff;
+
+	& .wps-navigation-menu {
+		display: none;
+
+		gap: 1rem;
+		width: 100%;
+
+		@media (--viewport-desktop) {
+			display: flex;
+		}
+
+		& .sub-menu {
+			background-color: var(--sub-menu-background-color);
+			display: none;
+			left: 0;
+			min-width: var(--sub-menu-width);
+			position: absolute;
+			top: 100%;
+			z-index: 999;
+		}
+
+		& .menu-item:hover > .sub-menu {
+			display: block;
+			left: 100%;
+		}
+
+		& > .menu-item:hover > .sub-menu {
+			left: 0;
+		}
+
+		& .sub-menu .menu-item:hover > .sub-menu {
+			top: 0;
+		}
+
+	}
+}

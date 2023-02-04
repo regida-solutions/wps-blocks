@@ -52,6 +52,7 @@ define( 'WPS_BLOCKS_LIST', [
 	'media-banner',
 	'media-banner-content',
 	'query-slider',
+	'navigation',
 ]);
 
 /* Load helpers */
@@ -62,6 +63,9 @@ require_once WPS_BLOCKS_DIR_PATH . '/patterns/patterns.php';
 
 /* Load image shortcode */
 require_once WPS_BLOCKS_DIR_PATH . '/shortcodes/image.php';
+
+/* Load menus */
+require_once __DIR__ . '/inc/menus/menus.php';
 
 /**
  * Load all templates

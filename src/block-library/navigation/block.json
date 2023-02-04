@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "wps/navigation",
+	"title": "Main Navigation",
+	"description": "Use the Navigation block to add one main menu to your site header",
+	"category": "wps-blocks",
+	"icon": "menu",
+	"supports": {
+		"anchor": false,
+		"html": false,
+		"align": []
+	},
+	"keywords": ["menu" ,"navigation"],
+	"attributes": {
+		"menuId": {
+			"type": "string"
+		}
+	},
+	"style": "file:../../../build/block-library/navigation/style.css",
+	"viewScript": "file:../../../build/block-library/navigation/frontend.js",
+	"editorStyle": "file:../../../build/block-library/navigation/editor.css",
+	"editorScript": "file:../../../build/block-library/navigation/index.js"
+}
