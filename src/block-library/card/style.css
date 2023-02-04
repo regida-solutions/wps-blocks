@@ -4,6 +4,12 @@
 	flex-direction: column;
 	height: 100%;
 
+	& .wps-card__media > * {
+		height: auto;
+		max-width: 100%;
+		object-fit: cover;
+	}
+
 	& .wps-card__content {
 		display: flex;
 		flex-direction: column;
