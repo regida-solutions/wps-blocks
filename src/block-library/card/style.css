@@ -4,7 +4,7 @@
 	flex-direction: column;
 	height: 100%;
 
-	& .wps-card__media > * {
+	& .wps-card__media img {
 		height: auto;
 		max-width: 100%;
 		object-fit: cover;
