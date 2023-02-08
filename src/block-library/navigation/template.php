@@ -23,11 +23,12 @@ function template( array $attributes ): string {
 		! empty( $attributes['className'] ) ? $attributes['className'] : '',
 	] );
 
-	$anchor = isset( $attributes['anchor'] ) ? ' id="' . esc_attr( $attributes['anchor'] ) . '"' : '';
+	$anchor                 = isset( $attributes['anchor'] ) ? ' id="' . esc_attr( $attributes['anchor'] ) . '"' : '';
+	$custom_toggle_location = isset( $attributes['toggleButtonLocation'] ) ? ' data-toggle-location="' . esc_attr( $attributes['toggleButtonLocation'] ) . '"' : '';
 
 	ob_start();
 	?>
-	<nav<?php echo $anchor; //phpcs:ignore ?> class="<?php echo esc_attr( $classes ); ?>">
+	<nav<?php echo $anchor; //phpcs:ignore ?> class="<?php echo esc_attr( $classes ); ?>"<?php echo $custom_toggle_location; //phpcs:ignore ?>>
 		<button class="wps-navigation-menu-toggle"
 					aria-controls="primary-navigation"
 					aria-expanded="false">

@@ -11,6 +11,22 @@ window.addEventListener('load', function () {
 	const siteHeader = document.querySelector('.wp-site-blocks > header');
 	const siteFooter = document.querySelector('.wp-site-blocks > footer');
 
+	/*
+	 * Check if wps-navigation has  data-toggle-location attribute
+	 * This will be used to determine where the toggle button will be placed
+	 * If no data-toggle-location attribute is found, the toggle button will remain in initial position
+	 */
+	const toggleLocation = desktopNavigationWrapper.dataset.toggleLocation;
+
+	if (toggleLocation) {
+		const toggleLocationElement = document.querySelector(
+			`.${toggleLocation}`,
+		);
+		if (toggleLocationElement) {
+			toggleLocationElement.prepend(menuToggle);
+		}
+	}
+
 	menuToggle.addEventListener('click', () => {
 		ToggleMenu();
 	});

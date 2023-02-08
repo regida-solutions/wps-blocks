@@ -9,7 +9,8 @@ Media Slider\
 Query Slider \
 Media Banner\
 Whatsapp\
-Card
+Card\
+Navigation
 
 
 ### Requirements

@@ -7,13 +7,19 @@
 	"category": "wps-blocks",
 	"icon": "menu",
 	"supports": {
-		"anchor": false,
+		"anchor": true,
 		"html": false,
 		"align": []
 	},
 	"keywords": ["menu" ,"navigation"],
 	"attributes": {
+		"anchor": {
+			"type": "string"
+		},
 		"menuId": {
+			"type": "string"
+		},
+		"toggleButtonLocation": {
 			"type": "string"
 		}
 	},
