@@ -4,10 +4,6 @@
 import Accordion from 'accordion-js';
 
 document.addEventListener('DOMContentLoaded', function () {
-	// eslint-disable-next-line no-undef
-	if (wp.editor) {
-		return;
-	}
 	const accordions = Array.from(document.querySelectorAll('.wps-accordion'));
 
 	accordions.forEach((accordion) => {
