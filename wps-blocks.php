@@ -6,7 +6,7 @@
  * Author:          WPShapers
  * Author URI:      https://wpshapers.com
  * Text Domain:     wps-blocks
- * Version:         1.7.7
+ * Version:         1.7.8
  *
  * @package WPS_Blocks
  */
@@ -15,7 +15,9 @@ declare( strict_types=1 );
 
 namespace WPS\Blocks;
 
-define( 'WPS_BLOCKS_VERSION', '1.7.7' );
+use function WPS\Blocks\Helpers\HasBlock\has_block_including_reusables as hbir;
+
+define( 'WPS_BLOCKS_VERSION', '1.7.8' );
 define( 'WPS_BLOCKS_DIR_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WPS_BLOCKS_DIR_URL', esc_url( plugin_dir_url( __FILE__ ) ) );
 define( 'WPS_BLOCKS_UPDATE_URL', 'https://zsoltrevay.com/packages' );
@@ -80,17 +82,17 @@ foreach ( $blocks as $block ) {
 /**
  * Setup allowed_block_types
  *
- * @param array $list The allowed blocks list definition.
+ * @param array $block_type_list The allowed blocks list definition.
  * @return array
  */
-function allowed_block_types( array $list ): array {
+function allowed_block_types( array $block_type_list ): array {
 	$blocks         = WPS_BLOCKS_LIST;
 	$allowed_blocks = [];
 
 	foreach ( $blocks as $block ) {
 		$allowed_blocks[] = 'wps/' . $block;
 	}
-	return array_merge( $list, $allowed_blocks );
+	return array_merge( $block_type_list, $allowed_blocks );
 }
 
 
@@ -127,7 +129,7 @@ function front_end_assets() {
 		wp_enqueue_script( 'wps-blocks-frontend', WPS_BLOCKS_DIR_URL . 'build/frontend.js', [ 'wps-slider-core' ], WPS_BLOCKS_VERSION, true );
 	}
 
-	if ( has_block( 'wps/slider' ) || has_block( 'wps/media-slider' ) || has_block( 'wps/image-slider' ) || has_block( 'wps/query-slider' ) ) {
+	if ( hbir( 'wps/slider' ) || hbir( 'wps/media-slider' ) || hbir( 'wps/image-slider' ) || hbir( 'wps/query-slider' ) ) {
 		wp_enqueue_style( 'wps-slider-core' );
 		wp_enqueue_script( 'wps-blocks-frontend' );
 	}

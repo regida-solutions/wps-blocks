@@ -10,4 +10,5 @@ namespace WPS\Blocks\Helpers;
 
 require_once __DIR__ . '/classnames.php';
 require_once __DIR__ . '/image.php';
+require_once __DIR__ . '/has-block-including-reusable.php';
 

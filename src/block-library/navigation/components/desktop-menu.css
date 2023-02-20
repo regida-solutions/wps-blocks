@@ -3,12 +3,12 @@
 	--menu-color: currentColor;
 	--menu-background-color: transparent;
 	--sub-menu-background-color: #464655;
+	--sub-menu-dropshadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 	--sub-menu-width: 10rem;
 	--menu-color: #fff;
 
 	& .wps-navigation-menu {
 		display: none;
-
 		gap: 1rem;
 		width: 100%;
 
@@ -26,6 +26,13 @@
 			z-index: 999;
 		}
 
+		& > .menu-item > .sub-menu {
+			animation-duration: 0.3s;
+			animation-fill-mode: both;
+			animation-name: fadeInDownSmaller;
+			box-shadow: var(--sub-menu-dropshadow);
+		}
+
 		& .menu-item:hover > .sub-menu {
 			display: block;
 			left: 100%;
@@ -39,5 +46,17 @@
 			top: 0;
 		}
 
+	}
+}
+
+@keyframes fadeInDownSmaller {
+	from {
+		opacity: 0;
+		transform: translate3d(0, -10px, 0);
+	}
+
+	to {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
 	}
 }
