@@ -8,8 +8,10 @@ window.addEventListener('load', function () {
 	const desktopNavigationWrapper = document.querySelector('.wps-navigation');
 	const mainNavigation = document.querySelector('.wps-navigation-menu');
 	const siteNavigation = mainNavigation.cloneNode(true);
-	const siteHeader = document.querySelector('.wp-site-blocks > header');
-	const siteFooter = document.querySelector('.wp-site-blocks > footer');
+	const siteHeader = document.querySelector('.wp-site-blocks .site-header');
+	const siteFooter = document.querySelector(
+		'.wp-site-blocks footer.wp-block-template-part',
+	);
 
 	/*
 	 * Check if wps-navigation has  data-toggle-location attribute
