@@ -10,6 +10,7 @@ declare( strict_types=1 );
 namespace WPS\ContactInfo\Template;
 
 use function WPS\Blocks\Helpers\ClassNames\get_names as get_names;
+use function WPS\Blocks\Helpers\Icons\get_icon as get_icon;
 
 /**
  * Render callback template
@@ -106,15 +107,30 @@ function template( array $attributes ): string {
 					$href = 'https://wa.me/' . $option . '?text=Hello';
 				}
 
-				echo sprintf('<li class="%1$s">%3$s%2$s%4$s</li>',
+				$type     = isset( $item['type'] ) ? $item['type'] : '';
+				$alt      = isset( $item['alt'] ) ? $item['alt'] : '';
+				$has_icon = isset( $attributes['enableIcon'] ) && $attributes['enableIcon'];
+				$has_link = isset( $attributes['enableUrl'] ) && $attributes['enableUrl'];
+
+				$icon = '';
+
+				if ( $type && ! $alt ) {
+					$icon = get_icon( $type );
+				} elseif ( $alt ) {
+					$icon = get_icon( $alt );
+				}
+
+				echo sprintf('<li class="%1$s">%5$s%3$s%2$s%4$s</li>',
 					esc_attr(get_names( [
 						'wps-contact-info__list-item',
-						isset( $item['type'] ) ? esc_attr( $item['type'] ) : '',
-						isset( $item['alt'] ) ? esc_attr( $item['alt'] ) : '',
+						$type,
+						$alt,
+						$has_icon ? 'has-icon' : '',
 					])),
 					esc_attr( $option ),
-					isset( $attributes['enableUrl'] ) && $attributes['enableUrl'] ? '<a href="' . esc_html( $href ) . '">' : '',//phpcs:ignore
-					isset( $attributes['enableUrl'] ) && $attributes['enableUrl'] ? '</a>' : '',//phpcs:ignore
+					$has_link ? '<a href="' . esc_html( $href ) . '">' : '',//phpcs:ignore
+					$has_link ? '</a>' : '',//phpcs:ignore
+					$has_icon && $icon ? $icon : '',//phpcs:ignore
 				);
 			}
 			?>
