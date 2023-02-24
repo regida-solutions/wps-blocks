@@ -109,6 +109,7 @@ function Edit({ setAttributes, attributes }) {
 		setQuery(updateQuery);
 	};
 
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	const onChangeDebounced = useCallback(
 		debounce(() => {
 			if (query.search !== querySearch) {

@@ -1,6 +1,6 @@
 {
 	"name": "wps-blocks",
-	"version": "1.7.2",
+	"version": "1.7.10",
 	"description": "A collection of Gutenberg Blocks for websites build with WordPress",
 	"repository": {
 		"type": "git",
@@ -19,20 +19,20 @@
 	},
 	"devDependencies": {
 		"@dekode/stylelint-config": "1.0.2",
-		"@wordpress/eslint-plugin": "13.0.0",
-		"@wordpress/scripts": "^25.3.0",
-		"browser-sync": "^2.27.10",
+		"@wordpress/eslint-plugin": "14.0.0",
+		"@wordpress/scripts": "^25.4.0",
+		"browser-sync": "^2.27.12",
 		"browser-sync-webpack-plugin": "^2.3.0",
 		"classnames": "^2.3.1",
 		"components": "file:packages/components",
 		"css-viewports": "file:packages/components/css-viewports",
-		"cssnano": "5.1.14",
+		"cssnano": "5.1.15",
 		"dotenv": "16.0.3",
 		"eslint-plugin-prettier": "4.2.1",
 		"fast-glob": "3.2.12",
-		"lint-staged": "13.1.1",
+		"lint-staged": "13.1.2",
 		"postcss": "8.4.21",
-		"postcss-custom-media": "9.1.1",
+		"postcss-custom-media": "9.1.2",
 		"postcss-flexbugs-fixes": "5.0.2",
 		"postcss-import": "15.1.0",
 		"postcss-media-minmax": "5.0.0",
@@ -41,7 +41,9 @@
 		"prettier": "2.8.4",
 		"resolve-url-loader": "5.0.0",
 		"webpack-remove-empty-scripts": "1.0.1",
-		"husky": "^8.0.3"
+		"husky": "^8.0.3",
+		"ignore-emit-webpack-plugin": "^2.0.6",
+		"autoprefixer": "^10.4.13"
 	},
 	"scripts": {
 		"build": "wp-scripts build",

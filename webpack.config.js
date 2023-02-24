@@ -204,9 +204,7 @@ buildConfig.push({
 	...defaultConfig,
 
 	entry: {
-		'swiper-core': [
-			'./src/components/swiper/index.js'
-		],
+		'swiper-core': ['./src/components/swiper/swiper.min.js'],
 	},
 
 	output: {
