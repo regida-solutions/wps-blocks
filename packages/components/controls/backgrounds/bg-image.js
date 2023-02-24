@@ -5,7 +5,7 @@ import { ImageUploaderUI } from './components/image-uploader-ui';
 
 const BackgroundImage = (attributes) => {
 	return (
-		<div className="u-margin-bottom">
+		<div style={{ marginBottom: '16px' }}>
 			{<ImageUploaderUI {...attributes} />}
 		</div>
 	);
