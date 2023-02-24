@@ -30,7 +30,7 @@ function template( array $attributes, string $blocks ): string {
 		! empty( $attributes['media']['url'] ) ? 'has-background' : '',
 	] );
 
-	$overlay_classes     = get_names( [
+	$overlay_classes = get_names( [
 		'wps-section__overlay',
 		! empty( $attributes['media']['url'] ) ? 'has-background' : '',
 		! empty( $attributes['backgroundBehaviour'] ) ? 'background-is-' . esc_attr( $attributes['backgroundBehaviour'] ) : '',
