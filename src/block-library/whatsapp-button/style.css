@@ -18,32 +18,37 @@
 			display: none;
 		}
 	}
-}
 
-.wps-whatsapp__link {
-	background-color: var(--whatsapp-background-color);
-	border-radius: var(--button-radius);
-	color: var(--whatsapp-text-color);
-	cursor: pointer;
-	display: inline-block;
-	padding: var(--button-padding);
-	transition: all 150ms ease-in-out;
-
-	&:hover {
-		text-decoration: none;
-		--whatsapp-background-color: var(--whatsapp-background-color-hover);
-	}
-}
-
-.wps-whatsapp__inner {
-	align-items: center;
-	display: flex;
-
-	& > *:first-child {
-		margin-right: 12px;
+	& .wps-whatsapp__symbol .decoration-icon {
+		display: block;
+		height: 1rem;
+		line-height: 1;
+		width: auto;
 	}
 
-	& > *:last-child {
-		margin-right: 0;
+	& .wps-whatsapp__link.wp-block-button__link {
+		background-color: var(--whatsapp-background-color);
+		color: var(--whatsapp-text-color);
+		cursor: pointer;
+		display: inline-block;
+		transition: all 150ms ease-in-out;
+
+		&:hover {
+			text-decoration: none;
+			--whatsapp-background-color: var(--whatsapp-background-color-hover);
+		}
+	}
+
+	& .wps-whatsapp__inner {
+		align-items: center;
+		display: flex;
+
+		& > *:first-child {
+			margin-right: 6px;
+		}
+
+		& > *:last-child {
+			margin-right: 0;
+		}
 	}
 }

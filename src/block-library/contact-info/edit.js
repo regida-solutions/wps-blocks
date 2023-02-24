@@ -75,6 +75,15 @@ function Edit({ attributes, setAttributes }) {
 							setAttributes({ enableIcon: !enableIcon });
 						}}
 					/>
+					<p>
+						Setup contact info data in plugin settings{' '}
+						<a
+							target="_blank"
+							href="/wp-admin/options-general.php?page=wps_blocks_settings"
+						>
+							here
+						</a>
+					</p>
 				</PanelBody>
 			</InspectorControls>
 			<div {...useBlockProps()}>

@@ -263,4 +263,70 @@ buildConfig.push({
 	],
 });
 
+/**
+ * Add settings for development mode.
+ */
+buildConfig.push({
+	...defaultConfig,
+
+	entry: {
+		settings: ['./src/settings/settings.js', './src/settings/settings.css'],
+	},
+
+	output: {
+		path: path.resolve(__dirname, 'build/settings'),
+		filename: '[name].js',
+	},
+
+	optimization: {
+		...defaultConfig.optimization,
+		removeEmptyChunks: true,
+
+		splitChunks: {
+			cacheGroups: {
+				internalStyle: {
+					type: 'css/mini-extract',
+					test: /[\\/]+?\.(sc|sa|c)ss$/,
+					chunks: 'all',
+					enforce: true,
+				},
+				default: false,
+			},
+		},
+	},
+
+	resolve: {
+		...defaultConfig.resolve,
+		alias: {
+			...defaultConfig.resolve.alias,
+			components: path.resolve(__dirname, 'packages', 'components'),
+		},
+	},
+
+	// Hides rarely used information for more compact appearance of console.
+	stats: {
+		children: false,
+		all: false,
+		entrypoints: true,
+		warnings: true,
+		errors: true,
+		hash: false,
+		timings: true,
+		errorDetails: true,
+		builtAt: true,
+	},
+
+	plugins: [
+		new MiniCSSExtractPlugin({ filename: '[name].css' }),
+		/**
+		 * It removes empty JS files, when we use CSS/SCSS as main entrypoint of asset.
+		 *
+		 * It's possible to remove also `.asset.php` by writing custom version
+		 */
+		new RemoveEmptyScriptsPlugin(),
+
+		new DependencyExtractionWebpackPlugin({ injectPolyfill: true }),
+	],
+});
+
 module.exports = buildConfig;

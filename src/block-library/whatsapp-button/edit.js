@@ -3,23 +3,23 @@
  */
 import {
 	InspectorControls,
-	InnerBlocks,
 	RichText,
 	useBlockProps,
 	JustifyContentControl,
 	BlockControls,
 } from '@wordpress/block-editor';
 import { PanelBody, ToggleControl, TextControl } from '@wordpress/components';
-import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 /**
  * External dependencies
  */
 import classnames from 'classnames';
+/**
+ * Internal dependencies
+ */
+import WhatsappButton from './assets/icon-whatsapp';
 
 function Edit({ setAttributes, attributes }) {
-	const INNER_BLOCKS_ALLOWED_BLOCKS = ['wps/icon'];
-
 	const {
 		className = '',
 		label,
@@ -31,16 +31,10 @@ function Edit({ setAttributes, attributes }) {
 
 	const classes = classnames(
 		'wps-whatsapp',
+		'wp-block-button',
 		className,
 		justification ? `is-aligned-${justification}` : '',
 	);
-
-	const hasIconBlock = useSelect((select) => {
-		return !!select('core/blocks').getBlockType('wps/icon');
-	}, []);
-	const template = hasIconBlock
-		? [['wps/icon', { icon: 'whatsapp', type: 'brands' }]]
-		: [];
 
 	return (
 		<>
@@ -64,7 +58,7 @@ function Edit({ setAttributes, attributes }) {
 						onChange={(value) => setAttributes({ message: value })}
 					/>
 					<ToggleControl
-						label="Show button option"
+						label="Show button"
 						help={
 							showOnLarge
 								? __('Show on large screen.', 'wps-blocks')
@@ -82,17 +76,22 @@ function Edit({ setAttributes, attributes }) {
 							setAttributes({ customNumber: value })
 						}
 					/>
+					<p>
+						Setup contact info data in plugin settings{' '}
+						<a
+							target="_blank"
+							href="/wp-admin/options-general.php?page=wps_blocks_settings"
+						>
+							here
+						</a>
+					</p>
 				</PanelBody>
 			</InspectorControls>
 			<div {...useBlockProps({ className: classes })}>
-				<div className="wps-whatsapp__link">
+				<div className="wps-whatsapp__link wp-block-button__link">
 					<div className="wps-whatsapp__inner">
 						<div className="wps-whatsapp__symbol">
-							<InnerBlocks
-								template={template}
-								templateLock={true}
-								allowedBlocks={INNER_BLOCKS_ALLOWED_BLOCKS}
-							/>
+							<WhatsappButton style={{ width: '1rem' }} />
 						</div>
 						<div className="wps-whatsapp__text">
 							<RichText

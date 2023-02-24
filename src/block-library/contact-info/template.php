@@ -45,17 +45,47 @@ function template( array $attributes ): string {
 		$contact_options['wps_email_address_second'] = [ 'type' => 'email' ];
 	}
 
-	$anchor = isset( $attributes['anchor'] ) ? ' id="' . $attributes['anchor'] . '"' : '';
-
 	$options = apply_filters( 'wps_contact_info_block_items', $contact_options );
+
+	/**
+	 * Old settings used to be stored in theme settings.
+	 * New settings live in plugin settings
+	 *
+	 * If we have settings we will use them instead of legacy settings.
+	 * Settings are stored in one array in a single option field wps_blocks_contact_info
+	 * we need to map old settings to new settings
+	 */
+	$plugin_settings = get_option( 'wps_blocks_contact_info', [] );
+	$settings        = [];
+	if ( ! empty( $plugin_settings ) ) {
+		// Map old settings to new settings.
+		$settings = [
+			'wps_phone_nr'             => $plugin_settings['phone_nr'] ? $plugin_settings['phone_nr'] : '',
+			'wps_phone_nr_second'      => $plugin_settings['phone_nr_second'] ? $plugin_settings['phone_nr_second'] : '',
+			'wps_phone_nr_platform'    => $plugin_settings['phone_nr_platform'] ? $plugin_settings['phone_nr_platform'] : '',
+			'wps_email_address'        => $plugin_settings['email_address'] ? $plugin_settings['email_address'] : '',
+			'wps_email_address_second' => $plugin_settings['email_address_second'] ? $plugin_settings['email_address_second'] : '',
+		];
+	}
+
+	$wrapper_attrs = [
+		'class' => $classes,
+	];
+
+	if ( isset( $attributes['anchor'] ) && ! empty( $attributes['anchor'] ) ) {
+		$wrapper_attrs['id'] = esc_attr( $attributes['anchor'] );
+	}
+
+	$wrapper_attributes = get_block_wrapper_attributes( $wrapper_attrs );
 
 	ob_start();
 	?>
-	<div<?php echo $anchor; //phpcs:ignore ?> class="<?php echo esc_attr( $classes ); ?>">
+	<div <?php echo $wrapper_attributes; //phpcs:ignore ?>>
 		<ul class="wps-contact-info__list">
 		<?php foreach ( $options as $key => $item ) : ?>
 			<?php
-			$option = get_option( $key );
+			// Check settings first and then default back to legacy options.
+			$option = ! empty( $settings[ $key ] ) ? $settings[ $key ] : get_option( $key );
 
 			if ( ! $option ) {
 				if ( is_user_logged_in() ) {

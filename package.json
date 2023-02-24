@@ -21,6 +21,7 @@
 		"@dekode/stylelint-config": "1.0.2",
 		"@wordpress/eslint-plugin": "14.0.0",
 		"@wordpress/scripts": "^25.4.0",
+		"autoprefixer": "^10.4.13",
 		"browser-sync": "^2.27.12",
 		"browser-sync-webpack-plugin": "^2.3.0",
 		"classnames": "^2.3.1",
@@ -30,6 +31,8 @@
 		"dotenv": "16.0.3",
 		"eslint-plugin-prettier": "4.2.1",
 		"fast-glob": "3.2.12",
+		"husky": "^8.0.3",
+		"ignore-emit-webpack-plugin": "^2.0.6",
 		"lint-staged": "13.1.2",
 		"postcss": "8.4.21",
 		"postcss-custom-media": "9.1.2",
@@ -40,10 +43,7 @@
 		"postcss-nested": "6.0.0",
 		"prettier": "2.8.4",
 		"resolve-url-loader": "5.0.0",
-		"webpack-remove-empty-scripts": "1.0.1",
-		"husky": "^8.0.3",
-		"ignore-emit-webpack-plugin": "^2.0.6",
-		"autoprefixer": "^10.4.13"
+		"webpack-remove-empty-scripts": "1.0.1"
 	},
 	"scripts": {
 		"build": "wp-scripts build",
@@ -67,7 +67,7 @@
 		]
 	},
 	"dependencies": {
-		"@wordpress/icons": "^6.1.0",
+		"@wordpress/icons": "^9.18.0",
 		"accordion-js": "^3.3.2",
 		"swiper": "^8.4.5"
 	}

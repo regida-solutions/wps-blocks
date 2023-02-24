@@ -1,0 +1,17 @@
+#wps-blocks-settings {
+	& .settings-panel-wrapper {
+		& .components-base-control__label {
+			display: block;
+		}
+
+		& .components-textarea-control__input {
+			max-width: 100%;
+			width: 600px;
+		}
+
+		& .components-text-control__input {
+			max-width: 100%;
+			width: 300px;
+		}
+	}
+}

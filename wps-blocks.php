@@ -6,7 +6,7 @@
  * Author:          WPShapers
  * Author URI:      https://wpshapers.com
  * Text Domain:     wps-blocks
- * Version:         1.7.10
+ * Version:         1.8.0
  *
  * @package WPS_Blocks
  */
@@ -17,7 +17,7 @@ namespace WPS\Blocks;
 
 use function WPS\Blocks\Helpers\HasBlock\has_block_including_reusables as hbir;
 
-define( 'WPS_BLOCKS_VERSION', '1.7.10' );
+define( 'WPS_BLOCKS_VERSION', '1.8.0' );
 define( 'WPS_BLOCKS_DIR_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WPS_BLOCKS_DIR_URL', esc_url( plugin_dir_url( __FILE__ ) ) );
 define( 'WPS_BLOCKS_UPDATE_URL', 'https://zsoltrevay.com/packages' );
@@ -68,6 +68,9 @@ require_once WPS_BLOCKS_DIR_PATH . '/shortcodes/image.php';
 
 /* Load menus */
 require_once __DIR__ . '/inc/menus/menus.php';
+
+/* Load Settings */
+require_once __DIR__ . '/inc/settings/settings.php';
 
 /**
  * Load all templates

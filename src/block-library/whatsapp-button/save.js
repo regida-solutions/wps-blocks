@@ -1,10 +1,4 @@
-/**
- * WordPress dependencies
- */
-import { InnerBlocks } from '@wordpress/block-editor';
-
 function Save() {
-	return <InnerBlocks.Content />;
+	return null;
 }
-
 export default Save;
