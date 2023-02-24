@@ -10,13 +10,18 @@
 		"anchor": true,
 		"html": false,
 		"align": ["full", "wide"],
+		"spacing": {
+			"margin": true,
+			"padding": true
+		},
 		"color": {
 			"background": true,
 			"text": true,
-			"gradients": true
+			"gradients": true,
+			"link": true
 		}
 	},
-	"keywords": ["Section", "Group"],
+	"keywords": ["section", "group"],
 	"attributes": {
 		"anchor": {
 			"type": "string"
