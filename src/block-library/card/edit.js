@@ -39,13 +39,14 @@ function Edit({
 	backgroundColor,
 	isSelected,
 }) {
-	const { className, spacingGeneral } = attributes;
+	const { className, spacingGeneral, aspectRatio } = attributes;
 
 	const classes = classnames([
 		'wps-card',
 		className,
 		backgroundColor.hasOwnProperty('class') ? backgroundColor.class : '',
 		textColor.hasOwnProperty('class') ? textColor.class : '',
+		aspectRatio ? `has-aspect-ratio` : '',
 	]);
 
 	const innerClasses = classnames([
@@ -54,6 +55,12 @@ function Edit({
 			? `has-content-spacing has-padding-general-${spacingGeneral}`
 			: '',
 	]);
+
+	const style = {};
+
+	if (aspectRatio) {
+		style['--media-aspect-ratio'] = aspectRatio;
+	}
 
 	return (
 		<>
@@ -71,12 +78,15 @@ function Edit({
 					/>
 				</PanelBody>
 			</InspectorControls>
-			<div {...useBlockProps({ className: classes })}>
+			<div
+				{...useBlockProps({ className: classes, style: { ...style } })}
+			>
 				<div className="wps-card__media">
 					<Image
 						setAttributes={setAttributes}
 						isSelected={isSelected}
 						attributes={attributes}
+						hasAspectRatio={true}
 					/>
 				</div>
 				<div className={innerClasses}>

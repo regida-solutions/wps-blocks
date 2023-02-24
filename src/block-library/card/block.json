@@ -47,6 +47,9 @@
 		"backgroundBehaviour": {
 			"type": "string"
 		},
+		"aspectRatio": {
+			"type": "string"
+		},
 		"marginTop": {
 			"type": "string"
 		},

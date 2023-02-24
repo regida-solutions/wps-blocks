@@ -31,3 +31,10 @@
 		}
 	}
 }
+
+.wps-card.has-aspect-ratio {
+	& .wps-card__media img {
+		aspect-ratio: var(--media-aspect-ratio, auto);
+		object-fit: cover;
+	}
+}

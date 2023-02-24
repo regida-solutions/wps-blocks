@@ -22,6 +22,7 @@ function template( array $attributes, string $blocks ): string {
 	$classes = get_names( [
 		'wps-card',
 		! empty( $attributes['className'] ) ? $attributes['className'] : '',
+		! empty( $attributes['aspectRatio'] ) ? 'has-aspect-ratio' : '',
 		! empty( $attributes['marginTop'] ) ? 'has-margin-top-' . esc_attr( $attributes['marginTop'] ) : '',
 		! empty( $attributes['marginBottom'] ) ? 'has-margin-bottom-' . esc_attr( $attributes['marginBottom'] ) : '',
 	] );
@@ -62,6 +63,10 @@ function template( array $attributes, string $blocks ): string {
 
 	if ( isset( $attributes['anchor'] ) && ! empty( $attributes['anchor'] ) ) {
 		$wrapper_attrs['id'] = esc_attr( $attributes['anchor'] );
+	}
+
+	if ( isset( $attributes['aspectRatio'] ) && ! empty( $attributes['aspectRatio'] ) ) {
+		$wrapper_attrs['style'] = sprintf( '--media-aspect-ratio:%s', $attributes['aspectRatio'] );
 	}
 
 	$wrapper_attributes = get_block_wrapper_attributes( $wrapper_attrs );

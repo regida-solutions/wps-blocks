@@ -10,11 +10,42 @@ import {
 	InspectorControls,
 	RichText,
 } from '@wordpress/block-editor';
-import { Button, FocalPointPicker, PanelBody } from '@wordpress/components';
+import {
+	Button,
+	FocalPointPicker,
+	PanelBody,
+	SelectControl,
+} from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import ServerSideRender from '@wordpress/server-side-render';
 import { dispatch } from '@wordpress/data';
 
+const ASPECT_RATIO = [
+	{
+		value: '',
+		label: __('Default', 'wps-blocks'),
+	},
+	{
+		value: '1/1',
+		label: __('1:1', 'wps-blocks'),
+	},
+	{
+		value: '4/3',
+		label: __('4:3', 'wps-blocks'),
+	},
+	{
+		value: '16/9',
+		label: __('16:9', 'wps-blocks'),
+	},
+	{
+		value: '21/9',
+		label: __('21:9', 'wps-blocks'),
+	},
+	{
+		value: '9/16',
+		label: __('9:16', 'wps-blocks'),
+	},
+];
 function Image({
 	attributes = {},
 	setAttributes,
@@ -23,12 +54,18 @@ function Image({
 	featured = false,
 	focus = true,
 	video = false,
+	hasAspectRatio = false,
 	label = __('Add image', 'wps-prime'),
 }) {
 	if (video) {
 		label = __('Add video', 'wps-prime');
 	}
-	const { media, focalPoint = { x: 0.5, y: 0.5 }, caption } = attributes;
+	const {
+		media,
+		focalPoint = { x: 0.5, y: 0.5 },
+		caption,
+		aspectRatio = '',
+	} = attributes;
 	const setMedia = (newMedia) => {
 		const simplifiedMediaData = {
 			id: newMedia.id,
@@ -127,6 +164,18 @@ function Image({
 											)}
 										/>
 									</MediaUploadCheck>
+									{hasAspectRatio && (
+										<SelectControl
+											headerTitle="Aspect Ratio"
+											value={aspectRatio}
+											options={ASPECT_RATIO}
+											onChange={(value) => {
+												setAttributes({
+													aspectRatio: value,
+												});
+											}}
+										/>
+									)}
 								</>
 							)}
 						</PanelBody>
