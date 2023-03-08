@@ -29,3 +29,22 @@ function filter_block_categories_when_post_provided( array $block_categories, $e
 	}
 	return $block_categories;
 }
+
+add_action( 'admin_bar_menu', __NAMESPACE__ . '\\add_reusable_blocks_link', 999 );
+
+/**
+ * Add a link to the WP Toolbar
+ *
+ * @param \WP_Admin_Bar $wp_admin_bar Admin bar data object.
+ */function add_reusable_blocks_link( \WP_Admin_Bar $wp_admin_bar ): void {
+	$url  = get_admin_url() . 'edit.php?post_type=wp_block';
+	$args = [
+		'id'    => 'wps-blocks-link',
+		'title' => 'Reusable Blocks',
+		'href'  => $url,
+		'meta'  => [
+			'title' => 'Reusable Blocks',
+		],
+	];
+	$wp_admin_bar->add_node( $args );
+}

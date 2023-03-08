@@ -195,3 +195,13 @@ body {
 		background-size: contain;
 	}
 }
+
+.u-hide-mobile {
+	@media screen and (max-width: 1024px) {
+		display: none !important;
+	}
+}
+
+.visually-hidden {
+	display: none;
+}

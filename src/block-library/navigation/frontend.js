@@ -70,7 +70,7 @@ window.addEventListener('load', function () {
 			'.wps-navigation-overlay',
 		);
 
-		if (window.innerWidth < 1024) {
+		if (window.innerWidth <= 1024) {
 			if (!siteNavigationMobile) {
 				const newNav = document.createElement('nav');
 				const navOverlay = document.createElement('div');

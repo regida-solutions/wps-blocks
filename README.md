@@ -168,15 +168,14 @@ function slider_slide_template( $content, $attributes ){
 * Use the Post blocks to automatically pick up the post id and render the correct content
 * Then use the filter below to change the template
 */
-function tradies_query_slider_slide_template( $content, $attributes ) {
+function custom_query_slider_slide_template( $content, $attributes ) {
 		return sprintf('<div class="query-slider-wrapper"><div class="query-slider-container">%s</div></div>',
 				apply_filters('the_content', '<!-- wp:block {"ref": 1308} -->')
 		);
 }
-add_filter( 'query_slider_slide_template', 'tradies_query_slider_slide_template', 11, 2 );
+add_filter( 'query_slider_slide_template', 'custom_query_slider_slide_template', 11, 2 );
 
 ```
-#### Example
 
 
 
