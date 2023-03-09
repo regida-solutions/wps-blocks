@@ -23,13 +23,18 @@ import { SpacingList } from 'components/controls';
 const ALLOWED_BLOCKS = [
 	'core/heading',
 	'core/paragraph',
+	'core/buttons',
 	'core/button',
 	'core/list',
 ];
 const TEMPLATE = [
 	['core/heading', { level: 3, content: __('Title', 'wps-blocks') }],
 	['core/paragraph', { content: __('Description', 'wps-blocks') }],
-	['core/button', { content: __('Button', 'wps-blocks') }],
+	[
+		'core/buttons',
+		{},
+		[['core/button', { content: __('Button', 'wps-blocks') }]],
+	],
 ];
 
 function Edit({
