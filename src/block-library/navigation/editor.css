@@ -1,1 +1,11 @@
-/* editor.css */
+.wps-navigation {
+	background-color: #333;
+	color: #fff;
+	font-weight: 600;
+	padding: 1rem;
+	text-align: center;
+}
+
+.wps-navigation__inner {
+	margin: 0 auto;
+}

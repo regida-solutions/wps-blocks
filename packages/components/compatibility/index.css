@@ -196,9 +196,29 @@ body {
 	}
 }
 
-.u-hide-mobile {
-	@media screen and (max-width: 1024px) {
-		display: none !important;
+*:not(.editor-styles-wrapper) {
+	& .u-hide-mobile {
+		@media screen and (max-width: 1024px) {
+			display: none !important;
+		}
+	}
+
+	& .u-hide-portable {
+		@media screen and (max-width: 1200px) {
+			display: none !important;
+		}
+	}
+
+	& .u-hide-desktop {
+		@media screen and (max-width: 1600px) {
+			display: none !important;
+		}
+	}
+
+	& .u-hide-wide {
+		@media screen and (max-width: 1920px) {
+			display: none !important;
+		}
 	}
 }
 

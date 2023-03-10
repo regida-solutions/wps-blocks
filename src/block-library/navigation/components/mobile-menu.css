@@ -6,12 +6,9 @@
 	background: transparent;
 	border: 0;
 	cursor: pointer;
+	display: none;
 	margin-left: auto;
 	padding: 0.5rem;
-
-	@media (--viewport-desktop) {
-		display: none;
-	}
 
 	& .hamburger,
 	& .hamburger::before,

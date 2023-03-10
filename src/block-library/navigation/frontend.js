@@ -13,6 +13,14 @@ window.addEventListener('load', function () {
 		'.wp-site-blocks footer.wp-block-template-part',
 	);
 
+	// Set mobile breakpoint
+	let displayBreakpoint = 1024;
+	if (desktopNavigationWrapper.dataset.displayBreakpoint) {
+		displayBreakpoint = parseInt(
+			desktopNavigationWrapper.dataset.displayBreakpoint,
+		);
+	}
+
 	/*
 	 * Check if wps-navigation has  data-toggle-location attribute
 	 * This will be used to determine where the toggle button will be placed
@@ -70,10 +78,14 @@ window.addEventListener('load', function () {
 			'.wps-navigation-overlay',
 		);
 
-		if (window.innerWidth <= 1024) {
+		menuToggle.style.display = 'none';
+
+		if (displayBreakpoint >= window.innerWidth) {
+			menuToggle.style.display = 'block';
 			if (!siteNavigationMobile) {
 				const newNav = document.createElement('nav');
 				const navOverlay = document.createElement('div');
+
 				const newToggle = menuToggle.cloneNode(true);
 				navOverlay.classList.add('wps-navigation-overlay');
 				newNav.classList.add('wps-navigation-mobile');
@@ -107,6 +119,6 @@ window.addEventListener('load', function () {
 		clearTimeout(timeout);
 		timeout = setTimeout(function () {
 			runMobileMenu();
-		}, 150);
+		}, 100);
 	});
 });

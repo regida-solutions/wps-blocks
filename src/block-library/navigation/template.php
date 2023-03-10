@@ -11,6 +11,8 @@ namespace WPS\Navigation\Template;
 
 use function WPS\Blocks\Helpers\ClassNames\get_names as get_names;
 
+
+
 /**
  * Render callback template
  *
@@ -18,20 +20,39 @@ use function WPS\Blocks\Helpers\ClassNames\get_names as get_names;
  */
 function template( array $attributes ): string {
 
-	$classes = get_names( [
+	$wrapper_attrs           = [];
+	$navigation_toggle_style = '';
+
+	// Add the class names.
+	$wrapper_attrs['class'] = get_names( [
 		'wps-navigation',
 		! empty( $attributes['className'] ) ? $attributes['className'] : '',
 	] );
 
-	$anchor                 = isset( $attributes['anchor'] ) ? ' id="' . esc_attr( $attributes['anchor'] ) . '"' : '';
-	$custom_toggle_location = isset( $attributes['toggleButtonLocation'] ) ? ' data-toggle-location="' . esc_attr( $attributes['toggleButtonLocation'] ) . '"' : '';
+	// Add the anchor.
+	if ( isset( $attributes['anchor'] ) && ! empty( $attributes['anchor'] ) ) {
+		$wrapper_attrs['id'] = esc_attr( $attributes['anchor'] );
+	}
+
+	// Add the custom toggle location.
+	if ( isset( $attributes['toggleButtonLocation'] ) && ! empty( $attributes['toggleButtonLocation'] ) ) {
+		$wrapper_attrs['data-toggle-location'] = esc_attr( $attributes['toggleButtonLocation'] );
+	}
+
+	// Add the display breakpoint.
+	if ( isset( $attributes['displayBreakpoint'] ) && ! empty( $attributes['displayBreakpoint'] ) ) {
+		$wrapper_attrs['data-display-breakpoint'] = esc_attr( $attributes['displayBreakpoint'] );
+	}
+
+	$wrapper_attributes = get_block_wrapper_attributes( $wrapper_attrs );
 
 	ob_start();
 	?>
-	<nav<?php echo $anchor; //phpcs:ignore ?> class="<?php echo esc_attr( $classes ); ?>"<?php echo $custom_toggle_location; //phpcs:ignore ?>>
+	<nav <?php echo $wrapper_attributes; //phpcs:ignore ?>>
 		<button class="wps-navigation-menu-toggle"
 					aria-controls="primary-navigation"
-					aria-expanded="false">
+					aria-expanded="false"
+		>
 				<span class="visually-hidden">Menu</span>
 				<div class="hamburger" aria-hidden="true"></div>
 		</button>

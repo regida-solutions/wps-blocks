@@ -3,7 +3,7 @@
  */
 import { __ } from '@wordpress/i18n';
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
-import { PanelBody, TextControl } from '@wordpress/components';
+import { PanelBody, TextControl, SelectControl } from '@wordpress/components';
 
 /**
  * External dependencies
@@ -11,9 +11,13 @@ import { PanelBody, TextControl } from '@wordpress/components';
 import classnames from 'classnames';
 
 function Edit({ setAttributes, attributes }) {
-	const { className = '', toggleButtonLocation = '' } = attributes;
+	const {
+		className = '',
+		toggleButtonLocation = '',
+		displayBreakpoint = 1024,
+	} = attributes;
 
-	const classes = classnames([className]);
+	const classes = classnames(['wps-navigation', className]);
 
 	return (
 		<>
@@ -30,9 +34,29 @@ function Edit({ setAttributes, attributes }) {
 						}
 						help={__('ex: custom-mobile-toggle-position')}
 					/>
+					<SelectControl
+						label={__('Switch to mobile menu', 'wps-blocks')}
+						value={displayBreakpoint}
+						help={__(
+							'ex: When choosing mobile menu breakpoint you need to add the same breakpoint value to the container ex. u-hide-portable',
+						)}
+						onChange={(value) =>
+							setAttributes({
+								displayBreakpoint: parseInt(value),
+							})
+						}
+						options={[
+							{ value: 1024, label: 'Mobile' },
+							{ value: 1200, label: 'Portable' },
+							{ value: 1600, label: 'Desktop' },
+							{ value: 1920, label: 'Wide' },
+						]}
+					/>
 				</PanelBody>
 			</InspectorControls>
-			<div {...useBlockProps({ className: classes })}>Navigation</div>
+			<div {...useBlockProps({ className: classes })}>
+				<div className="wps-navigation__inner">Navigation</div>
+			</div>
 		</>
 	);
 }

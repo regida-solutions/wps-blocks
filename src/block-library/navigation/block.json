@@ -21,6 +21,10 @@
 		},
 		"toggleButtonLocation": {
 			"type": "string"
+		},
+		"displayBreakpoint": {
+			"type": "number",
+			"default": 1024
 		}
 	},
 	"style": "file:../../../build/block-library/navigation/style.css",
