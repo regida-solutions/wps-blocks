@@ -10,12 +10,6 @@ import classnames from 'classnames';
 
 function Edit({ attributes }) {
 	const INNER_BLOCKS_TEMPLATE = [['core/paragraph', {}]];
-	const INNER_BLOCKS_ALLOWED_BLOCKS = [
-		'core/heading',
-		'core/paragraph',
-		'core/buttons',
-		'core/button',
-	];
 
 	const { className = '' } = attributes;
 	const classes = classnames('wps-slider-slide', className);
@@ -26,7 +20,6 @@ function Edit({ attributes }) {
 				<InnerBlocks
 					template={INNER_BLOCKS_TEMPLATE}
 					templateLock={false}
-					allowedBlocks={INNER_BLOCKS_ALLOWED_BLOCKS}
 				/>
 			</div>
 		</div>
