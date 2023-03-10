@@ -1,5 +1,5 @@
 /* Editor section */
-[data-type="wps/card"] {
+.wps-card {
 	display: flex;
 	flex-direction: column;
 	height: 100%;
@@ -28,6 +28,13 @@
 	& .wps-card__content.has-content-spacing > .block-editor-inner-blocks > .block-editor-block-list__layout {
 		& > *:first-child {
 			margin-top: 0;
+		}
+	}
+
+	&.has-aspect-ratio {
+		& .wps-card__media img {
+			height: auto;
+			max-width: 100%;
 		}
 	}
 }
