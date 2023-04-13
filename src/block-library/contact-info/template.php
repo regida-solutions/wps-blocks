@@ -95,8 +95,8 @@ function template( array $attributes ): string {
 			} else {
 
 				if ( isset( $item['type'] ) && 'number' === $item['type'] ) {
-					$option = preg_replace( '/[^0-9_+-]/', '', $option );
-					$href   = 'tel:' . $option;
+					$option_sanitized = preg_replace( '/[^0-9+]/', '', $option );
+					$href             = 'tel:' . $option_sanitized;
 				} elseif ( isset( $item['type'] ) && 'email' === $item['type'] ) {
 					$href = 'mailto:' . $option;
 				} else {
