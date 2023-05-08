@@ -21,18 +21,11 @@ use function WPS\Blocks\Helpers\ClassNames\get_names as get_names;
 function template( array $attributes ): string {
 
 	$wrapper_attrs           = [];
-	$navigation_toggle_style = '';
 
 	// Add the class names.
 	$wrapper_attrs['class'] = get_names( [
-		'wps-navigation',
-		! empty( $attributes['className'] ) ? $attributes['className'] : '',
+		'wps-navigation'
 	] );
-
-	// Add the anchor.
-	if ( isset( $attributes['anchor'] ) && ! empty( $attributes['anchor'] ) ) {
-		$wrapper_attrs['id'] = esc_attr( $attributes['anchor'] );
-	}
 
 	// Add the custom toggle location.
 	if ( isset( $attributes['toggleButtonLocation'] ) && ! empty( $attributes['toggleButtonLocation'] ) ) {
@@ -54,7 +47,7 @@ function template( array $attributes ): string {
 					aria-expanded="false"
 		>
 				<span class="visually-hidden">Menu</span>
-				<div class="hamburger" aria-hidden="true"></div>
+				<span class="hamburger" aria-hidden="true"></span>
 		</button>
 		<?php if ( has_nav_menu( 'wps-primary' ) ) : ?>
 			<?php

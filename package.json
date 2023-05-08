@@ -19,31 +19,31 @@
 	},
 	"devDependencies": {
 		"@dekode/stylelint-config": "1.0.2",
-		"@wordpress/eslint-plugin": "14.0.0",
-		"@wordpress/scripts": "^25.4.0",
-		"autoprefixer": "^10.4.13",
-		"browser-sync": "^2.27.12",
+		"@wordpress/eslint-plugin": "14.5.0",
+		"@wordpress/scripts": "^26.3.0",
+		"autoprefixer": "^10.4.14",
+		"browser-sync": "^2.29.1",
 		"browser-sync-webpack-plugin": "^2.3.0",
-		"classnames": "^2.3.1",
+		"classnames": "^2.3.2",
 		"components": "file:packages/components",
 		"css-viewports": "file:packages/components/css-viewports",
-		"cssnano": "5.1.15",
+		"cssnano": "6.0.1",
 		"dotenv": "16.0.3",
 		"eslint-plugin-prettier": "4.2.1",
 		"fast-glob": "3.2.12",
 		"husky": "^8.0.3",
 		"ignore-emit-webpack-plugin": "^2.0.6",
-		"lint-staged": "13.1.2",
-		"postcss": "8.4.21",
-		"postcss-custom-media": "9.1.2",
+		"lint-staged": "13.2.2",
+		"postcss": "8.4.23",
+		"postcss-custom-media": "9.1.3",
 		"postcss-flexbugs-fixes": "5.0.2",
 		"postcss-import": "15.1.0",
 		"postcss-media-minmax": "5.0.0",
 		"postcss-mixins": "9.0.4",
-		"postcss-nested": "6.0.0",
-		"prettier": "2.8.4",
+		"postcss-nested": "6.0.1",
+		"prettier": "2.8.8",
 		"resolve-url-loader": "5.0.0",
-		"webpack-remove-empty-scripts": "1.0.1"
+		"webpack-remove-empty-scripts": "1.0.3"
 	},
 	"scripts": {
 		"build": "wp-scripts build",
@@ -67,8 +67,8 @@
 		]
 	},
 	"dependencies": {
-		"@wordpress/icons": "^9.18.0",
-		"accordion-js": "^3.3.2",
-		"swiper": "^8.4.5"
+		"@wordpress/icons": "^9.23.0",
+		"accordion-js": "^3.3.4",
+		"swiper": "^9.3.0"
 	}
 }

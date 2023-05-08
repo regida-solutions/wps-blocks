@@ -30,10 +30,6 @@ function template( array $attributes, string $blocks ): string {
 		'class' => $classes,
 	];
 
-	if ( isset( $attributes['anchor'] ) && ! empty( $attributes['anchor'] ) ) {
-		$wrapper_attrs['id'] = esc_attr( $attributes['anchor'] );
-	}
-
 	if ( isset( $attributes['contentWidth'] ) && ! empty( $attributes['contentWidth'] ) ) {
 		$wrapper_attrs['style'] = '--media-banner-content-width:' . esc_attr( $attributes['contentWidth'] ) . '%;';
 	}

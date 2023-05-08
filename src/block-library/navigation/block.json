@@ -9,7 +9,21 @@
 	"supports": {
 		"anchor": true,
 		"html": false,
-		"align": []
+		"align": ["wide", "full"],
+		"color": {
+			"background": true,
+			"text": false,
+			"link": true,
+			"gradients": false
+		},
+		"spacing": {
+			"margin": true,
+			"padding": true,
+			"blockGap": true
+		},
+		"typography": {
+			"fontSize": true
+		}
 	},
 	"keywords": ["menu" ,"navigation"],
 	"attributes": {
@@ -27,6 +41,10 @@
 			"default": 1024
 		}
 	},
+	"styles": [
+		{ "name": "default", "label": "Default", "isDefault": true },
+		{ "name": "underline", "label": "Underline" }
+	],
 	"style": "file:../../../build/block-library/navigation/style.css",
 	"viewScript": "file:../../../build/block-library/navigation/frontend.js",
 	"editorStyle": "file:../../../build/block-library/navigation/editor.css",

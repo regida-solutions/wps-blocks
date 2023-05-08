@@ -2,6 +2,7 @@
  * Internal dependencies
  */
 import createMenuToggle from './components/menu-toggle';
+
 window.addEventListener('load', function () {
 	const body = document.body;
 	const menuToggle = document.querySelector('.wps-navigation-menu-toggle');
@@ -89,6 +90,20 @@ window.addEventListener('load', function () {
 				const newToggle = menuToggle.cloneNode(true);
 				navOverlay.classList.add('wps-navigation-overlay');
 				newNav.classList.add('wps-navigation-mobile');
+
+				const navClasses = desktopNavigationWrapper.classList.values();
+				if (desktopNavigationWrapper.style.backgroundColor) {
+					newNav.style.backgroundColor =
+						desktopNavigationWrapper.style.backgroundColor;
+				}
+
+				for (const cssClass of navClasses) {
+					if (
+						cssClass !== 'wps-navigation' &&
+						cssClass !== 'wps-navigation--mobile'
+					)
+						newNav.classList.add(cssClass);
+				}
 
 				mainNavigation.remove();
 				siteHeader.after(newNav);

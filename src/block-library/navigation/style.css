@@ -5,8 +5,8 @@
 .wps-navigation,
 .wps-navigation-mobile {
 	--hamburger-color: currentColor;
+	--menu-transition: 0.3s;
 
-	display: flex;
 	height: 100%;
 
 	& .visually-hidden {
@@ -20,8 +20,8 @@
 	}
 
 	& .menu-item a {
-		color: var(--menu-color);
 		text-decoration: none;
+		transition: all var(--menu-transition) ease 0s;
 	}
 
 	& ul {
@@ -40,5 +40,64 @@
 
 		}
 	}
+}
 
+.wps-navigation-mobile {
+	display: flex;
+
+	@media (--viewport-desktop) {
+		display: none;
+	}
+}
+
+.wps-navigation {
+	display: none;
+
+	@media (--viewport-desktop) {
+		display: block;
+	}
+
+	&.is-style-underline {
+		& .sub-menu .menu-item a::after {
+			width: 0;
+		}
+
+		& .menu-item.current-menu-item > a::after,
+		& .menu-item.current-menu-ancestor > a::after {
+			width: 100%;
+		}
+
+		& .sub-menu .menu-item a::after,
+		& .menu-item.current-menu-item > a::after,
+		& .menu-item.current-menu-ancestor > a::after {
+			background-color: currentColor;
+			bottom: 0;
+			content: "";
+			height: 2px;
+			left: 0;
+			position: absolute;
+			transition: all var(--menu-transition) ease 0s;
+		}
+
+		& .sub-menu .menu-item:hover a::after {
+			width: 100%;
+		}
+	}
+
+	& .wps-navigation-menu {
+		margin: 0 auto;
+	}
+
+	&.alignfull {
+		& .wps-navigation-menu {
+			max-width: calc(var(--wp--style--global--wide-size) + var(--wp--style--root--padding-right) + var(--wp--style--root--padding-left));
+		}
+	}
+
+}
+
+.wps-navigation:not(.is-style-underline) {
+	& .menu-item a {
+		color: var(--menu-color);
+	}
 }
