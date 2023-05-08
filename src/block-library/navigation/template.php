@@ -20,11 +20,11 @@ use function WPS\Blocks\Helpers\ClassNames\get_names as get_names;
  */
 function template( array $attributes ): string {
 
-	$wrapper_attrs           = [];
+	$wrapper_attrs = [];
 
 	// Add the class names.
 	$wrapper_attrs['class'] = get_names( [
-		'wps-navigation'
+		'wps-navigation',
 	] );
 
 	// Add the custom toggle location.
