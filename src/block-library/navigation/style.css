@@ -74,7 +74,7 @@
 		& .menu-item.current-menu-item:not(.call-to-action) > a::after,
 		& .menu-item.current-menu-ancestor:not(.call-to-action) > a::after {
 			background-color: currentColor;
-			bottom: 0;
+			bottom: 2px;
 			content: "";
 			height: 2px;
 			left: 0;
