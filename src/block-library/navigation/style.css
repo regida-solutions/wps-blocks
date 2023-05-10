@@ -90,13 +90,6 @@
 	& .wps-navigation-menu {
 		margin: 0 auto;
 	}
-
-	&.alignfull {
-		& .wps-navigation-menu {
-			max-width: calc(var(--wp--style--global--wide-size) + var(--wp--style--root--padding-right) + var(--wp--style--root--padding-left));
-		}
-	}
-
 }
 
 .wps-navigation:not(.is-style-underline) {

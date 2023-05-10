@@ -9,7 +9,7 @@
 	"supports": {
 		"anchor": true,
 		"html": false,
-		"align": ["wide", "full"],
+		"align": ["full", "wide"],
 		"color": {
 			"background": true,
 			"text": false,

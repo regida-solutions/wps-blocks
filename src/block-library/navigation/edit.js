@@ -35,7 +35,10 @@ function Edit({ setAttributes, attributes }) {
 						help={__('ex: custom-mobile-toggle-position')}
 					/>
 					<SelectControl
-						label={__('Switch to mobile menu', 'wps-blocks')}
+						label={__(
+							'Switch to mobile menu breakpoint',
+							'wps-blocks',
+						)}
 						value={displayBreakpoint}
 						help={__(
 							'ex: When choosing mobile menu breakpoint you need to add the same breakpoint value to the container ex. u-hide-portable',
