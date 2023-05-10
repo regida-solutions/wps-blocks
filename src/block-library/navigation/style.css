@@ -59,7 +59,7 @@
 	}
 
 	&.is-style-underline {
-		--menu-item-padding: 0.5rem 1rem;
+		--menu-item-padding: 0.8rem 1rem;
 
 		& .sub-menu .menu-item a::after {
 			width: 0;
