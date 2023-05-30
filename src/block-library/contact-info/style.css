@@ -1,9 +1,9 @@
-.wps-contact-info {
-	display: block;
-}
-
 .wps-contact-info__list,
 [data-type="wps/contact-info"] .wps-contact-info__list {
+	column-gap: 1rem;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
@@ -23,5 +23,25 @@
 
 	& a {
 		text-decoration: none;
+	}
+}
+
+.wps-contact-info {
+	&.is-style-horizontal {
+		& .wps-contact-info__list {
+			flex-direction: row;
+		}
+
+		&.has-text-align-center {
+			& .wps-contact-info__list {
+				justify-content: center;
+			}
+		}
+
+		&.has-text-align-right {
+			& .wps-contact-info__list {
+				justify-content: flex-end;
+			}
+		}
 	}
 }

@@ -34,6 +34,9 @@
 	},
 	"keywords": ["Contact", "Info", "Phone", "Email"],
 	"attributes": {
+		"textAlign": {
+			"type": "string"
+		},
 		"anchor": {
 			"type": "string"
 		},
@@ -61,6 +64,10 @@
 			"type": "boolean"
 		}
 	},
+	"styles": [
+		{ "name": "default", "label": "Vertical", "isDefault": true },
+		{ "name": "horizontal", "label": "Horizontal" }
+	],
 	"style": "file:../../../build/block-library/contact-info/style.css",
 	"editorScript": "file:../../../build/block-library/contact-info/index.js"
 }

@@ -48,9 +48,18 @@ function template( array $attributes ): string {
 		$phone_number = $custom_phone_number;
 	}
 
-	$message = isset( $attributes['message'] ) ? $attributes['message'] : __( 'Hello', 'wps-blocks' );
-	$number  = $phone_number ? preg_replace( '/[^0-9_+-]/', '', $phone_number ) : '';
-	$url     = 'https://wa.me/' . $number . '?text=' . rawurlencode( $message );
+	$default_message = isset( $plugin_settings['message_platform'] ) ? $plugin_settings['message_platform'] : false;
+	$custom_message  = isset( $attributes['message'] ) ? $attributes['message'] : false;
+	$message         = __( 'Hello', 'wps-blocks' );
+
+	if ( $default_message && ! $custom_message ) {
+		$message = $default_message;
+	} elseif ( $custom_message ) {
+		$message = $custom_message;
+	}
+
+	$number = $phone_number ? preg_replace( '/[^0-9_+-]/', '', $phone_number ) : '';
+	$url    = 'https://wa.me/' . $number . '?text=' . rawurlencode( $message );
 
 	$svg = get_icon( 'whatsapp' );
 

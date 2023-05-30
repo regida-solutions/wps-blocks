@@ -16,6 +16,7 @@ const ContactInfoSettings = () => {
 			phone_nr: '',
 			phone_nr_second: '',
 			phone_nr_platform: '',
+			message_platform: '',
 			email_address: '',
 			email_address_second: '',
 		},
@@ -76,6 +77,27 @@ const ContactInfoSettings = () => {
 			/>
 			<p>
 				<small>Number used for whatsapp.</small>
+			</p>
+			<TextControl
+				label="Whatsapp default message"
+				placeholder="Hello"
+				value={contactInfo?.message_platform}
+				onChange={(value) => {
+					const newSettings = {
+						...options.wps_blocks_contact_info,
+						message_platform: value,
+					};
+					setOptions({
+						...options,
+						wps_blocks_contact_info: newSettings,
+					});
+				}}
+			/>
+			<p>
+				<small>
+					The message that is automatically shows up when someone
+					click the whatsapp button.
+				</small>
 			</p>
 			<TextControl
 				label="Email"

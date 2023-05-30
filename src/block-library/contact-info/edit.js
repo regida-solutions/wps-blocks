@@ -1,7 +1,12 @@
 /**
  * WordPress dependencies
  */
-import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
+import {
+	InspectorControls,
+	useBlockProps,
+	AlignmentControl,
+	BlockControls,
+} from '@wordpress/block-editor';
 import { PanelBody, Disabled, ToggleControl } from '@wordpress/components';
 import ServerSideRender from '@wordpress/server-side-render';
 import { __ } from '@wordpress/i18n';
@@ -15,10 +20,21 @@ function Edit({ attributes, setAttributes }) {
 		showEmailTwo,
 		enableUrl,
 		enableIcon,
+		textAlign,
 	} = attributes;
 
 	return (
 		<>
+			<BlockControls group="block">
+				<AlignmentControl
+					value={textAlign}
+					onChange={(newAlign) =>
+						setAttributes({
+							textAlign: newAlign,
+						})
+					}
+				/>
+			</BlockControls>
 			<InspectorControls>
 				<PanelBody
 					title={__('Settings', 'wps-blocks')}

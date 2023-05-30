@@ -32,6 +32,7 @@ function register_plugin_settings(): void {
 						'phone_nr'             => [ 'type' => 'string' ],
 						'phone_nr_second'      => [ 'type' => 'string' ],
 						'phone_nr_platform'    => [ 'type' => 'string' ],
+						'message_platform'     => [ 'type' => 'string' ],
 						'email_address'        => [ 'type' => 'string' ],
 						'email_address_second' => [ 'type' => 'string' ],
 					],

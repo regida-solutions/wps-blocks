@@ -23,6 +23,7 @@ function template( array $attributes ): string {
 		isset( $attributes['className'] ) ? esc_attr( $attributes['className'] ) : '',
 		! empty( $attributes['enableIcon'] ) ? 'has-icon' : '',
 		! empty( $attributes['enableUrl'] ) ? 'has-link' : '',
+		! empty( $attributes['textAlign'] ) ? 'has-text-align-' . esc_attr( $attributes['textAlign'] ) : '',
 	]);
 
 	$contact_options = [];
