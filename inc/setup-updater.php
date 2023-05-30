@@ -146,4 +146,3 @@ function plugin_after_update( \WP_Upgrader $upgrader_object, array $options ): v
 		delete_transient( 'wps_blocks_upgrade_' . WPS_BLOCKS_PLUGIN_SLUG );
 	}
 }
-
