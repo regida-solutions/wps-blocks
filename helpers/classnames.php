@@ -33,4 +33,3 @@ function get_names( array $class_list, bool $start_space = false ): string {
 	$classes = implode( ' ', $classes );
 	return $start . $classes;
 }
-

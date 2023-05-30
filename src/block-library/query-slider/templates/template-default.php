@@ -62,4 +62,3 @@ function item_template( \WP_QUERY $slider_query, array $attributes = [], string 
 }
 
 add_filter( 'query_slider_template', __NAMESPACE__ . '\\item_template', 10, 3 );
-

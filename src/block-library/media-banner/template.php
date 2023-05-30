@@ -93,4 +93,3 @@ function block_frontend_template(): string {
 }
 
 add_filter( 'render_callback_media-banner', __NAMESPACE__ . '\\block_frontend_template' );
-
