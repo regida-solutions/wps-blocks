@@ -62,11 +62,11 @@ function template( array $attributes ): string {
 	if ( ! empty( $plugin_settings ) ) {
 		// Map old settings to new settings.
 		$settings = [
-			'wps_phone_nr'             => $plugin_settings['phone_nr'] ? $plugin_settings['phone_nr'] : '',
-			'wps_phone_nr_second'      => $plugin_settings['phone_nr_second'] ? $plugin_settings['phone_nr_second'] : '',
-			'wps_phone_nr_platform'    => $plugin_settings['phone_nr_platform'] ? $plugin_settings['phone_nr_platform'] : '',
-			'wps_email_address'        => $plugin_settings['email_address'] ? $plugin_settings['email_address'] : '',
-			'wps_email_address_second' => $plugin_settings['email_address_second'] ? $plugin_settings['email_address_second'] : '',
+			'wps_phone_nr'             => isset( $plugin_settings['phone_nr'] ) ? $plugin_settings['phone_nr'] : '',
+			'wps_phone_nr_second'      => isset( $plugin_settings['phone_nr_second'] ) ? $plugin_settings['phone_nr_second'] : '',
+			'wps_phone_nr_platform'    => isset( $plugin_settings['phone_nr_platform'] ) ? $plugin_settings['phone_nr_platform'] : '',
+			'wps_email_address'        => isset( $plugin_settings['email_address'] ) ? $plugin_settings['email_address'] : '',
+			'wps_email_address_second' => isset( $plugin_settings['email_address_second'] ) ? $plugin_settings['email_address_second'] : '',
 		];
 	}
 
