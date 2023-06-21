@@ -52,12 +52,6 @@
 }
 
 .wps-navigation {
-	display: none;
-
-	@media (--viewport-desktop) {
-		display: block;
-	}
-
 	&.is-style-underline {
 		--menu-item-padding: 0.8rem 1rem;
 
