@@ -52,6 +52,23 @@
 }
 
 .wps-navigation {
+	&.wps-navigation--custom-toggle {
+		display: none;
+
+		@media (--viewport-desktop) {
+			display: block;
+		}
+	}
+
+	& .wps-navigation-menu {
+		display: none;
+		margin: 0 auto;
+
+		@media (--viewport-desktop) {
+			display: flex;
+		}
+	}
+
 	&.is-style-underline {
 		--menu-item-padding: 0.8rem 1rem;
 
@@ -79,10 +96,6 @@
 		& .sub-menu .menu-item:hover a::after {
 			width: 100%;
 		}
-	}
-
-	& .wps-navigation-menu {
-		margin: 0 auto;
 	}
 }
 

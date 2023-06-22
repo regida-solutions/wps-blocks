@@ -3,7 +3,12 @@
  */
 import { __ } from '@wordpress/i18n';
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
-import { PanelBody, TextControl, SelectControl } from '@wordpress/components';
+import {
+	PanelBody,
+	TextControl,
+	SelectControl,
+	ToggleControl,
+} from '@wordpress/components';
 
 /**
  * External dependencies
@@ -14,6 +19,7 @@ function Edit({ setAttributes, attributes }) {
 	const {
 		className = '',
 		toggleButtonLocation = '',
+		customToggleButton = false,
 		displayBreakpoint = 1024,
 	} = attributes;
 
@@ -26,6 +32,15 @@ function Edit({ setAttributes, attributes }) {
 					title={__('Settings', 'wps-blocks')}
 					initialOpen={true}
 				>
+					<ToggleControl
+						label="Enable custom toggle button"
+						checked={customToggleButton}
+						onChange={() => {
+							setAttributes({
+								customToggleButton: !customToggleButton,
+							});
+						}}
+					/>
 					<TextControl
 						label={__('Toggle target class', 'wps-blocks')}
 						value={toggleButtonLocation}

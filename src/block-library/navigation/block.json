@@ -33,6 +33,9 @@
 		"menuId": {
 			"type": "string"
 		},
+		"customToggleButton": {
+			"type": "boolean"
+		},
 		"toggleButtonLocation": {
 			"type": "string"
 		},
