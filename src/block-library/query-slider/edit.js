@@ -55,6 +55,8 @@ function Edit({ setAttributes, attributes }) {
 		slidesPerView,
 		enableLink,
 		hideNavigation,
+		multirow,
+		multirowPerColumn,
 	} = attributes;
 
 	const {
@@ -173,6 +175,14 @@ function Edit({ setAttributes, attributes }) {
 						}}
 					/>
 
+					<ToggleControl
+						label="Multirow"
+						checked={multirow}
+						onChange={() => {
+							setAttributes({ multirow: !multirow });
+						}}
+					/>
+
 					<TextControl
 						label={__('Autoplay delay between slides transition')}
 						help={__(
@@ -229,6 +239,13 @@ function Edit({ setAttributes, attributes }) {
 							value={perPage}
 							max={99}
 							min={-1}
+							help={
+								multirow
+									? __(
+											'Multirow will show 3 items per line, so make sure you have enough items enabled to fill the whole slider ',
+									  )
+									: ''
+							}
 						/>
 					</BaseControl>
 					<BaseControl
@@ -236,7 +253,11 @@ function Edit({ setAttributes, attributes }) {
 						__nextHasNoMarginBottom={true}
 					>
 						<NumberControl
-							label={__('Posts to show at one time')}
+							label={
+								multirow
+									? __('Columns to show (multirow setup)')
+									: __('Posts to show at one time')
+							}
 							help={__(
 								'When there are multiple items per slide the loop continuously and animation type will not be available.',
 							)}
@@ -258,6 +279,25 @@ function Edit({ setAttributes, attributes }) {
 							min={-1}
 						/>
 					</BaseControl>
+					{multirow && (
+						<BaseControl
+							id="cfs-speakers-multirow-per-column"
+							__nextHasNoMarginBottom={true}
+						>
+							<NumberControl
+								label={__('Items to show per column')}
+								onChange={(number) => {
+									setAttributes({
+										multirowPerColumn: parseInt(number),
+									});
+								}}
+								step={1}
+								value={multirowPerColumn}
+								max={12}
+								min={2}
+							/>
+						</BaseControl>
+					)}
 				</PanelBody>
 				<PanelBody title={__('Post settings')} initialOpen={false}>
 					<SelectControl

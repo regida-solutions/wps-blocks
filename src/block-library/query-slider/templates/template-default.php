@@ -20,6 +20,8 @@ use function WPS\Blocks\Helpers\Image\render_image as render_image;
  */
 function item_template( \WP_QUERY $slider_query, array $attributes = [], string $content = '' ): string {
 
+	$count = 0;
+
 	// Create a WordPress loop using $slider query.
 	while ( $slider_query->have_posts() ) {
 		$slider_query->the_post();
@@ -37,20 +39,51 @@ function item_template( \WP_QUERY $slider_query, array $attributes = [], string 
 			$link_wrapper_end   = '</a>';
 		}
 
-		$slide_content = sprintf(
-			'<div class="query-slider-wrapper">' .
-			'<div class="query-slider-container">' .
-			'<div class="query-slider-media">%s</div>' .
-			'<div class="query-slider-content">' .
-			'<h4 class="query-slider__title">%s</h4>' .
-			'<div class="query-slider__excerpt">%s</div>' .
-			'</div>' .
-			'</div>' .
-			'</div>',
-			$link_wrapper_start . render_image( $image_attributes ) . $link_wrapper_end,
-			$link_wrapper_start . get_the_title() . $link_wrapper_end,
-			get_the_excerpt()
-		);
+		$slide_content = '';
+
+		if ( isset( $attributes['multirow'] ) && ! empty( $attributes['multirow'] ) ) {
+			$items_per_column = isset( $attributes['multirowPerColumn'] ) ? (int) $attributes['multirowPerColumn'] : 3;
+
+			// If the number of items per column is 3, then we need to subtract 1 from the total number of items per column.
+			$items_per_column = $items_per_column - 1;
+
+			if ( $count === 0 ) {
+				$slide_content .= '<div class="query-slider-wrapper"><div class="query-slider-container">';
+			}
+
+			$slide_content .= sprintf(
+				'<div class="query-slider-media">%s</div>' .
+				'<div class="query-slider-content">' .
+				'<h4 class="query-slider__title">%s</h4>' .
+				'<div class="query-slider__excerpt">%s</div>' .
+				'</div>',
+				$link_wrapper_start . render_image( $image_attributes ) . $link_wrapper_end,
+				$link_wrapper_start . get_the_title() . $link_wrapper_end,
+				get_the_excerpt()
+			);
+
+			if ( $count === $items_per_column ) {
+				$slide_content .= '</div></div>';
+				$count          = 0;
+			} else {
+				++$count;
+			}
+		} else {
+			$slide_content .= sprintf(
+				'<div class="query-slider-wrapper">' .
+				'<div class="query-slider-container">' .
+				'<div class="query-slider-media">%s</div>' .
+				'<div class="query-slider-content">' .
+				'<h4 class="query-slider__title">%s</h4>' .
+				'<div class="query-slider__excerpt">%s</div>' .
+				'</div>' .
+				'</div>' .
+				'</div>',
+				$link_wrapper_start . render_image( $image_attributes ) . $link_wrapper_end,
+				$link_wrapper_start . get_the_title() . $link_wrapper_end,
+				get_the_excerpt()
+			);
+		}
 
 		$content .= sprintf(
 			'<div class="swiper-slide">%s</div>',

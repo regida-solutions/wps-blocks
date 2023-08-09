@@ -46,15 +46,21 @@ function generate_query( array $attributes ): \WP_Query {
 
 	/* Taxonomy query */
 	if ( ! empty( $attributes['query']['taxQuery'] ) ) {
-		$query_args['tax_query'] = [
-			'relation' => 'AND',
-		];
-		foreach ( $attributes['query']['taxQuery'] as $taxonomy => $terms ) {
-			$query_args['tax_query'][] = [
-				'taxonomy' => $taxonomy,
-				'field'    => 'term_id',
-				'terms'    => $terms,
+
+		// make sure the term array is not empty.
+		$filtered = array_filter( $attributes['query']['taxQuery'] );
+		if ( ! empty( $filtered ) ) {
+
+			$query_args['tax_query'] = [
+				'relation' => 'AND',
 			];
+			foreach ( $attributes['query']['taxQuery'] as $taxonomy => $terms ) {
+				$query_args['tax_query'][] = [
+					'taxonomy' => $taxonomy,
+					'field'    => 'term_id',
+					'terms'    => $terms,
+				];
+			}
 		}
 	}
 

@@ -29,7 +29,7 @@ function template( array $attributes ): string {
 		'wps-query-slider',
 		'swiper',
 		'has-template-default',
-		! empty( $attributes['query']['postType'] ) ? 'post-type-' . $attributes['query']['postType'] : 'post-type-post',
+		! empty( $attributes['query']['postType'] ) ? 'has-post-type-' . $attributes['query']['postType'] : 'has-post-type-post',
 		! empty( $attributes['className'] ) ? $attributes['className'] : '',
 	]);
 
@@ -80,9 +80,20 @@ function template( array $attributes ): string {
 		$classes[] = 'has-link-enabled';
 	}
 
+	if ( isset( $attributes['multirow'] ) && ! empty( $attributes['multirow'] ) ) {
+		$classes[] = 'has-multirow-enabled';
+
+		if ( isset( $attributes['multirowPerColumn'] ) && ! empty( $attributes['multirowPerColumn'] ) ) {
+			$classes[] = 'has-per-column-' . esc_attr( (int) $attributes['multirowPerColumn'] );
+		}
+	}
+
 	$wrapper_attrs['class'] = get_names( $classes );
 	$slider_query           = generate_query( $attributes );
-	$slides                 = apply_filters( 'query_slider_template', $slider_query, $attributes, '' );
+	$default_slides         = apply_filters( 'query_slider_template', $slider_query, $attributes, '' );
+	$custom_slides          = apply_filters( 'query_slider_template_' . $attributes['query']['postType'], $slider_query, $attributes, '' );
+
+	$slides = $custom_slides ? $custom_slides : $default_slides;
 
 	return sprintf(
 		'<div %s>' .

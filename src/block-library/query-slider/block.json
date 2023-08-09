@@ -71,6 +71,13 @@
 		"enableLink": {
 			"type": "boolean"
 		},
+		"multirow": {
+			"type": "boolean"
+		},
+		"multirowPerColumn": {
+			"type": "number",
+			"default": 3
+		},
 		"providesContext": {
 			"queryId": "queryId",
 			"query": "query",

@@ -23,7 +23,7 @@ import { dispatch, useSelect } from '@wordpress/data';
  * External dependencies
  */
 import classnames from 'classnames';
-const { isEmpty } = lodash; //eslint-disable-line no-undef
+import { isEmpty } from 'lodash';
 
 const innerBlockName = 'wps/media-slider-slide';
 
