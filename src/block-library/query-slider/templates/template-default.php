@@ -45,9 +45,9 @@ function item_template( \WP_QUERY $slider_query, array $attributes = [], string 
 			$items_per_column = isset( $attributes['multirowPerColumn'] ) ? (int) $attributes['multirowPerColumn'] : 3;
 
 			// If the number of items per column is 3, then we need to subtract 1 from the total number of items per column.
-			$items_per_column = $items_per_column - 1;
+			--$items_per_column;
 
-			if ( $count === 0 ) {
+			if ( 0 === $count ) {
 				$slide_content .= '<div class="query-slider-wrapper"><div class="query-slider-container">';
 			}
 
