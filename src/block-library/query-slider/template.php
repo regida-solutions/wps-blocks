@@ -90,10 +90,12 @@ function template( array $attributes ): string {
 
 	$wrapper_attrs['class'] = get_names( $classes );
 	$slider_query           = generate_query( $attributes );
-	$default_slides         = apply_filters( 'query_slider_template', $slider_query, $attributes, '' );
-	$custom_slides          = apply_filters( 'query_slider_template_' . $attributes['query']['postType'], $slider_query, $attributes, '' );
 
-	$slides = $custom_slides ? $custom_slides : $default_slides;
+	if ( has_filter( 'query_slider_template_' . $attributes['query']['postType'] ) ) {
+		$slides = apply_filters( 'query_slider_template_' . $attributes['query']['postType'], $slider_query, $attributes, '' );
+	} else {
+		$slides = apply_filters( 'query_slider_template', $slider_query, $attributes, '' );
+	}
 
 	return sprintf(
 		'<div %s>' .
