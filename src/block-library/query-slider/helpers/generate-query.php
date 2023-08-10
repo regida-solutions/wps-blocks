@@ -13,8 +13,10 @@ namespace WPS\QuerySlider\Helper\GenerateQuery;
  * Get query
  *
  * @param array $attributes Block attributes.
+ *
+ * @return array
  */
-function generate_query( array $attributes ): \WP_Query {
+function generate_query( array $attributes ): array {
 
 	$query_args = [
 		'post_status'    => 'publish',
@@ -44,6 +46,11 @@ function generate_query( array $attributes ): \WP_Query {
 		$query_args['posts_per_page'] = $attributes['query']['perPage'];
 	}
 
+	// If is randomized ignore the posts per page.
+	if ( isset( $attributes['randomize'] ) ) {
+		$query_args['posts_per_page'] = -1;
+	}
+
 	/* Taxonomy query */
 	if ( ! empty( $attributes['query']['taxQuery'] ) ) {
 
@@ -64,5 +71,17 @@ function generate_query( array $attributes ): \WP_Query {
 		}
 	}
 
-	return new \WP_Query( $query_args );
+	$query = new \WP_Query( $query_args );
+	$posts = $query->posts;
+
+	// If randomize is set, randomize the posts.
+	if ( isset( $attributes['randomize'] ) ) {
+		shuffle( $posts );
+		// If posts per page are set, slice the array.
+		if ( ! empty( $attributes['query']['postsPerPage'] ) ) {
+			$posts = array_slice( $posts, 0, $attributes['query']['postsPerPage'] );
+		}
+	}
+
+	return $posts;
 }

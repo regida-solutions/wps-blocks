@@ -52,6 +52,7 @@ function Edit({ setAttributes, attributes }) {
 		animationType,
 		pagination,
 		query,
+		randomize,
 		slidesPerView,
 		enableLink,
 		hideNavigation,
@@ -161,6 +162,9 @@ function Edit({ setAttributes, attributes }) {
 
 					<ToggleControl
 						label="Hide navigation arrows"
+						help={
+							"Don't display the slider navigation left and right arrows"
+						}
 						checked={hideNavigation}
 						onChange={() => {
 							setAttributes({ hideNavigation: !hideNavigation });
@@ -169,6 +173,7 @@ function Edit({ setAttributes, attributes }) {
 
 					<ToggleControl
 						label="Enable Link"
+						help={'Allow user to visit the single page'}
 						checked={enableLink}
 						onChange={() => {
 							setAttributes({ enableLink: !enableLink });
@@ -176,7 +181,17 @@ function Edit({ setAttributes, attributes }) {
 					/>
 
 					<ToggleControl
+						label="Randomize"
+						help={'Randomize slides order'}
+						checked={randomize}
+						onChange={() => {
+							setAttributes({ randomize: !randomize });
+						}}
+					/>
+
+					<ToggleControl
 						label="Multirow"
+						help={'Show multiple rows per slide'}
 						checked={multirow}
 						onChange={() => {
 							setAttributes({ multirow: !multirow });

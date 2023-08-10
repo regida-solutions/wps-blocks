@@ -78,6 +78,9 @@
 			"type": "number",
 			"default": 3
 		},
+		"randomize": {
+			"type": "boolean"
+		},
 		"providesContext": {
 			"queryId": "queryId",
 			"query": "query",

@@ -14,20 +14,23 @@ use function WPS\Blocks\Helpers\Image\render_image as render_image;
 /**
  * Item template
  *
- * @param \WP_QUERY $slider_query Current Query.
- * @param array     $attributes Block attributes.
- * @param string    $content Block content.
+ * @param array  $posts Current Query.
+ * @param array  $attributes Block attributes.
+ * @param string $content Block content.
  */
-function item_template( \WP_QUERY $slider_query, array $attributes = [], string $content = '' ): string {
+function item_template( array $posts, array $attributes = [], string $content = '' ): string {
+
+	if ( empty( $posts ) ) {
+		return '';
+	}
 
 	$count = 0;
 
 	// Create a WordPress loop using $slider query.
-	while ( $slider_query->have_posts() ) {
-		$slider_query->the_post();
+	foreach ( $posts as $post ) {
 
 		$image_attributes = [
-			'id'   => get_post_thumbnail_id( get_the_ID() ),
+			'id'   => get_post_thumbnail_id( $post->ID ),
 			'size' => 'large',
 		];
 
@@ -35,7 +38,7 @@ function item_template( \WP_QUERY $slider_query, array $attributes = [], string 
 		$link_wrapper_end   = '';
 
 		if ( isset( $attributes['enableLink'] ) && ! empty( $attributes['enableLink'] ) ) {
-			$link_wrapper_start = '<a href="' . get_the_permalink() . '">';
+			$link_wrapper_start = '<a href="' . get_the_permalink( $post->ID ) . '">';
 			$link_wrapper_end   = '</a>';
 		}
 
@@ -58,8 +61,8 @@ function item_template( \WP_QUERY $slider_query, array $attributes = [], string 
 				'<div class="query-slider__excerpt">%s</div>' .
 				'</div>',
 				$link_wrapper_start . render_image( $image_attributes ) . $link_wrapper_end,
-				$link_wrapper_start . get_the_title() . $link_wrapper_end,
-				get_the_excerpt()
+				$link_wrapper_start . get_the_title( $post->ID ) . $link_wrapper_end,
+				get_the_excerpt( $post->ID )
 			);
 
 			if ( $count === $items_per_column ) {
@@ -80,8 +83,8 @@ function item_template( \WP_QUERY $slider_query, array $attributes = [], string 
 				'</div>' .
 				'</div>',
 				$link_wrapper_start . render_image( $image_attributes ) . $link_wrapper_end,
-				$link_wrapper_start . get_the_title() . $link_wrapper_end,
-				get_the_excerpt()
+				$link_wrapper_start . get_the_title( $post->ID ) . $link_wrapper_end,
+				get_the_excerpt( $post->ID )
 			);
 		}
 
