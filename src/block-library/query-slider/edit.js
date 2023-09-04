@@ -132,12 +132,6 @@ function Edit({ setAttributes, attributes }) {
 			<InspectorControls>
 				<PanelBody title={__('Slider Settings')} initialOpen={false}>
 					<ToggleControl
-						disabled={slidesPerView > 1}
-						help={
-							slidesPerView > 1
-								? 'Not compatible when there are multiple items per slide'
-								: ''
-						}
 						label="Loop slides continuously"
 						checked={loopSlides}
 						onChange={() => {
@@ -194,7 +188,11 @@ function Edit({ setAttributes, attributes }) {
 						help={'Show multiple rows per slide'}
 						checked={multirow}
 						onChange={() => {
-							setAttributes({ multirow: !multirow });
+							const multi = !multirow;
+							setAttributes({ multirow: multi });
+							if (multi) {
+								setAttributes({ animationType: '' });
+							}
 						}}
 					/>
 
@@ -220,12 +218,8 @@ function Edit({ setAttributes, attributes }) {
 						type="number"
 					/>
 					<SelectControl
-						disabled={slidesPerView > 1}
-						help={
-							slidesPerView > 1
-								? 'Not compatible when there are multiple items per slide'
-								: ''
-						}
+						disabled={multirow}
+						help={multirow ? 'Not compatible with multirow' : ''}
 						label={__('Animation type')}
 						value={animationType}
 						onChange={(value) =>
