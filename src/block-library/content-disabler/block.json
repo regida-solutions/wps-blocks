@@ -1,0 +1,18 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "wps/content-disabler",
+	"title": "Content disabler",
+	"description": "Hide your content on the frontend.",
+	"category": "wps-blocks",
+	"icon": "cover-image",
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"align": []
+	},
+	"keywords": ["section", "group", "hide", "container", "disable"],
+	"attributes": {},
+	"editorStyle": "file:../../../build/block-library/content-disabler/editor.css",
+	"editorScript": "file:../../../build/block-library/content-disabler/index.js"
+}

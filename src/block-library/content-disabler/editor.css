@@ -1,0 +1,18 @@
+.wps-content-disabler {
+	background-color: #e3e3e3;
+	padding: 2rem;
+	position: relative;
+
+	& .wps-content-disabler__intro {
+		font-family: "Courier New", monospace;
+		font-size: 1rem;
+		font-weight: 700;
+		left: 0.8rem;
+		letter-spacing: 1px;
+		margin: 0;
+		opacity: 0.5;
+		position: absolute;
+		text-transform: uppercase;
+		top: 0.8rem;
+	}
+}

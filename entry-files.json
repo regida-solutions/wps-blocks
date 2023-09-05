@@ -52,5 +52,7 @@
 	"block-library/navigation/editor.css",
 	"block-library/navigation/style.css",
 	"block-library/navigation/index.js",
-	"block-library/navigation/frontend.js"
+	"block-library/navigation/frontend.js",
+	"block-library/content-disabler/index.js",
+	"block-library/content-disabler/editor.css"
 ]
