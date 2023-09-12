@@ -9,7 +9,7 @@ declare( strict_types=1 );
 
 namespace WPS\Blocks\Shortcode;
 
-use function WPS\Blocks\Helpers\Image\render_image as render_image;
+use function WPS\Blocks\Helpers\Image\render_image;
 
 /**
  * Shortcode for outputting SSR images using gutenberg blocks

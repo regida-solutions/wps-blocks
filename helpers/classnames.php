@@ -20,7 +20,7 @@ namespace WPS\Blocks\Helpers\ClassNames;
 function get_names( array $class_list, bool $start_space = false ): string {
 
 	// Remove empty strings.
-	$classes = array_filter( $class_list, fn( $value) => ! is_null( $value ) && '' !== $value );
+	$classes = array_filter( $class_list, fn( $value ) => ! is_null( $value ) && '' !== $value );
 	$start   = $start_space ? ' ' : '';
 
 	if ( empty( $classes ) ) {

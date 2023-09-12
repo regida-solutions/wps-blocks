@@ -9,8 +9,8 @@ declare( strict_types=1 );
 
 namespace WPS\WhatsappButton\Template;
 
-use function WPS\Blocks\Helpers\ClassNames\get_names as get_names;
-use function WPS\Blocks\Helpers\Icons\get_icon as get_icon;
+use function WPS\Blocks\Helpers\ClassNames\get_names;
+use function WPS\Blocks\Helpers\Icons\get_icon;
 
 /**
  * Render callback template

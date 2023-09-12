@@ -9,10 +9,10 @@ declare( strict_types=1 );
 
 namespace WPS\QuerySlider\Template;
 
-use function WPS\Blocks\Helpers\ClassNames\get_names as get_names;
+use function WPS\Blocks\Helpers\ClassNames\get_names;
 
 require_once __DIR__ . '/helpers/generate-query.php';
-use function WPS\QuerySlider\Helper\GenerateQuery\generate_query as generate_query;
+use function WPS\QuerySlider\Helper\GenerateQuery\generate_query;
 
 require_once __DIR__ . '/templates/template-default.php';
 

@@ -9,8 +9,8 @@ declare( strict_types=1 );
 
 namespace WPS\MediaBanner\Template;
 
-use function WPS\Blocks\Helpers\ClassNames\get_names as get_names;
-use function WPS\Blocks\Helpers\Image\render_image as render_image;
+use function WPS\Blocks\Helpers\ClassNames\get_names;
+use function WPS\Blocks\Helpers\Image\render_image;
 
 /**
  * Render callback template

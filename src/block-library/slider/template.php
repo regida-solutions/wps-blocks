@@ -9,7 +9,7 @@ declare( strict_types=1 );
 
 namespace WPS\Slider\Template;
 
-use function WPS\Blocks\Helpers\ClassNames\get_names as get_names;
+use function WPS\Blocks\Helpers\ClassNames\get_names;
 
 /**
  * Render callback template

@@ -9,7 +9,7 @@ declare( strict_types=1 );
 
 namespace WPS\QuerySlider\Templates\TemplateDefault;
 
-use function WPS\Blocks\Helpers\Image\render_image as render_image;
+use function WPS\Blocks\Helpers\Image\render_image;
 
 /**
  * Item template

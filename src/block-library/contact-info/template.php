@@ -9,8 +9,8 @@ declare( strict_types=1 );
 
 namespace WPS\ContactInfo\Template;
 
-use function WPS\Blocks\Helpers\ClassNames\get_names as get_names;
-use function WPS\Blocks\Helpers\Icons\get_icon as get_icon;
+use function WPS\Blocks\Helpers\ClassNames\get_names;
+use function WPS\Blocks\Helpers\Icons\get_icon;
 
 /**
  * Render callback template
@@ -121,7 +121,7 @@ function template( array $attributes ): string {
 					$icon = get_icon( $alt );
 				}
 
-				echo sprintf('<li class="%1$s">%5$s%3$s%2$s%4$s</li>',
+				printf('<li class="%1$s">%5$s%3$s%2$s%4$s</li>',
 					esc_attr(get_names( [
 						'wps-contact-info__list-item',
 						$type,

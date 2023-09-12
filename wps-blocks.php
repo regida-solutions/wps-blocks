@@ -56,7 +56,7 @@ define( 'WPS_BLOCKS_LIST', [
 	'query-slider',
 	'navigation',
 	'content-disabler',
-	'gform'
+	'gform',
 ]);
 
 /* Load helpers */
