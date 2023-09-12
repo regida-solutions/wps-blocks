@@ -54,5 +54,8 @@
 	"block-library/navigation/index.js",
 	"block-library/navigation/frontend.js",
 	"block-library/content-disabler/index.js",
-	"block-library/content-disabler/editor.css"
+	"block-library/content-disabler/editor.css",
+	"block-library/gform/index.js",
+	"block-library/gform/style.css",
+	"block-library/gform/editor.css"
 ]

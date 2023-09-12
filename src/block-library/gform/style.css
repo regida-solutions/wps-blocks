@@ -1,0 +1,78 @@
+.wps-gform {
+	--gf-button-background: #6a38ff;
+	--gf-button-background-h: #542ccc;
+	--gf-button-text: #fff;
+	--gf-error-color: #c02b0a;
+	--gf-required-color: #c02b0a;
+
+	& .wps-gform__inner {
+		margin: var(--site-block-spacing) auto;
+		max-width: var(--content-width);
+	}
+
+	& .gform_button {
+		--gravity-form-button-background: var(--gf-button-background);
+		--gravity-form-button-background-h: var(--gf-button-background-h);
+		--gravity-form-button-text: var(--gf-button-text);
+	}
+
+	& .gform_wrapper.gravity-theme .ginput_counter {
+		color: var(--gravity-form-button-text);
+	}
+
+	/* Themeing */
+	&.is-style-light {
+		& .gform_wrapper {
+			color: #fff;
+
+			& h1,
+			& h2,
+			& h3,
+			& h4,
+			& h5,
+			& h6,
+			& p {
+				color: inherit;
+			}
+		}
+	}
+
+	&.is-style-dark {
+		& .gform_wrapper {
+			color: #000;
+
+			& h1,
+			& h2,
+			& h3,
+			& h4,
+			& h5,
+			& h6,
+			& p {
+				color: inherit;
+			}
+		}
+	}
+
+	& .gform_wrapper.gravity-theme .gfield_error label,
+	& .gform_wrapper.gravity-theme [aria-invalid="true"] + label,
+	& .gform_wrapper.gravity-theme .gfield_error .gfield_repeater_cell label,
+	& .gform_wrapper.gravity-theme .gfield_error legend,
+	& .gform_wrapper.gravity-theme .gfield_validation_message,
+	& .gform_wrapper.gravity-theme .validation_message,
+	& .gform_wrapper.gravity-theme label + [aria-invalid="true"],
+	& .gform_wrapper.gravity-theme .gform_validation_errors > h2 {
+		color: var(--gf-error-color);
+	}
+
+	& .gform_wrapper.gravity-theme .gfield_validation_message,
+	& .gform_wrapper.gravity-theme .validation_message,
+	& .gform_wrapper.gravity-theme .gfield_error [aria-invalid="true"],
+	& .gform_wrapper.gravity-theme .gform_validation_errors {
+		border-color: var(--gf-error-color);
+	}
+
+	& .gform_wrapper.gravity-theme .gfield_required,
+	& .gform_wrapper.gravity-theme .gfield_required_asterisk {
+		color: var(--gf-required-color);
+	}
+}

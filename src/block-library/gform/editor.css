@@ -1,0 +1,28 @@
+.wp-block-wps-gform {
+	--gf-button-background: #6a38ff;
+	--gf-button-background-h: #542ccc;
+	--gf-button-text: #fff;
+	--gf-error-color: #c02b0a;
+	--gf-required-color: #c02b0a;
+
+	& .gform_footer .gform_button {
+		--gravity-form-button-background: var(--gf-button-background);
+		--gravity-form-button-background-h: var(--gf-button-background-h);
+		--gravity-form-button-text: var(--gf-button-text);
+
+		background-color: var(--gravity-form-button-background);
+		border: 2px solid var(--gravity-form-button-background);
+		color: var(--gravity-form-button-text);
+
+		&:hover {
+			background-color: var(--gravity-form-button-background-h);
+			border: 2px solid var(--gravity-form-button-background-h);
+			color: var(--gravity-form-button-text);
+		}
+	}
+
+	& .gform_wrapper.gravity-theme .gfield_required,
+	& .gform_wrapper.gravity-theme .gfield_required_asterisk {
+		color: var(--gf-required-color);
+	}
+}

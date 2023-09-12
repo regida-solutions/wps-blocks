@@ -1,0 +1,59 @@
+{
+	"apiVersion": 2,
+	"name": "wps/gform",
+	"title": "WPS Gravity Forms",
+	"description": "",
+	"category": "wps-blocks",
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"align": [ "wide" , "full" ],
+		"color": {
+			"background": true,
+			"text": true,
+			"gradients": true,
+			"link": true
+		},
+		"spacing": {
+			"margin": true,
+			"padding": true
+		}
+	},
+	"keywords": ["form", "gravity"],
+	"attributes": {
+		"anchor": {
+			"type": "string"
+		},
+		"align": {
+			"type": "string"
+		},
+		"backgroundColor": {
+			"type": "string"
+		},
+		"textColor": {
+			"type": "string"
+		},
+		"buttonBackgroundColor": {
+			"type": "string"
+		},
+		"buttonTextColor": {
+			"type": "string"
+		},
+		"buttonHoverColor": {
+			"type": "string"
+		},
+		"errorColor": {
+			"type": "string"
+		},
+		"requiredColor": {
+			"type": "string"
+		}
+	},
+	"styles": [
+		{ "name": "dark", "label": "Dark" },
+		{ "name": "light", "label": "Light"}
+	],
+	"style": "file:../../../build/block-library/gform/style.css",
+	"editorScript": "file:../../../build/block-library/gform/index.js",
+	"editorStyle": "file:../../../build/block-library/gform/editor.css"
+}
