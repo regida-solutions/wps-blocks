@@ -5,16 +5,16 @@ import { __ } from '@wordpress/i18n';
 
 import {
 	PanelBody,
-	ToggleControl,
 	SelectControl,
 	TextControl,
+	ToggleControl,
 } from '@wordpress/components';
 
 import {
-	InspectorControls,
 	InnerBlocks,
-	useBlockProps,
+	InspectorControls,
 	store as blockEditorStore,
+	useBlockProps,
 } from '@wordpress/block-editor';
 
 import { dispatch, useSelect } from '@wordpress/data';
@@ -64,13 +64,19 @@ function Edit({ setAttributes, attributes, clientId }) {
 		const settings = getSettings();
 		const { imageDimensions, imageSizes } = settings;
 
-		const sizes = imageSizes.map(({ name, slug }) => ({
-			value: slug,
-			label:
-				name === 'Full Size'
-					? __('Full Size')
-					: `${name} (${imageDimensions[slug].width}x${imageDimensions[slug].height})`,
-		}));
+		const sizes = imageSizes.map(({ name, slug }) => {
+			const height = imageDimensions[slug]?.height || '';
+			const width = imageDimensions[slug]?.width || '';
+			const dimension = height && width ? `(${width}x${height})` : '';
+
+			return {
+				value: slug,
+				label:
+					name === 'Full Size'
+						? __('Full Size')
+						: `${name} (${dimension})`,
+			};
+		});
 
 		return { imageSizeList: sizes, childBlocks: children };
 	}, []);
