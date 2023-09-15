@@ -41,6 +41,7 @@ const PluginSettingsProvider = ({ children }) => {
 
 		const params = {
 			wps_blocks_contact_info: options.wps_blocks_contact_info,
+			wps_blocks_map: options.wps_blocks_map,
 		};
 
 		const settings = new api.models.Settings(params);

@@ -1,0 +1,45 @@
+{
+	"apiVersion": 2,
+	"name": "wps/gmap",
+	"title": "Google Maps",
+	"description": "Simple yet powerful map block powered by Google Maps",
+	"category": "wps-blocks",
+	"textdomain": "wps-blocks",
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"align": [ "wide" , "full" ],
+		"color": {
+			"background": true,
+			"text": true,
+			"gradients": true,
+			"link": true
+		},
+		"spacing": {
+			"margin": true,
+			"padding": true
+		}
+	},
+	"keywords": ["map", "google map", "map block"],
+	"attributes": {
+		"anchor": {
+			"type": "string"
+		},
+		"align": {
+			"type": "string"
+		},
+		"address": {
+			"type": "string"
+		},
+		"zoom": {
+			"type": "number",
+			"default": 1
+		},
+		"height": {
+			"type": "string"
+		}
+	},
+	"style": "file:../../../build/block-library/gmap/style.css",
+	"editorScript": "file:../../../build/block-library/gmap/index.js",
+	"editorStyle": "file:../../../build/block-library/gmap/editor.css"
+}

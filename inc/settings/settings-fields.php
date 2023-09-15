@@ -40,4 +40,22 @@ function register_plugin_settings(): void {
 			],
 		]
 	);
+
+	register_setting(
+		'wps_blocks_settings',
+		'wps_blocks_map',
+		[
+			'single'       => true,
+			'default'      => null,
+			'type'         => 'object',
+			'show_in_rest' => [
+				'schema' => [
+					'type'       => 'object',
+					'properties' => [
+						'api_key' => [ 'type' => 'string' ],
+					],
+				],
+			],
+		]
+	);
 }

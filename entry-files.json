@@ -57,5 +57,8 @@
 	"block-library/content-disabler/editor.css",
 	"block-library/gform/index.js",
 	"block-library/gform/style.css",
-	"block-library/gform/editor.css"
+	"block-library/gform/editor.css",
+	"block-library/gmap/index.js",
+	"block-library/gmap/style.css",
+	"block-library/gmap/editor.css"
 ]

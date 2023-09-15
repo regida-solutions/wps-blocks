@@ -10,6 +10,7 @@ import { render } from '@wordpress/element';
  */
 import { usePluginSettingsContext, PluginSettingsProvider } from './context';
 import ContactInfoSettings from './components/contact-info-settings';
+import MapSettings from './components/map-settings';
 import SaveButton from './components/save-button';
 
 const Settings = () => {
@@ -23,6 +24,7 @@ const Settings = () => {
 			<PanelBody initialOpen={true} title={__('Info settings')}>
 				<div className="settings-panel-wrapper">
 					<ContactInfoSettings />
+					<MapSettings />
 				</div>
 			</PanelBody>
 			<SaveButton />
