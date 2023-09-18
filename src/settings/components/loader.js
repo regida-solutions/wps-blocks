@@ -8,7 +8,7 @@ const Loader = ({ children, isLoaded = false }) => {
 	return (
 		<>
 			{!isLoaded ? (
-				<Placeholder label={__('Loading', 'confstack-agenda')}>
+				<Placeholder label={__('Loading', 'wps-blocks')}>
 					<Spinner />
 				</Placeholder>
 			) : (
