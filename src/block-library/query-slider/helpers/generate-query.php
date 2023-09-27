@@ -51,6 +51,11 @@ function generate_query( array $attributes ): array {
 		$query_args['posts_per_page'] = -1;
 	}
 
+	// If is set to skip current post add post_not_in to query.
+	if ( isset( $attributes['skipPost'] ) && $attributes['skipPost'] ) {
+		$query_args['post__not_in'] = [ get_the_ID() ];
+	}
+
 	/* Taxonomy query */
 	if ( ! empty( $attributes['query']['taxQuery'] ) ) {
 

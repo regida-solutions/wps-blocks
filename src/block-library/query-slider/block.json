@@ -48,6 +48,9 @@
 		"loopSlides": {
 			"type": "boolean"
 		},
+		"skipPost": {
+			"type": "boolean"
+		},
 		"autoplay": {
 			"type": "boolean",
 			"default": true

@@ -45,10 +45,6 @@ function template( array $attributes ): string {
 		$wrapper_attrs['data-speed'] = esc_attr( $attributes['speed'] );
 	}
 
-	if ( isset( $attributes['speed'] ) && ! empty( $attributes['speed'] ) ) {
-		$wrapper_attrs['data-speed'] = esc_attr( (int) $attributes['speed'] );
-	}
-
 	if ( isset( $attributes['autoplay'] ) && ! empty( $attributes['autoplay'] ) ) {
 		$wrapper_attrs['data-autoplay'] = esc_attr( $attributes['autoplay'] );
 	}

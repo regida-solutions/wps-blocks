@@ -58,6 +58,7 @@ function Edit({ setAttributes, attributes }) {
 		hideNavigation,
 		multirow,
 		multirowPerColumn,
+		skipPost,
 	} = attributes;
 
 	const {
@@ -145,7 +146,6 @@ function Edit({ setAttributes, attributes }) {
 							setAttributes({ pagination: !pagination });
 						}}
 					/>
-
 					<ToggleControl
 						label="Autoplay"
 						checked={autoplay}
@@ -175,8 +175,8 @@ function Edit({ setAttributes, attributes }) {
 					/>
 
 					<ToggleControl
-						label="Randomize"
-						help={'Randomize slides order'}
+						label={__('Randomize')}
+						help={__('Randomize slides order')}
 						checked={randomize}
 						onChange={() => {
 							setAttributes({ randomize: !randomize });
@@ -184,8 +184,19 @@ function Edit({ setAttributes, attributes }) {
 					/>
 
 					<ToggleControl
-						label="Multirow"
-						help={'Show multiple rows per slide'}
+						label={__('Skip current post')}
+						help={__(
+							"If the current post is in the slider, don't show it",
+						)}
+						checked={skipPost}
+						onChange={() => {
+							setAttributes({ skipPost: !skipPost });
+						}}
+					/>
+
+					<ToggleControl
+						label={__('Multirow')}
+						help={__('Show multiple rows per slide')}
 						checked={multirow}
 						onChange={() => {
 							const multi = !multirow;
@@ -219,7 +230,9 @@ function Edit({ setAttributes, attributes }) {
 					/>
 					<SelectControl
 						disabled={multirow}
-						help={multirow ? 'Not compatible with multirow' : ''}
+						help={
+							multirow ? __('Not compatible with multirow') : ''
+						}
 						label={__('Animation type')}
 						value={animationType}
 						onChange={(value) =>
