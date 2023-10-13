@@ -60,5 +60,9 @@
 	"block-library/gform/editor.css",
 	"block-library/gmap/index.js",
 	"block-library/gmap/style.css",
-	"block-library/gmap/editor.css"
+	"block-library/gmap/editor.css",
+	"block-library/counter/editor.css",
+	"block-library/counter/style.css",
+	"block-library/counter/index.js",
+	"block-library/counter/frontend.js"
 ]

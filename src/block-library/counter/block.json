@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "wps/counter",
+	"title": "Counter",
+	"description": "A counter block.",
+	"category": "wps-blocks",
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"align": ["full","wide"]
+	},
+	"keywords": ["counter", "countdown", "time"],
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "wide"
+		},
+		"anchor": {
+			"type": "string"
+		},
+		"date": {
+			"type": "string"
+		}
+	},
+	"style": "file:../../../build/block-library/counter/style.css",
+	"editorStyle": "file:../../../build/block-library/counter/editor.css",
+	"editorScript": "file:../../../build/block-library/counter/index.js",
+	"viewScript": "file:../../../build/block-library/counter/frontend.js"
+}

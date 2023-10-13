@@ -1,0 +1,37 @@
+.wps-counter {
+	& .wps-counter-months {
+		&::before {
+			content: var(--timer-months, "00");
+		}
+	}
+
+	& .wps-counter-days {
+		&::before {
+			content: var(--timer-days, "00");
+		}
+	}
+
+	& .wps-counter-hours {
+		&::before {
+			content: var(--timer-hours, "00");
+		}
+	}
+
+	& .wps-counter-minutes {
+		&::before {
+			content: var(--timer-minutes, "00");
+		}
+	}
+
+	& .wps-counter-seconds {
+		&::before {
+			content: var(--timer-seconds, "00");
+		}
+	}
+
+	& .wps-counter-days-difference {
+		&::before {
+			content: var(--timer-days-difference, "00");
+		}
+	}
+}
