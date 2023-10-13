@@ -58,7 +58,7 @@ define( 'WPS_BLOCKS_LIST', [
 	'content-disabler',
 	'gform',
 	'gmap',
-	'counter'
+	'counter',
 ]);
 
 /* Load helpers */
