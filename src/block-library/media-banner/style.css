@@ -76,8 +76,9 @@
 }
 
 .media-banner-content__inner {
-	--banner-overlay-offset: 0;
 	margin-left: var(--media-banner-content-offset);
+	width: 100%;
+	--banner-overlay-offset: 0;
 }
 
 .media-banner-content--limit-width .media-banner-content__inner {
