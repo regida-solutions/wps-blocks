@@ -46,8 +46,14 @@ function render_image( array $attributes = [] ): string {
 		isset( $attributes['class'] ) ? esc_attr( $attributes['class'] ) : '',
 	]);
 
+	$video_style = [];
+
+	$video_style[] = '--position-x:' . $x * 100 . '%';
+	$video_style[] = '--position-y:' . $y * 100 . '%';
+	$video_style = implode( ';', $video_style );
+
 	if ( strpos( $type, 'video' ) !== false ) {
-		$html = '<video src="' . wp_get_attachment_url( $attributes['id'] ) . '" autoplay="autoplay" loop muted playsinline><source src="' . wp_get_attachment_url( $attributes['id'] ) . '" type="' . $type . '" /></video>';
+		$html        = '<div class="video_wrapper" style="' . $video_style . '"><video src="' . wp_get_attachment_url( $attributes['id'] ) . '" autoplay="autoplay" loop muted playsinline><source src="' . wp_get_attachment_url( $attributes['id'] ) . '" type="' . $type . '" /></video></div>';
 	} else {
 		if ( ! empty( $attributes['id'] ) ) {
 			$html = wp_get_attachment_image( $attributes['id'], $attributes['size'] ?? 'huge', false, [

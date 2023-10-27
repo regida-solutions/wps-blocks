@@ -101,3 +101,22 @@
 		margin-right: var(--media-banner-content-offset);
 	}
 }
+
+.media-banner .video_wrapper {
+	height: 100%;
+	isolation: isolate;
+	position: relative;
+	width: 100%;
+
+	& > * {
+		bottom: 0;
+		height: 100%;
+		left: 0;
+		object-fit: cover;
+		object-position: var(--position-x, "50%") var(--position-y, "50%");
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 100%;
+	}
+}

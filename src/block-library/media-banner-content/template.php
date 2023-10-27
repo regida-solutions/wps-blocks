@@ -35,12 +35,12 @@ function template( array $attributes, string $blocks ): string {
 
 	$style = '';
 
-	if ( $attributes['contentWidth'] ) {
+	if ( isset( $attributes['contentWidth'] ) ) {
 		$style .= '--media-banner-content-width:' . esc_attr( $attributes['contentWidth'] ) . '%;';
 		$style .= $attributes['contentOffset'] ? '--media-banner-content-offset:' . $attributes['contentOffset'] . '%;' : '';
 	}
 
-	if ( $attributes['contentMinHeight'] ) {
+	if ( isset( $attributes['contentMinHeight'] ) ) {
 		$style .= '--media-banner-content-min-height:' . esc_attr( $attributes['contentMinHeight'] ) . ';';
 	}
 

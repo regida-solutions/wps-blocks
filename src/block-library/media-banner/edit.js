@@ -57,6 +57,11 @@ function Edit({ attributes, setAttributes }) {
 			allowedBlocks: INNER_BLOCKS_ALLOWED_BLOCKS,
 		},
 	);
+
+	const isVideo = (string) => {
+		return string.includes('.mp4');
+	};
+
 	return (
 		<>
 			<InspectorControls>
@@ -89,6 +94,7 @@ function Edit({ attributes, setAttributes }) {
 						onRangeChange={(newDimRation) => {
 							setAttributes({ dimRatio: newDimRation });
 						}}
+						video={true}
 					/>
 					<ToggleControl
 						label="Swap layout"
@@ -104,16 +110,38 @@ function Edit({ attributes, setAttributes }) {
 			<div {...blocksProps}>
 				{media ? (
 					<div className={classesBackground}>
-						<img
-							alt={media?.alt}
-							src={media?.url}
-							style={{
-								objectPosition: `${mediaFocal.x * 100}% ${
-									mediaFocal.y * 100
-								}%`,
-								opacity: dimRatio !== 100 ? `${dimRatio}%` : '',
-							}}
-						/>
+						{isVideo(media?.url) && (
+							<div
+								className="video_wrapper"
+								style={{
+									'--position-x': `${mediaFocal.x * 100}%`,
+									'--position-y': `${mediaFocal.y * 100}%`,
+									opacity:
+										dimRatio !== 100 ? `${dimRatio}%` : '',
+								}}
+							>
+								<video
+									autoPlay
+									muted
+									loop
+									playsInline
+									src={media?.url}
+								></video>
+							</div>
+						)}
+						{!isVideo(media?.url) && (
+							<img
+								alt={media?.alt}
+								src={media?.url}
+								style={{
+									objectPosition: `${mediaFocal.x * 100}% ${
+										mediaFocal.y * 100
+									}%`,
+									opacity:
+										dimRatio !== 100 ? `${dimRatio}%` : '',
+								}}
+							/>
+						)}
 					</div>
 				) : (
 					''

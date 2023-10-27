@@ -45,6 +45,9 @@ export const ImageUploaderUI = (attributes) => {
 		behaviour = '',
 		range = 100,
 	} = attributes;
+
+	const ALLOWED_MEDIA_TYPES = video ? ['video', 'image'] : ['image'];
+
 	return (
 		<>
 			{media.hasOwnProperty('id') && (
@@ -64,11 +67,11 @@ export const ImageUploaderUI = (attributes) => {
 						<MediaUpload
 							title={__('Replace Image', 'wps-prime')}
 							onSelect={onUpdate}
-							allowedTypes={video ? 'video' : 'image'}
+							allowedTypes={ALLOWED_MEDIA_TYPES}
 							render={({ open }) => (
 								<p>
 									<Button onClick={open} variant="secondary">
-										{__('Replace Image', 'wps-prime')}
+										{__('Replace Media', 'wps-prime')}
 									</Button>
 									<Button
 										onClick={onRemove}
@@ -76,7 +79,7 @@ export const ImageUploaderUI = (attributes) => {
 										isDestructive
 										style={{ marginLeft: '40px' }}
 									>
-										{__('Remove Image', 'wps-prime')}
+										{__('Remove Media', 'wps-prime')}
 									</Button>
 								</p>
 							)}
@@ -94,7 +97,7 @@ export const ImageUploaderUI = (attributes) => {
 						)}
 						{behaviourSettings && (
 							<SelectControl
-								label="Background image behaviour"
+								label="Background media behaviour"
 								labelPosition="top"
 								value={behaviour}
 								options={behaviourOptions}
@@ -107,9 +110,9 @@ export const ImageUploaderUI = (attributes) => {
 			{!media.hasOwnProperty('id') && (
 				<MediaUploadCheck>
 					<MediaUpload
-						title={__('Background image', 'image-selector-example')}
+						title={__('Background media', 'image-selector-example')}
 						onSelect={onUpdate}
-						allowedTypes={['image']}
+						allowedTypes={ALLOWED_MEDIA_TYPES}
 						render={({ open }) => (
 							<>
 								<Button
@@ -117,7 +120,7 @@ export const ImageUploaderUI = (attributes) => {
 									onClick={open}
 									isSecondary
 								>
-									{__('Add image', 'wps-gutenberg-blocks')}
+									{__('Add media', 'wps-gutenberg-blocks')}
 								</Button>
 							</>
 						)}
