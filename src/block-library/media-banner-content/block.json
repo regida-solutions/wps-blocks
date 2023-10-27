@@ -1,6 +1,7 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
+	"version": "1.0.1",
 	"name": "wps/media-banner-content",
 	"title": "Media Banner Content",
 	"description": "Inner block of the Media Banner block. It contains the content of the block.",
@@ -41,6 +42,13 @@
 		},
 		"limitContentWidth": {
 			"type": "boolean"
+		},
+		"contentMinHeight": {
+			"type": "string"
+		},
+		"verticalAlign": {
+			"type": "string",
+			"default": "center"
 		}
 	},
 	"editorScript": "file:../../../build/block-library/media-banner-content/index.js"

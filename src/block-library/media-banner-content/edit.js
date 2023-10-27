@@ -7,8 +7,16 @@ import {
 	withColors,
 	useBlockProps,
 	useInnerBlocksProps,
+	BlockControls,
+	BlockVerticalAlignmentToolbar,
 } from '@wordpress/block-editor';
-import { PanelBody, RangeControl, ToggleControl } from '@wordpress/components';
+import {
+	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
+	__experimentalUnitControl as UnitControl,
+	PanelBody,
+	RangeControl,
+	ToggleControl,
+} from '@wordpress/components';
 import { compose } from '@wordpress/compose';
 
 /**
@@ -18,6 +26,7 @@ import { SpacingList } from 'components/controls';
 import classnames from 'classnames';
 
 const INNER_BLOCKS_ALLOWED_BLOCKS = [
+	'core/post-title',
 	'core/spacer',
 	'core/group',
 	'core/spacer',
@@ -53,6 +62,8 @@ function Edit({ attributes, setAttributes }) {
 		contentWidth,
 		limitContentWidth,
 		contentOffset,
+		contentMinHeight,
+		verticalAlign,
 	} = attributes;
 	const innerBlocksProps = useInnerBlocksProps(
 		{
@@ -81,12 +92,17 @@ function Edit({ attributes, setAttributes }) {
 		'media-banner-content',
 		contentWidth ? `has-width-${contentWidth}` : '',
 		limitContentWidth ? 'media-banner-content--limit-width' : '',
+		verticalAlign ? `is-vertical-align-${verticalAlign}` : '',
 	]);
 
 	const style = {};
 	if (contentWidth) {
 		style['--media-banner-content-width'] = `${contentWidth}%`;
 		style['--media-banner-content-offset'] = `${contentOffset}%`;
+	}
+
+	if (contentMinHeight) {
+		style['--media-banner-content-min-height'] = `${contentMinHeight}`;
 	}
 
 	const marks = [
@@ -160,8 +176,23 @@ function Edit({ attributes, setAttributes }) {
 						max={100}
 						step={1}
 					/>
+					<UnitControl
+						onChange={(value) => {
+							setAttributes({ contentMinHeight: value });
+						}}
+						isUnitSelectTabbable={true}
+						value={contentMinHeight}
+					/>
 				</PanelBody>
 			</InspectorControls>
+			<BlockControls group="block">
+				<BlockVerticalAlignmentToolbar
+					value={verticalAlign}
+					onChange={(nextAlign) => {
+						setAttributes({ verticalAlign: nextAlign });
+					}}
+				/>
+			</BlockControls>
 			<div {...blockProps}>
 				<div {...innerBlocksProps} />
 			</div>

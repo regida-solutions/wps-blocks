@@ -39,7 +39,7 @@ const MapSettings = () => {
 			onChange={(value) => {
 				const newSettings = {
 					...options.wps_blocks_map,
-					api_key: value,
+					api_key: value ? value : '',
 				};
 				setOptions({
 					...options,

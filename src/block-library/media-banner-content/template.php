@@ -23,6 +23,7 @@ function template( array $attributes, string $blocks ): string {
 		'media-banner-content',
 		isset( $attributes['contentWidth'] ) ? 'has-width-' . esc_attr( $attributes['contentWidth'] ) : '',
 		isset( $attributes['limitContentWidth'] ) ? 'media-banner-content--limit-width' : '',
+		isset( $attributes['verticalAlign'] ) ? 'is-vertical-align-' . esc_attr( $attributes['verticalAlign'] ) : '',
 	] );
 
 	$inner_classes = get_names( [
@@ -37,6 +38,10 @@ function template( array $attributes, string $blocks ): string {
 	if ( $attributes['contentWidth'] ) {
 		$style .= '--media-banner-content-width:' . esc_attr( $attributes['contentWidth'] ) . '%;';
 		$style .= $attributes['contentOffset'] ? '--media-banner-content-offset:' . $attributes['contentOffset'] . '%;' : '';
+	}
+
+	if ( $attributes['contentMinHeight'] ) {
+		$style .= '--media-banner-content-min-height:' . esc_attr( $attributes['contentMinHeight'] ) . ';';
 	}
 
 	$wrapper_attrs = [
