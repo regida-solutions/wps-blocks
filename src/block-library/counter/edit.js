@@ -17,7 +17,15 @@ import classnames from 'classnames';
 function Edit({ attributes, setAttributes }) {
 	const { className = '', date } = attributes;
 
-	const ALLOWED_BLOCKS = ['core/paragraph', 'core/heading'];
+	const ALLOWED_BLOCKS = [
+		'core/paragraph',
+		'core/heading',
+		'core/column',
+		'core/columns',
+		'core/button',
+		'core/buttons',
+		'core/group',
+	];
 
 	const TEMPLATE = [
 		[
