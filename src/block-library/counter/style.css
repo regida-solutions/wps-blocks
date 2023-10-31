@@ -1,4 +1,8 @@
 .wps-counter {
+	--counter-item-label-size: 0.825rem;
+	--counter-item-label-display: block;
+	--counter-item-min-width: 2.5rem;
+
 	& .wps-counter-months {
 		&::before {
 			content: var(--timer-months, "00");
@@ -32,6 +36,56 @@
 	& .wps-counter-days-difference {
 		&::before {
 			content: var(--timer-days-difference, "00");
+		}
+	}
+
+	& .wps-counter-item {
+		min-width: var(--counter-item-min-width);
+
+		&::after {
+			display: var(--counter-item-label-display);
+			font-size: var(--counter-item-label-size);
+		}
+
+		&::before {
+			font-variant-numeric: tabular-nums;
+		}
+	}
+
+	& .counter-list-formatted {
+		& .wps-counter-months {
+			content: "Months";
+
+		}
+
+		& .wps-counter-days {
+			&::after {
+				content: "Days";
+			}
+		}
+
+		& .wps-counter-hours {
+			&::after {
+				content: "Hours";
+			}
+		}
+
+		& .wps-counter-minutes {
+			&::after {
+				content: "Minutes";
+			}
+		}
+
+		& .wps-counter-seconds {
+			&::after {
+				content: "Seconds";
+			}
+		}
+
+		& .wps-counter-days-difference {
+			&::after {
+				content: "Days";
+			}
 		}
 	}
 }
