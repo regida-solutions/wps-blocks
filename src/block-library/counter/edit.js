@@ -70,6 +70,10 @@ function Edit({ attributes, setAttributes }) {
 						<br />
 						<code>{'{DAYS-DIFFERENCE}'}</code> - day
 						<br />
+						<p>
+							Use css id: #countdown on top wrapper element to
+							enable closing
+						</p>
 					</p>
 					<hr />
 					<div className={'wps-counter__date-picker'}>
