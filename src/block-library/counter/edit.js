@@ -8,14 +8,19 @@ import {
 	useBlockProps,
 } from '@wordpress/block-editor';
 
-import { DateTimePicker, PanelBody } from '@wordpress/components';
+import {
+	SelectControl,
+	BaseControl,
+	DateTimePicker,
+	PanelBody,
+} from '@wordpress/components';
 /**
  * External dependencies
  */
 import classnames from 'classnames';
 
 function Edit({ attributes, setAttributes }) {
-	const { className = '', date } = attributes;
+	const { className = '', date, timezone } = attributes;
 
 	const ALLOWED_BLOCKS = [
 		'core/paragraph',
@@ -48,6 +53,10 @@ function Edit({ attributes, setAttributes }) {
 		},
 	);
 
+	const countries = Intl.supportedValuesOf('timeZone').map((tz) => {
+		return { label: tz, value: tz };
+	});
+
 	return (
 		<>
 			<InspectorControls>
@@ -55,26 +64,41 @@ function Edit({ attributes, setAttributes }) {
 					title={__('Settings', 'wps-blocks')}
 					initialOpen={true}
 				>
-					<p>
-						<strong>Parameters:</strong>
-						<br />
-						<code>{'{MONTHS}'}</code> - month
-						<br />
-						<code>{'{DAYS}'}</code> - day
-						<br />
-						<code>{'{HOURS}'}</code> - hour
-						<br />
-						<code>{'{MINUTES}'}</code> - minute
-						<br />
-						<code>{'{SECONDS}'}</code> - second
-						<br />
-						<code>{'{DAYS-DIFFERENCE}'}</code> - day
-						<br />
+					<BaseControl
+						help={__(
+							'Use css id: #countdown on top wrapper element to enable closing',
+						)}
+					>
+						<BaseControl.VisualLabel>
+							{__('Parameters:', 'wps-blocks')}
+						</BaseControl.VisualLabel>
 						<p>
-							Use css id: #countdown on top wrapper element to
-							enable closing
+							<code>{'{MONTHS}'}</code> - month
+							<br />
+							<code>{'{DAYS}'}</code> - day
+							<br />
+							<code>{'{HOURS}'}</code> - hour
+							<br />
+							<code>{'{MINUTES}'}</code> - minute
+							<br />
+							<code>{'{SECONDS}'}</code> - second
+							<br />
+							<code>{'{DAYS-DIFFERENCE}'}</code> - day
 						</p>
-					</p>
+					</BaseControl>
+					<BaseControl
+						help={__('Set the local timezone for the counter')}
+					>
+						<SelectControl
+							headerTitle="Timezone"
+							label="Select timezone"
+							value={timezone}
+							options={countries}
+							onChange={(value) =>
+								setAttributes({ timezone: value })
+							}
+						/>
+					</BaseControl>
 					<hr />
 					<div className={'wps-counter__date-picker'}>
 						<DateTimePicker

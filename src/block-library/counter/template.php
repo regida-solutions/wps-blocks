@@ -33,6 +33,9 @@ function template( array $attributes, string $blocks ): string {
 	if ( isset( $attributes['date'] ) && ! empty( $attributes['date'] ) ) {
 		$wrapper_attrs['data-date'] = esc_attr( $attributes['date'] );
 	}
+	if ( isset( $attributes['timezone'] ) && ! empty( $attributes['timezone'] ) ) {
+		$wrapper_attrs['data-timezone'] = esc_attr( $attributes['timezone'] );
+	}
 
 	$wrapper_attributes = get_block_wrapper_attributes( $wrapper_attrs );
 

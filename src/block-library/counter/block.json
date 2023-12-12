@@ -41,6 +41,10 @@
 		},
 		"date": {
 			"type": "string"
+		},
+		"timezone": {
+			"type": "string",
+			"default": "Europe/Berlin"
 		}
 	},
 	"style": "file:../../../build/block-library/counter/style.css",

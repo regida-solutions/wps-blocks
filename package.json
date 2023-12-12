@@ -70,6 +70,7 @@
 		"@wordpress/icons": "^9.29.0",
 		"accordion-js": "^3.3.4",
 		"date-fns": "^2.30.0",
+		"date-fns-tz": "^2.0.0",
 		"lodash": "^4.17.21",
 		"swiper": "^10.1.0"
 	}

@@ -6,7 +6,7 @@
  * Author: WPShapers
  * Author URI: https://wpshapers.com
  * Text Domain: wps-blocks
- * Version: 1.9.15
+ * Version: 1.9.16
  *
  * @package WPS_Blocks
  */
@@ -17,7 +17,7 @@ namespace WPS\Blocks;
 
 use function WPS\Blocks\Helpers\HasBlock\has_block_including_reusables as hbir;
 
-define( 'WPS_BLOCKS_VERSION', '1.9.15' );
+define( 'WPS_BLOCKS_VERSION', '1.9.16' );
 define( 'WPS_BLOCKS_DIR_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WPS_BLOCKS_DIR_URL', esc_url( plugin_dir_url( __FILE__ ) ) );
 define( 'WPS_BLOCKS_UPDATE_URL', 'https://zsoltrevay.com/packages' );
@@ -33,7 +33,7 @@ require_once WPS_BLOCKS_DIR_PATH . '/inc/setup-editor.php';
 
 /**
  * Remove hero block for now
- * 'hero',
+ * 'hero'
  */
 
 define( 'WPS_BLOCKS_LIST', [
