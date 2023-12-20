@@ -94,13 +94,7 @@ function template( array $attributes ): string {
 	}
 
 	return sprintf(
-		'<div %s>' .
-			'<div class="swiper-wrapper">' .
-				'%s' .
-			'</div>' .
-			'%s' .
-			'<div class="wps-slider-button-next swiper-button-next"></div><div class="wps-slider-button-prev swiper-button-prev"></div>' .
-		'</div>',
+		'<div %s><div class="swiper-wrapper">%s</div>%s<div class="wps-slider-button-next swiper-button-next"></div><div class="wps-slider-button-prev swiper-button-prev"></div></div>',
 		get_block_wrapper_attributes( $wrapper_attrs ),
 		$slides,
 		isset( $attributes['pagination'] ) && ! empty( $attributes['pagination'] ) ? '<div class="swiper-pagination"></div>' : ''
