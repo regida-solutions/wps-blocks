@@ -81,6 +81,10 @@ function item_template( array $posts, array $attributes = [], string $content = 
 			}
 		}
 
+		if ( 0 !== count( $posts ) % $items_per_column ) {
+			$slide_content .= '</div>';
+		}
+
 		$content .= apply_filters( 'query_slider_slide_template', $slide_content, $attributes );
 
 	} else {
