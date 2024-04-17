@@ -23,7 +23,7 @@ function register_plugin_settings(): void {
 		'wps_blocks_contact_info',
 		[
 			'single'       => true,
-			'default'      => null,
+			'default'      => new \stdClass(),
 			'type'         => 'object',
 			'show_in_rest' => [
 				'schema' => [
@@ -46,7 +46,7 @@ function register_plugin_settings(): void {
 		'wps_blocks_map',
 		[
 			'single'       => true,
-			'default'      => null,
+			'default'      => new \stdClass(),
 			'type'         => 'object',
 			'show_in_rest' => [
 				'schema' => [
