@@ -64,5 +64,8 @@
 	"block-library/counter/editor.css",
 	"block-library/counter/style.css",
 	"block-library/counter/index.js",
-	"block-library/counter/frontend.js"
+	"block-library/counter/frontend.js",
+	"block-library/mega-menu/index.js",
+	"block-library/mega-menu/style.css",
+	"block-library/mega-menu/frontend.js"
 ]

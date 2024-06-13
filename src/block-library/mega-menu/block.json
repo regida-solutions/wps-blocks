@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"version": "1.0.0",
+	"name": "wps/mega-menu",
+	"title": "Mega Menu",
+	"description": "Display a mega menu with multiple columns and rows of links.",
+	"category": "wps-navigation",
+	"textdomain": "wps-blocks",
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"align": ["full", "wide", "right", "left" ]
+	},
+	"keywords": ["menu", "mega", "navigation"],
+	"attributes": {
+		"anchor": {
+			"type": "string"
+		},
+		"align": {
+			"type": "string"
+		},
+		"isTrigger": {
+			"type": "boolean"
+		}
+	},
+	"editorScript": "file:../../../build/block-library/mega-menu/index.js",
+	"style": "file:../../../build/block-library/mega-menu/style.css",
+	"viewScript": "file:../../../build/block-library/mega-menu/frontend.js"
+}

@@ -1,0 +1,43 @@
+{
+	"version": "1.0.0",
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "wps/accordion-nav",
+	"title": "Accordion Navigation",
+	"description": "A block with a heading, description and accordion",
+	"category": "wps-navigation",
+	"icon": "cover-image",
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"align": []
+	},
+	"keywords": ["content", "accordion", "faq", "Frequently Asked Questions" ],
+	"attributes": {
+		"anchor": {
+			"type": "string"
+		},
+		"intro": {
+			"type": "string"
+		},
+		"info": {
+			"type": "string"
+		},
+		"heading": {
+			"type": "string"
+		},
+		"template": {
+			"type": "string"
+		}
+	},
+	"example": {
+		"viewportWidth": 1440,
+		"attributes": {
+			"intro": "Capabilities",
+			"heading": "With the o9 Supply Chain Control tower our customers are able to take fast, high quality decisions that mitigate risk and capture market opportunities."
+		}
+	},
+	"style": "file:../../../build/block-library/big-accordion/style.css",
+	"editorStyle": "file:../../../build/block-library/big-accordion/editor.css",
+	"editorScript": "file:../../../build/block-library/big-accordion/index.js"
+}

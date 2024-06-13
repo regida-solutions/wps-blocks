@@ -1,0 +1,48 @@
+:where(.wp-site-blocks) > .wps-mega-menu:first-child + * {
+	margin-block-start: 0;
+}
+
+.wps-mega-menu-is-visible {
+	filter: blur(npx);
+	height: 100vh;
+	overflow-y: hidden;
+}
+
+.wps-mega-menu svg {
+	fill: #fff;
+	max-width: 1.5rem;
+	width: 100%;
+}
+
+.wps-mega-menu {
+	height: 100%;
+	overflow-y: auto;
+}
+
+.wps-mega-menu__icon {
+	display: inline-block;
+	margin-left: auto;
+	max-width: 1.5rem;
+}
+
+.wps-mega-menu-content {
+	display: none;
+
+	& .wps-mega-menu__inner {
+		height: 100%;
+	}
+}
+
+.wps-mega-menu-is-open {
+	position: relative;
+}
+
+.wps-mega-menu-is-open .wps-mega-menu-content {
+	display: block;
+	height: 100%;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 100%;
+	z-index: 999999;
+}
