@@ -54,7 +54,7 @@
 		"lint": "npm run lint:js && npm run lint:css",
 		"lint:css": "wp-scripts lint-style",
 		"lint:js": "wp-scripts lint-js",
-		"prepare": "husky install",
+		"prepare": "husky install && chmod ug+x .husky/*",
 		"lint-staged": "lint-staged"
 	},
 	"lint-staged": {

@@ -4,7 +4,7 @@
 
 .wps-mega-menu-is-visible {
 	filter: blur(npx);
-	height: 100vh;
+	min-height: 100vh;
 	overflow-y: hidden;
 }
 
@@ -30,6 +30,7 @@
 
 	& .wps-mega-menu__inner {
 		height: 100%;
+		overflow-y: auto;
 	}
 }
 
@@ -45,4 +46,10 @@
 	top: 0;
 	width: 100%;
 	z-index: 999999;
+}
+
+.wps-mega-menu-trigger {
+	&:hover {
+		cursor: pointer;
+	}
 }
