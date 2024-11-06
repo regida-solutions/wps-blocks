@@ -5,7 +5,7 @@
 	"name": "wps/mega-menu",
 	"title": "Mega Menu",
 	"description": "Display a mega menu with multiple columns and rows of links.",
-	"category": "wps-navigation",
+	"category": "wps-blocks",
 	"textdomain": "wps-blocks",
 	"supports": {
 		"anchor": true,

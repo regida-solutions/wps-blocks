@@ -5,7 +5,7 @@
 	"name": "wps/accordion-nav",
 	"title": "Accordion Navigation",
 	"description": "A block with a heading, description and accordion",
-	"category": "wps-navigation",
+	"category": "wps-blocks",
 	"icon": "cover-image",
 	"supports": {
 		"anchor": true,
