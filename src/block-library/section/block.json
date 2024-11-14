@@ -2,8 +2,8 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
 	"name": "wps/section",
-	"title": "Section block",
-	"description": "Create a custom colorful section that can hold other blocks",
+	"title": "Section block (deprecated)",
+	"description": "Use Group Block instead. Create a custom colorful section that can hold other blocks",
 	"category": "wps-blocks",
 	"icon": "cover-image",
 	"supports": {

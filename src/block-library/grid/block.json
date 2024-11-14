@@ -2,8 +2,8 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
 	"name": "wps/grid",
-	"title": "Grid block",
-	"description": "Create a grid to hold inner grid-column blocks",
+	"title": "Grid block (deprecated)",
+	"description": "Use the native Gutenberg GRID. Create a grid to hold inner grid-column blocks",
 	"category": "wps-blocks",
 	"icon": "grid-view",
 	"supports": {
