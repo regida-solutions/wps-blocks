@@ -80,6 +80,9 @@ function template( array $attributes ): string {
 
 	$wrapper_attributes = get_block_wrapper_attributes( $wrapper_attrs );
 
+	$default_message = isset( $plugin_settings['message_platform'] ) ? $plugin_settings['message_platform'] : false;
+	$message         = $default_message ? $default_message : __( 'Hello', 'wps-blocks' );
+
 	ob_start();
 	?>
 	<div <?php echo $wrapper_attributes; //phpcs:ignore ?>>
@@ -105,7 +108,7 @@ function template( array $attributes ): string {
 				}
 
 				if ( isset( $item['alt'] ) && 'whatsapp' === $item['alt'] ) {
-					$href = 'https://wa.me/' . $option . '?text=Hello';
+					$href = 'https://wa.me/' . $option . '?text=' . rawurlencode( $message );
 				}
 
 				$type     = isset( $item['type'] ) ? $item['type'] : '';
