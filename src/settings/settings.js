@@ -11,6 +11,7 @@ import { render } from '@wordpress/element';
 import { usePluginSettingsContext, PluginSettingsProvider } from './context';
 import ContactInfoSettings from './components/contact-info-settings';
 import MapSettings from './components/map-settings';
+import GFSettings from './components/gravity-forms-settings';
 import SaveButton from './components/save-button';
 
 const Settings = () => {
@@ -25,6 +26,7 @@ const Settings = () => {
 				<div className="settings-panel-wrapper">
 					<ContactInfoSettings />
 					<MapSettings />
+					<GFSettings />
 				</div>
 			</PanelBody>
 			<SaveButton />

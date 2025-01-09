@@ -58,4 +58,23 @@ function register_plugin_settings(): void {
 			],
 		]
 	);
+
+	register_setting(
+		'wps_blocks_settings',
+		'wps_blocks_gravity_forms',
+		[
+			'single'       => true,
+			'default'      => new \stdClass(),
+			'type'         => 'object',
+			'show_in_rest' => [
+				'schema' => [
+					'type'       => 'object',
+					'properties' => [
+						'form_ids'             => [ 'type' => 'string' ],
+						'confirmation_message' => [ 'type' => 'string' ],
+					],
+				],
+			],
+		]
+	);
 }
