@@ -19,31 +19,31 @@
 	},
 	"devDependencies": {
 		"@dekode/stylelint-config": "1.0.2",
-		"@wordpress/eslint-plugin": "14.11.0",
-		"@wordpress/scripts": "^26.9.0",
-		"autoprefixer": "^10.4.14",
-		"browser-sync": "^2.29.3",
-		"browser-sync-webpack-plugin": "^2.3.0",
-		"classnames": "^2.3.2",
+		"@wordpress/eslint-plugin": "22.12.0",
+		"@wordpress/scripts": "^30.19.0",
+		"autoprefixer": "^10.4.21",
+		"browser-sync": "^3.0.4",
+		"browser-sync-webpack-plugin": "^2.4.0",
+		"classnames": "^2.5.1",
 		"components": "file:packages/components",
 		"css-viewports": "file:packages/components/css-viewports",
-		"cssnano": "6.0.1",
-		"dotenv": "16.3.1",
-		"eslint-plugin-prettier": "5.0.0",
-		"fast-glob": "3.3.1",
-		"husky": "^8.0.3",
+		"cssnano": "7.0.7",
+		"dotenv": "16.5.0",
+		"eslint-plugin-prettier": "5.5.1",
+		"fast-glob": "3.3.3",
+		"husky": "^9.1.7",
 		"ignore-emit-webpack-plugin": "^2.0.6",
-		"lint-staged": "13.2.3",
-		"postcss": "8.4.27",
-		"postcss-custom-media": "10.0.0",
+		"lint-staged": "16.1.2",
+		"postcss": "8.5.6",
+		"postcss-custom-media": "11.0.6",
 		"postcss-flexbugs-fixes": "5.0.2",
-		"postcss-import": "15.1.0",
+		"postcss-import": "16.1.1",
 		"postcss-media-minmax": "5.0.0",
-		"postcss-mixins": "9.0.4",
-		"postcss-nested": "6.0.1",
-		"prettier": "3.0.1",
+		"postcss-mixins": "11.0.3",
+		"postcss-nested": "7.0.2",
+		"prettier": "3.6.1",
 		"resolve-url-loader": "5.0.0",
-		"webpack-remove-empty-scripts": "1.0.3"
+		"webpack-remove-empty-scripts": "1.1.1"
 	},
 	"scripts": {
 		"build": "wp-scripts build",
@@ -58,7 +58,7 @@
 		"lint-staged": "lint-staged"
 	},
 	"lint-staged": {
-		"*.css": [
+		"src/**/*.css": [
 			"wp-scripts lint-style"
 		],
 		"*.{js,ts,tsx}": [
@@ -67,11 +67,10 @@
 		]
 	},
 	"dependencies": {
-		"@wordpress/icons": "^9.29.0",
-		"accordion-js": "^3.3.4",
-		"date-fns": "^2.30.0",
-		"date-fns-tz": "^2.0.0",
-		"lodash": "^4.17.21",
-		"swiper": "^10.1.0"
+		"@wordpress/icons": "^10.26.0",
+		"accordion-js": "^3.4.1",
+		"date-fns": "^4.1.0",
+		"date-fns-tz": "^3.2.0",
+		"lodash": "^4.17.21"
 	}
 }

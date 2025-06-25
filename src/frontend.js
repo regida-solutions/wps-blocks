@@ -42,7 +42,18 @@ document.addEventListener('DOMContentLoaded', function () {
 		};
 	};
 	if (typeof Swiper !== 'undefined') {
-		const sliders = [...document.getElementsByClassName('swiper')];
+		// const sliders = [...document.getElementsByClassName('swiper')];
+
+		const sliders = [];
+
+		document
+			.querySelectorAll(
+				'.wps-image-slider, .wps-media-slider, .wps-query-slider',
+			)
+			.forEach((slider) => {
+				sliders.push(slider);
+			});
+
 		if (sliders.length > 0) {
 			sliders.forEach((slider) => {
 				const {
