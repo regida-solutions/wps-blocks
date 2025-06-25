@@ -264,8 +264,8 @@ function Edit({ setAttributes, attributes }) {
 							help={
 								multirow
 									? __(
-											'Multirow will show 3 items per line, so make sure you have enough items enabled to fill the whole slider ',
-									  )
+											'Multirow will show 3 items per line, so make sure you have enough items enabled to fill the whole slider',
+										)
 									: ''
 							}
 						/>

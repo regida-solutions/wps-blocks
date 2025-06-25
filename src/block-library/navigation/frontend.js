@@ -44,7 +44,8 @@ window.addEventListener('load', function () {
 
 	function ToggleMenu() {
 		const isOpened = menuToggle.getAttribute('aria-expanded') === 'true';
-		if (isOpened ? closeMenu() : openMenu());
+		if (isOpened ? closeMenu() : openMenu()) {
+		}
 	}
 
 	function openMenu() {
@@ -101,8 +102,9 @@ window.addEventListener('load', function () {
 					if (
 						cssClass !== 'wps-navigation' &&
 						cssClass !== 'wps-navigation--mobile'
-					)
+					) {
 						newNav.classList.add(cssClass);
+					}
 				}
 
 				mainNavigation.remove();
