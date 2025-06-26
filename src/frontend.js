@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		document
 			.querySelectorAll(
-				'.wps-image-slider, .wps-media-slider, .wps-query-slider',
+				'.wps-image-slider, .wps-media-slider, .wps-query-slider, .wps-slider',
 			)
 			.forEach((slider) => {
 				sliders.push(slider);
