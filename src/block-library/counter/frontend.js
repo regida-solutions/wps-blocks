@@ -2,7 +2,7 @@
  * External dependencies
  */
 import { intervalToDuration, differenceInDays } from 'date-fns';
-import { utcToZonedTime } from 'date-fns-tz';
+import { toZonedTime } from 'date-fns-tz';
 
 const counter = document.getElementsByClassName('wps-counter');
 const counterDate = counter[0]?.dataset?.date;
@@ -17,7 +17,8 @@ const updateTime = () => {
 	const targetDate = counterDate ? new Date(counterDate) : new Date();
 
 	const startDate = new Date();
-	const endDate = utcToZonedTime(targetDate, timeZone);
+
+	const endDate = toZonedTime(targetDate, timeZone);
 
 	// duration -> {
 	//     "years": 0,
