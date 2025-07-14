@@ -37,30 +37,24 @@ const updateTime = () => {
 	const differenceDays = differenceInDays(endDate, startDate);
 
 	for (let i = 0; i < counter.length; i++) {
-		counter[i].style.setProperty(
-			'--timer-months',
-			"'" + duration.months + "'",
-		);
+		const months = duration?.months ? duration.months : 0;
+		const days = duration?.days ? duration.days : 0;
+		const hours = duration?.hours ? duration.hours : 0;
+		const minutes = duration?.minutes ? duration.minutes : 0;
+		const seconds = duration?.seconds ? duration.seconds : 0;
 
-		counter[i].style.setProperty('--timer-days', "'" + duration.days + "'");
+		counter[i].style.setProperty('--timer-months', "'" + months + "'");
+
+		counter[i].style.setProperty('--timer-days', "'" + days + "'");
 
 		counter[i].style.setProperty(
 			'--timer-days-difference',
 			"'" + differenceDays + "'",
 		);
 
-		counter[i].style.setProperty(
-			'--timer-hours',
-			"'" + duration.hours + "'",
-		);
-		counter[i].style.setProperty(
-			'--timer-minutes',
-			"'" + duration.minutes + "'",
-		);
-		counter[i].style.setProperty(
-			'--timer-seconds',
-			"'" + duration.seconds + "'",
-		);
+		counter[i].style.setProperty('--timer-hours', "'" + hours + "'");
+		counter[i].style.setProperty('--timer-minutes', "'" + minutes + "'");
+		counter[i].style.setProperty('--timer-seconds', "'" + seconds + "'");
 	}
 
 	requestAnimationFrame(updateTime);
