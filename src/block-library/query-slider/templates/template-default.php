@@ -91,7 +91,7 @@ function item_template( array $posts, array $attributes = [], string $content = 
 		foreach ( $posts as $post ) {
 			$content .= sprintf(
 				'<div class="swiper-slide">%s</div>',
-				apply_filters( 'query_slider_slide_template', inner_content( $post->ID, $attributes ), $attributes )
+				apply_filters( 'query_slider_slide_template', inner_content( $post->ID, $attributes ), $attributes, $post->ID )
 			);
 		}
 	}
